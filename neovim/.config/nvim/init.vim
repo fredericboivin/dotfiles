@@ -4,7 +4,6 @@ set rtp+=/usr/local/opt/fzf
 
 call plug#begin()
 Plug 'github/copilot.vim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
@@ -13,7 +12,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'rking/ag.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -21,20 +19,16 @@ Plug 'peitalin/vim-jsx-typescript'
 " Plug 'mxw/vim-jsx'
 "Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
-Plug 'neomake/neomake'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'talek/obvious-resize'
 Plug 'romgrk/winteract.vim'
 call plug#end()
 
 filetype plugin indent on
 syntax on
-
-let g:tokyonight_style = "night"
 
 set backspace=2
 set cursorline
@@ -49,25 +43,22 @@ set autoindent
 set smartindent
 set softtabstop=2
 set shiftwidth=2
-""set tags^=./.git/tags;
 set updatetime=300
 
 set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
- let g:lightline = {'colorscheme': 'tokyonight'}
-" let g:ackprg = 'ag --vimgrep'
 let g:fzf_preview_window = 'right:60%'
+
 let g:coc_global_extensions = ['coc-tsserver']
 let g:coc_global_extensions += ['coc-json']
 let g:coc_global_extensions += ['coc-highlight']
-" let g:test#javascript#runner = 'jest'
+
 let test#strategy = "dispatch"
-" let test#javascript#jest#options = '--reporters vim-test-jest-clean-qf-reporter'
 let test#neovim#start_normal = 1
-let g:neomake_open_list = 2
 
 let g:test#javascript#runner = 'jest'
 let test#javascript#runner = 'jest'
+
 if !exists('g:test#javascript#jest#file_pattern')
   let test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
 endif
@@ -75,9 +66,8 @@ let test#javascript#jest#executable = 'npx jest --silent  --reporters ~/dotfiles
 
 imap jj <Esc>
 
-
 " Open Vim configuration file for editing
-nnoremap <silent><leader>1 :source ~/dotfiles/neovim/.config/nvim/init.vim<CR>
+nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim<CR>
 nnoremap <silent><leader>2 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 
 set efm+=%E\ %#%f\ %#(%l\\\,%c):\ error\ TS%n:\ %m,%C%m
@@ -91,9 +81,6 @@ command! MakeEslint AsyncRun $PWD/node_modules/.bin/eslint -f unix $PWD
 " [vim-test]
 map <Leader>q :TestFile<CR>
 map <Leader>s :TestNearest<CR>
-
-" [CoC] Start
-nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 nmap <leader>ac  <Plug>(coc-codeaction)
 
@@ -207,20 +194,13 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-let g:dispatch_compilers = { 'jest': 'jest-cli' }
-" let g:test#javascript#jest#options = '--reporters jest-vim-reporter'
-
-noremap <silent> <C-Up> :<C-U>ObviousResizeUp<CR>
-noremap <silent> <C-Down> :<C-U>ObviousResizeDown<CR>
-noremap <silent> <C-Left> :<C-U>ObviousResizeLeft<CR>
-noremap <silent> <C-Right> :<C-U>ObviousResizeRight<CR>
-
 highlight CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#d65d0e
 
 " Custom things
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <leader>r :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
+
 augroup neomake_hook
   au!
   autocmd User NeomakeJobFinished call TestFinished()
@@ -264,66 +244,6 @@ function! TestStatus() abort
 endfunction
 
 lua << EOF
-local nvim_lsp = require("lspconfig")
-
-nvim_lsp.efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {"lua"},
-    flags = {debounce_text_changes = 150},
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {
-                    lintCommand = "luacheck --globals vim --filename ${INPUT} --formatter plain -",
-                    lintStdin = true,
-                    lintFormats = {"%f:%l:%c: %m"},
-                },
-                -- {
-                --     formatCommand = "lua-format -i --config='/Users/moonw1nd/dotfiles/.lua-format'",
-                --     formatStdin = true,
-                -- },
-            },
-        },
-    },
-}
-
-local M = {}
-
-local efm_priority_document_format
-
-function M.efm_priority_document_format()
-    if not efm_priority_document_format then
-        local clients = vim.lsp.buf_get_clients(0)
-        if #clients > 1 then
-            -- check if multiple clients, and if efm is setup
-            for _, c1 in pairs(clients) do
-                if c1.name == "efm" then
-                    -- if efm then disable others
-                    for _, c2 in pairs(clients) do
-                        -- print(c2.name, c2.resolved_capabilities.document_formatting)
-                        if c2.name ~= "efm" then
-                            c2.resolved_capabilities.document_formatting = false
-                        end
-                    end
-                    -- no need to contunue first loop
-                    break
-                end
-            end
-        end
-    end
-
-    -- no need to do above check again
-    efm_priority_document_format = true
-    -- format the doc
-    -- TODO need a check to make sure actually has this func on one of the availble clients
-    vim.lsp.buf.formatting()
-end
-
-return M
-EOF
-
-lua << EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -340,20 +260,13 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 colorscheme gruvbox
-
-" auto open quickfix window on make
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
-"
-" nmap <leader>rn <Plug>(coc-rename)
-
 " [Lightline]
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'teststatus', 'readonly', 'filename', 'modified' ] ]
