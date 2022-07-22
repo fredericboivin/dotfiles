@@ -13,6 +13,9 @@ syntax on
 set backspace=2
 set cursorline
 
+set splitbelow
+set splitright
+
 set noswapfile
 set nobackup
 set noerrorbells visualbell t_vb=
@@ -135,6 +138,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " nmap <silent> <C-s> <Plug>(coc-range-select)
 " xmap <silent> <C-s> <Plug>(coc-range-select)
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "autocmd QuickFixCmdPost [^l]* nested cwindow
 "autocmd QuickFixCmdPost    l* nested lwindow

@@ -8,8 +8,8 @@ function _G.ReloadConfig()
     end
 
     vim.api.nvim_command("!~/dotfiles/install.sh")
-    vim.api.nvim_command("so $MYVIMRC")
     dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
+    vim.api.nvim_command("so $HOME/.config/nvim/init.vim")
 
     print("Vim config reloaded!")
 end
