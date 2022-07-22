@@ -20,7 +20,6 @@ Plug ('tpope/vim-fugitive')
 Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
 Plug ('neoclide/coc.nvim', {['branch'] = 'release'})
-Plug ('itchyny/lightline.vim')
 Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[":TSUpdate"]})
 Plug ('pangloss/vim-javascript')
 Plug ('leafgarland/typescript-vim')
@@ -32,5 +31,8 @@ Plug ('junegunn/fzf.vim')
 Plug ('preservim/nerdtree')
 Plug ('Xuyuanp/nerdtree-git-plugin')
 Plug ('romgrk/winteract.vim')
+
+Plug("mhinz/vim-startify")
+Plug("joshdick/onedark.vim") -- dark theme
 
 vim.fn["plug#end"]()

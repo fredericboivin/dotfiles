@@ -111,6 +111,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
+" vim-startify
+" 'Most Recent Files' number
+let g:startify_files_number = 18
+
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -251,16 +255,25 @@ nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
-colorscheme gruvbox
-" [Lightline]
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'teststatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'teststatus': 'TestStatus'
-      \ },
- \ }
+"
+" Theme settings
+"
+" === Dark Theme ===
+set background=dark
+colorscheme onedark
+let g:airline_theme='onedark'
+
+
+" Airline
+let g:airline_powerline_fonts = 0
+let g:airline#extensions#branch#enabled = 0
+let g:airline#themes#clean#palette = 1
+call airline#parts#define_raw('linenr', '%l')
+call airline#parts#define_accent('linenr', 'bold')
+let g:airline_section_z = airline#section#create(['%3p%%  ',
+            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+let g:airline_section_warning = ''
+let g:airline_highlighting_cache = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
+
