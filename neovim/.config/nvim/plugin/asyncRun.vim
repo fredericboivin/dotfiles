@@ -3,7 +3,7 @@
 
 " Set error format for quickfix
 " TypeScript
-set efm+=%E\ %#%f\ %#(%l\\\,%c):\ error\ TS%n:\ %m,%C%m
+" set efm+=%E\ %#%f\ %#(%l\\\,%c):\ error\ TS%n:\ %m,%C%m
 
 let g:asyncrun_open = 8
 

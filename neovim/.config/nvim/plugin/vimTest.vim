@@ -1,7 +1,7 @@
 " Vim-test
 let test#strategy = {
   \ 'nearest': 'asyncrun',
-  \ 'file':    'asyncrun_background',
+  \ 'file':    'neomake',
   \ 'suite':   'asyncrun',
 \}
 
@@ -13,6 +13,15 @@ let g:test#javascript#jest#options = '--reporters ~/dotfiles/jestVimReporter/ind
 
 let test#javascript#jest#executable = 'DYNAMIC_ENV=ci npx jest'
 let g:test#javascript#jest#executable = 'DYNAMIC_ENV=ci npx jest'
+let g:neomake_open_list = 2
+
+let g:neomake_javascript_jest_maker = {
+    \ 'exe': './node_modules/jest-cli/bin/jest.js',
+    \ 'errorformat':
+        \ '%f:%l:%c:%t:%m,' .
+        \ '%-G%.%#'
+    \ }
+let g:neomake_javascript_enabled_makers = ['jest']
 
 " [vim-test]
 nmap <Leader>q :TestFile<CR>
