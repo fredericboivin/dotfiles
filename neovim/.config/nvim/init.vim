@@ -1,4 +1,5 @@
 " lua ./neovim/.config/nvim/lua/fredboivin/
+" vimscript ./neovim/.config/nvim/plugin/
 "
 set nocompatible
 
@@ -239,11 +240,11 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-colorscheme gruvbox
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
+colorscheme gruvbox
 " [Lightline]
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',

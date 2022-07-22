@@ -8,6 +8,7 @@ function _G.ReloadConfig()
     end
 
     vim.api.nvim_command("!~/dotfiles/install.sh")
+    vim.api.nvim_command("so $MYVIMRC")
     dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
 
     print("Vim config reloaded!")
@@ -15,7 +16,7 @@ end
 
 vim.api.nvim_set_keymap(
     "n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>",
-    {silent = false, noremap = true}
+    {silent = silent, noremap = true}
 )
 
 vim.cmd("command! ReloadConfig lua ReloadConfig()")
