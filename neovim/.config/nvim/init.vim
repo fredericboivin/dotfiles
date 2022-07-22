@@ -77,8 +77,8 @@ imap jj <Esc>
 
 
 " Open Vim configuration file for editing
-nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
-nnoremap <silent><leader>2 :e ~/.config/nvim/init.vim<CR>
+nnoremap <silent><leader>1 :source ~/dotfiles/neovim/.config/nvim/init.vim<CR>
+nnoremap <silent><leader>2 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 
 set efm+=%E\ %#%f\ %#(%l\\\,%c):\ error\ TS%n:\ %m,%C%m
 
