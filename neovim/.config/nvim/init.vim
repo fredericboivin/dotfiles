@@ -34,7 +34,7 @@ set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 let g:fzf_preview_window = 'right:60%'
 
 let test#strategy = "dispatch"
-let test#neovim#start_normal = 1
+" let test#neovim#start_normal = 1
 
 let g:test#javascript#runner = 'jest'
 let test#javascript#runner = 'jest'
@@ -121,6 +121,9 @@ autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 autocmd BufWritePre * silent! call TrimWhitespace()
 autocmd BufWritePre *.{js,jsx,ts,tsx,cjs,mjs} :silent EslintFixAll
 autocmd BufWritePre *.{css} :silent lua vim.lsp.buf.formatting()
+
+nmap <leader>oq :copen<cr>
+nmap <leader>ol :lopen<cr>
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>

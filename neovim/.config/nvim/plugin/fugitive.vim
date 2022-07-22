@@ -3,8 +3,8 @@ xmap <leader>g [git-p]
 
 nnoremap <silent> [git-p]p :Git push<cr>
 nnoremap <silent> [git-p]P :Git push --no-verify<cr>
-nnoremap <silent> [git-p]c :Git commit<cr>
-nnoremap <silent> [git-p]C :Git commit -n<cr>
+nnoremap <silent> [git-p]c :Git commit -n<cr>
+" nnoremap <silent> [git-p]C :Git commit -n<cr>
 nnoremap <silent> [git-p]s :vertical Git<cr>
 nnoremap <silent> [git-p]d :Gvdiff<cr>
 
