@@ -1,4 +1,8 @@
+" lua ./neovim/.config/nvim/lua/fredboivin/
+"
 set nocompatible
+
+lua require('fredboivin')
 
 set rtp+=/usr/local/opt/fzf
 
@@ -36,6 +40,7 @@ set cursorline
 set noswapfile
 set nobackup
 set noerrorbells visualbell t_vb=
+set belloff=all
 set number
 set expandtab
 set ignorecase

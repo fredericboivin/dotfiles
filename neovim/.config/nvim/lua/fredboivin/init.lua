@@ -1,0 +1,21 @@
+require("fredboivin.plugins");
+
+function _G.ReloadConfig()
+    for name, _ in pairs(package.loaded) do
+        if name:match("^fredboivin") or name:match("lsp") then
+            package.loaded[name] = nil
+        end
+    end
+
+    vim.api.nvim_command("!~/dotfiles/install.sh")
+    dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
+
+    print("Vim config reloaded!")
+end
+
+vim.api.nvim_set_keymap(
+    "n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>",
+    {silent = false, noremap = true}
+)
+
+vim.cmd("command! ReloadConfig lua ReloadConfig()")
