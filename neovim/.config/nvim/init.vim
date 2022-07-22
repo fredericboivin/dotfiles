@@ -33,34 +33,13 @@ set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
 let g:fzf_preview_window = 'right:60%'
 
-let test#strategy = "dispatch"
-" let test#neovim#start_normal = 1
-
-let g:test#javascript#runner = 'jest'
-let test#javascript#runner = 'jest'
-
-if !exists('g:test#javascript#jest#file_pattern')
-  let test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
-endif
-let test#javascript#jest#executable = 'npx jest --silent  --reporters ~/dotfiles/jestVimReporter/index.js'
-
 imap jj <Esc>
 
 " Open Vim configuration file for editing
 nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim<CR>
 nnoremap <silent><leader>2 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 
-set efm+=%E\ %#%f\ %#(%l\\\,%c):\ error\ TS%n:\ %m,%C%m
 
-let g:asyncrun_open = 8
-
-command! MakeTs AsyncRun npx tsc --noEmit -p $PWD
-command! MakeEslintFile AsyncRun $PWD/node_modules/.bin/eslint -f unix %
-command! MakeEslint AsyncRun $PWD/node_modules/.bin/eslint -f unix $PWD
-
-" [vim-test]
-map <Leader>q :TestFile<CR>
-map <Leader>s :TestNearest<CR>
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -100,6 +79,28 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 highlight CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#d65d0e
 
+" Functions
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+function! s:build_location_list(lines)
+  call setloclist(0, map(copy(a:lines), '{ "filename": v:val }'))
+  lopen
+  ll
+endfunction
+
+" Settings
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-l': function('s:build_location_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 " Custom things
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <leader>r :FZF<CR>
@@ -120,7 +121,6 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 autocmd BufWritePre * silent! call TrimWhitespace()
 autocmd BufWritePre *.{js,jsx,ts,tsx,cjs,mjs} :silent EslintFixAll
-autocmd BufWritePre *.{css} :silent lua vim.lsp.buf.formatting()
 
 nmap <leader>oq :copen<cr>
 nmap <leader>ol :lopen<cr>
