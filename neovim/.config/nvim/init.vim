@@ -105,7 +105,22 @@ nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <leader>r :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 
+" ================== Custom Functions ===================== "
 
+" Trim Whitespaces
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\\\@<!\s\+$//e
+    call winrestview(l:save)
+endfunction
+
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+autocmd BufWritePre * silent! call TrimWhitespace()
+autocmd BufWritePre *.{js,jsx,ts,tsx,cjs,mjs} :silent EslintFixAll
+autocmd BufWritePre *.{css} :silent lua vim.lsp.buf.formatting()
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
