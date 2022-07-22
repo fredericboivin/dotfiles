@@ -1,4 +1,7 @@
 require("fredboivin.plugins");
+require("fredboivin.lsp_signature");
+require("fredboivin.lsp");
+require("fredboivin.treesitter");
 
 function _G.ReloadConfig()
     for name, _ in pairs(package.loaded) do

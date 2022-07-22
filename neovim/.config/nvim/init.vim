@@ -33,10 +33,6 @@ set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
 let g:fzf_preview_window = 'right:60%'
 
-let g:coc_global_extensions = ['coc-tsserver']
-let g:coc_global_extensions += ['coc-json']
-let g:coc_global_extensions += ['coc-highlight']
-
 let test#strategy = "dispatch"
 let test#neovim#start_normal = 1
 
@@ -66,14 +62,6 @@ command! MakeEslint AsyncRun $PWD/node_modules/.bin/eslint -f unix $PWD
 map <Leader>q :TestFile<CR>
 map <Leader>s :TestNearest<CR>
 
-nmap <leader>ac  <Plug>(coc-codeaction)
-
-nmap <leader>qf  <Plug>(coc-fix-current)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -90,58 +78,6 @@ if (empty($TMUX))
   endif
 endif
 
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-xmap <leader>f  <Plug>(coc-format-selected)
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-" vim-startify
-" 'Most Recent Files' number
-let g:startify_files_number = 18
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" nnoremap <silent> K :call CocAction('doHover')<CR>
-
-" function! ShowDocIfNoDiagnostic(timer_id)
- " if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
- "   silent call CocActionAsync('doHover')
- " endif
-" endfunction
-
-"function! s:show_hover_doc()
-"  call timer_start(100, 'ShowDocIfNoDiagnostic')
-"endfunction
-
-" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" autocmd CursorHoldI * :call <SID>show_hover_doc()
-" autocmd CursorHold * :call <SID>show_hover_doc()
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
-
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -150,31 +86,7 @@ nnoremap <C-H> <C-W><C-H>
 "autocmd QuickFixCmdPost [^l]* nested cwindow
 "autocmd QuickFixCmdPost    l* nested lwindow
 
-" Add CoC ESLint if ESLint is installed
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
 
-" Add CoC Prettier if prettier is installed
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-" Format
-nmap <leader>f   :CocCommand prettier.formatFile<CR>
-function! QuickFix_toggle()
-    for i in range(1, winnr('$'))
-        let bnum = winbufnr(i)
-        if getbufvar(bnum, '&buftype') == 'quickfix'
-            cclose
-            return
-        endif
-    endfor
-
-    copen
-endfunction
-
-nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
 nmap <leader>w :InteractiveWindow<CR>
 
 " [CoC] End
@@ -193,63 +105,7 @@ nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 nnoremap <leader>r :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 
-augroup neomake_hook
-  au!
-  autocmd User NeomakeJobFinished call TestFinished()
-  autocmd User NeomakeJobStarted call TestStarted()
-augroup END
 
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-
-" initially empty status
-let g:testing_status = ''
-
-" Start test
-function! TestStarted() abort
-  let g:testing_status = 'Test ⌛'
-endfunction
-
-" Show message when all tests are passing
-function! TestFinished() abort
-  let context = g:neomake_hook_context
-  if context.jobinfo.exit_code == 0
-    let g:testing_status = 'Test ✅'
-  endif
-  if context.jobinfo.exit_code == 1
-    let g:testing_status = 'Test ❌'
-  endif
-endfunction
-
-function! TestStatus() abort
-  return g:testing_status
-endfunction
-
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true
-  }
-}
-EOF
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>

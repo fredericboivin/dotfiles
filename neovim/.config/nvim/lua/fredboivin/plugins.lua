@@ -19,8 +19,6 @@ Plug ('tpope/vim-sensible')
 Plug ('tpope/vim-fugitive')
 Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
-Plug ('neoclide/coc.nvim', {['branch'] = 'release'})
-Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[":TSUpdate"]})
 Plug ('pangloss/vim-javascript')
 Plug ('leafgarland/typescript-vim')
 Plug ('peitalin/vim-jsx-typescript')
@@ -35,4 +33,25 @@ Plug ('romgrk/winteract.vim')
 Plug("mhinz/vim-startify")
 Plug("joshdick/onedark.vim") -- dark theme
 
+Plug("onsails/lspkind-nvim") -- icons for auto complete
+Plug("neovim/nvim-lspconfig")
+Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
+Plug("ray-x/lsp_signature.nvim")
+Plug("hrsh7th/cmp-nvim-lsp")
+Plug("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for neovim Lua API.
+Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
+Plug("hrsh7th/cmp-cmdline") -- completion for command line
+Plug("hrsh7th/cmp-path") -- patho completion
+Plug("hrsh7th/cmp-calc") -- math operations completion
+Plug("hrsh7th/cmp-emoji") -- emoji completion
+Plug("ray-x/cmp-treesitter")
+Plug("hrsh7th/nvim-cmp")
+
+-- Treesitter
+Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+Plug("nvim-treesitter/nvim-treesitter-textobjects")
+Plug("windwp/nvim-ts-autotag")
+Plug("nvim-treesitter/playground")
+
 vim.fn["plug#end"]()
+
