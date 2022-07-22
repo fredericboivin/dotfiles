@@ -6,31 +6,6 @@ lua require('fredboivin')
 
 set rtp+=/usr/local/opt/fzf
 
-call plug#begin()
-Plug 'github/copilot.vim'
-Plug 'ellisonleao/gruvbox.nvim'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-ruby/vim-ruby'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'itchyny/lightline.vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-" Plug 'mxw/vim-jsx'
-"Plug 'vim-test/vim-test'
-Plug 'tpope/vim-dispatch'
-Plug 'janko-m/vim-test'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'romgrk/winteract.vim'
-call plug#end()
-
 filetype plugin indent on
 syntax on
 

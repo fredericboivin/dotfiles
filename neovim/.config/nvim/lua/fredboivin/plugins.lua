@@ -11,8 +11,26 @@ end
 local Plug = vim.fn["plug#"]
 
 vim.fn["plug#begin"]("~/.config/nvim/plugged")
-
 -- ================= looks and GUI stuff ==================
 Plug("vim-airline/vim-airline") -- airline status bar
+Plug('github/copilot.vim')
+Plug ('ellisonleao/gruvbox.nvim')
+Plug ('tpope/vim-sensible')
+Plug ('tpope/vim-fugitive')
+Plug ('vim-ruby/vim-ruby')
+Plug ('skywind3000/asyncrun.vim')
+Plug ('neoclide/coc.nvim', {['branch'] = 'release'})
+Plug ('itchyny/lightline.vim')
+Plug ('nvim-treesitter/nvim-treesitter', { ['do'] = vim.fn[":TSUpdate"]})
+Plug ('pangloss/vim-javascript')
+Plug ('leafgarland/typescript-vim')
+Plug ('peitalin/vim-jsx-typescript')
+Plug ('tpope/vim-dispatch')
+Plug ('janko-m/vim-test')
+Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
+Plug ('junegunn/fzf.vim')
+Plug ('preservim/nerdtree')
+Plug ('Xuyuanp/nerdtree-git-plugin')
+Plug ('romgrk/winteract.vim')
 
 vim.fn["plug#end"]()
