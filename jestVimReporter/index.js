@@ -36,7 +36,7 @@ class JestSimpleReporter {
           break
 
         case 'passed':
-          //console.log(`${firstNewline}${testFilePath}:::${translatedStatus}:${ancestorTitles.join(' > ')}:${title}`)
+          console.log(`${firstNewline}${testFilePath}:::${translatedStatus}:${ancestorTitles.join(' > ')}:${title}`)
           break
       }
       if (this._first) this._first = false
