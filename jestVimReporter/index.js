@@ -1,47 +1,38 @@
-class JestSimpleReporter {
-  constructor (globalConfig, options) {
-    this._globalConfig = globalConfig
-    this._options = options
-    this._first = true
-  }
+class JestVimReporter {
+  onTestResult(test, results) {
+    results.testResults.forEach(test => {
+        if (test.status !== 'failed') {
+            console.log(`✓ ${test.fullName}`)
+            return;
+        };
 
-  onTestResult (test, { testFilePath, testResults }) {
-    testResults.forEach(result => {
-      const { ancestorTitles, failureMessages, status, title } = result
-      const firstNewline = this._first ? '\n' : ''
-      let translatedStatus = 'I'
+      test.failureMessages.forEach(failureMessage => {
+        const msg = failureMessage
+          .replace(/\n/g, ' ')
+          .replace(/.*?(?=Expected)(.*?)at .*?\((.*?)\).*/, '$1\n($2)')
+          .replace(/.*?(?=Error)(.*?)at .*?\((.*?)\).*/, '$1\n($2)')
+          .replace(/ +/g, ' ')
+          .trim();
 
-      switch (status) {
-        case 'failed':
-          translatedStatus = 'E'
-          failureMessages.forEach(m => {
-            const traceIdx = m.indexOf('    at')
-            if (traceIdx) {
-              const message = m
-                .substring(0, traceIdx)
-                .split('\n\n')[1]
-                .replace(/\r?\n|\r/g, ' ')
-                .replace(/\s+/g, ' ')
-              const trace = m
-                .substring(traceIdx)
-                .split('\n')[0]
-              const loc = trace.substring(
-                trace.indexOf('(') + 1,
-                trace.indexOf(')') - 1
-              )
+        const lines = msg.split('\n');
 
-              console.log(`${firstNewline}${loc}:${translatedStatus}:${message}`)
-            }
-          })
-          break
+        if (lines.length !== 2) {
+          console.error(
+            'JestVimReporter: could not parse error.'
+          );
 
-        case 'passed':
-          console.log(`${firstNewline}${testFilePath}:::${translatedStatus}:${ancestorTitles.join(' > ')}:${title}`)
-          break
-      }
-      if (this._first) this._first = false
-    })
+          console.error(failureMessage);
+        } else {
+          const [line1, line2] = lines;
+          const message = line1.trim();
+          const location = line2.replace(/^[ ]*\(/, '').replace(/\)[ ]*/, '');
+
+          console.log(`✕ ${test.fullName}`)
+          console.log(`${location}: ${message}`);
+        }
+      });
+    });
   }
 }
 
-module.exports = JestSimpleReporter
+module.exports = JestVimReporter;

@@ -6,6 +6,7 @@ set nocompatible
 lua require('fredboivin')
 
 set rtp+=/usr/local/opt/fzf
+"set shell=bash
 
 filetype plugin indent on
 syntax on
@@ -125,6 +126,12 @@ set background=dark
 set termguicolors
 colorscheme onedark
 let g:airline_theme='onedark'
+
+set scrolljump=5
+set lazyredraw
+let g:airline_highlighting_cache=1
+set ttyfast
+set updatetime=300
 
 
 " Airline
