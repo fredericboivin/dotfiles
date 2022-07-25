@@ -72,8 +72,8 @@ ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
 
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
 
 function insert-selecta-path-in-command-line() {
   local selected_path
