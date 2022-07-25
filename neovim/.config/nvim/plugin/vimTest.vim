@@ -15,6 +15,7 @@ let test#javascript#jest#executable = 'DYNAMIC_ENV=ci npx jest'
 let g:test#javascript#jest#executable = 'DYNAMIC_ENV=ci npx jest'
 let g:neomake_open_list = 2
 
+
 let g:neomake_javascript_jest_maker = {
     \ 'exe': './node_modules/jest-cli/bin/jest.js',
     \ 'errorformat':

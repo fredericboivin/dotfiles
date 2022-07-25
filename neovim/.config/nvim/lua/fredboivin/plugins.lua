@@ -24,7 +24,7 @@ Plug ('skywind3000/asyncrun.vim')
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
 -- Plug ('peitalin/vim-jsx-typescript')
--- Plug ('tpope/vim-dispatch')
+Plug ('tpope/vim-dispatch')
 Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
