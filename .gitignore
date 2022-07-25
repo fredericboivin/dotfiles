@@ -1,2 +1,4 @@
 neovim/.config/nvim/autoload
 neovim/.config/nvim/plugged
+.DS_Store
+**/.DS_Store

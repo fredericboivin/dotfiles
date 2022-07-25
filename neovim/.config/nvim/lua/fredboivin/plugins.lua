@@ -29,9 +29,10 @@ Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
 Plug ('preservim/nerdtree')
-Plug ('Xuyuanp/nerdtree-git-plugin')
+-- Plug ('Xuyuanp/nerdtree-git-plugin')
 Plug ('romgrk/winteract.vim')
 Plug ('neomake/neomake')
+Plug ('williamboman/nvim-lsp-installer')
 
 Plug("mhinz/vim-startify")
 Plug("joshdick/onedark.vim") -- dark theme

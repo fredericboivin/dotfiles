@@ -38,7 +38,7 @@ M.set_keymap = function(_, bufnr)
     buf_set_keymap(
         "n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts
     )
-    -- buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    buf_set_keymap("n", "<space>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap(
         "n", "<space>e",
         "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts
