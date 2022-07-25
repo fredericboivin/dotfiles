@@ -68,12 +68,12 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #export NVM_LAZY=1
-plugins=(git nvm)
+#plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 function insert-selecta-path-in-command-line() {
   local selected_path
@@ -131,8 +131,11 @@ alias dt="cd ~/dotfiles"
 eval "$(direnv hook zsh)"
 export GITHUB_TOKEN=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
 export NVM_DIR="$HOME/.nvm"
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

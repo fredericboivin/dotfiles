@@ -1,8 +1,8 @@
 " Vim-test
 let test#strategy = {
-  \ 'nearest': 'asyncrun',
+  \ 'nearest': 'neomake',
   \ 'file':    'neomake',
-  \ 'suite':   'asyncrun',
+  \ 'suite':   'neomake',
 \}
 
 let g:test#javascript#runner = 'jest'

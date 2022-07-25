@@ -49,7 +49,7 @@ nnoremap <C-H> <C-W><C-H>
 "autocmd QuickFixCmdPost    l* nested lwindow
 
 
-nmap <leader>w :InteractiveWindow<CR>
+" nmap <leader>w :InteractiveWindow<CR>
 
 " [CoC] End
 "
@@ -100,6 +100,9 @@ function! TrimWhitespace()
 endfunction
 
 
+nmap <leader>w <cmd>w<CR>
+nmap <leader>h <cmd>nohlsearch<CR>
+
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
@@ -113,6 +116,7 @@ nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
+
 "
 " Theme settings
 "
@@ -128,9 +132,12 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 0
 let g:airline#themes#clean#palette = 1
 call airline#parts#define_raw('linenr', '%l')
+"call airline#parts#define_function('foo', 'TestStatus')
 call airline#parts#define_accent('linenr', 'bold')
 let g:airline_section_z = airline#section#create(['%3p%%  ',
             \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
+"let g:airline_section_y = airline#section#create_right(['ffenc','foo'])
+
 let g:airline_section_warning = ''
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#wordcount#enabled = 0
