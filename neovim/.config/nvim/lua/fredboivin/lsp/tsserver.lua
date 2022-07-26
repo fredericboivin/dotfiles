@@ -2,6 +2,17 @@ local nvim_lsp = require("lspconfig")
 local ts_utils = require("nvim-lsp-ts-utils")
 local lsp_settings = require("fredboivin.lsp.settings");
 
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
+
 nvim_lsp.tsserver.setup {
     capabilities = lsp_settings.capabilities,
     flags = {debounce_text_changes = 150},

@@ -1,5 +1,6 @@
 " lua ./neovim/.config/nvim/lua/fredboivin/
 " vimscript ./neovim/.config/nvim/plugin/
+"
 
 set nocompatible
 
@@ -52,6 +53,9 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+nmap <leader>pi :PlugInstall<CR>
+nmap <leader>pc :PlugClean<CR>
 
 "highlight CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#d65d0e
 

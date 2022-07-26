@@ -19,8 +19,8 @@ Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
 -- Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
+Plug 'folke/which-key.nvim'
 -- Plug ('pangloss/vim-javascript')
-
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
 -- Plug ('peitalin/vim-jsx-typescript')
