@@ -14,7 +14,7 @@ vim.fn["plug#begin"]("~/.config/nvim/plugged")
 -- ================= looks and GUI stuff ==================
 Plug("vim-airline/vim-airline") -- airline status bar
 Plug('github/copilot.vim')
-Plug('ellisonleao/gruvbox.nvim')
+-- Plug('ellisonleao/gruvbox.nvim')
 Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
 -- Plug ('vim-ruby/vim-ruby')
@@ -30,17 +30,17 @@ Plug('BurntSushi/ripgrep')
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
 -- Plug ('peitalin/vim-jsx-typescript')
 -- Plug ('tpope/vim-dispatch')
-Plug ('vim-test/vim-test')
+-- Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
 Plug ('preservim/nerdtree')
 -- Plug ('Xuyuanp/nerdtree-git-plugin')
 -- Plug ('romgrk/winteract.vim')
-Plug ('neomake/neomake')
+-- Plug ('neomake/neomake')
 Plug ('williamboman/nvim-lsp-installer')
 
 -- Plug("mhinz/vim-startify")
-Plug("goolord/alpha-nvim")
+-- Plug("goolord/alpha-nvim")
 Plug("joshdick/onedark.vim") -- dark theme
 
 Plug("onsails/lspkind-nvim") -- icons for auto complete

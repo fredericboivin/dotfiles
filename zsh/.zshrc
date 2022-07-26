@@ -21,6 +21,19 @@ function insert-selecta-path-in-command-line() {
 zle -N insert-selecta-path-in-command-line
 bindkey "^S" "insert-selecta-path-in-command-line"
 
+# bash ctrl-u behaviour
+# @see https://stackoverflow.com/questions/4405200/can-i-make-control-u-behavior-be-the-same-for-zsh-as-it-is-for-bash
+bindkey '^U' backward-kill-line
+bindkey '^Y' yank
+
+# handy key bindings
+bindkey "^S" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^K" kill-line
+bindkey "^P" history-search-backward
+bindkey "^N" insert-last-word
+bindkey "^Q" push-line-or-edit
+
 
 alias v=nvim
 export FZF_DEFAULT_COMMAND='ag -g ""'

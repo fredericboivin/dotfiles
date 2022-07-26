@@ -10,8 +10,11 @@ M.set_keymap = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
 
+    -- vim.diagnostic.config({virtual_text = false})
+
+
     -- Enable completion triggered by <c-x><c-o>
-    buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
@@ -68,12 +71,24 @@ local function setup_lsp_diags()
         Information = " ",
     }
 
-    for type, icon in pairs(signs) do
-        local hl = "LspDiagnosticsSign" .. type
-        vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
-    end
+    vim.diagnostic.config({
+      virtual_text = false,
+      severity_sort = true,
+      float = {
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+      },
+    })
+
+
+    -- for type, icon in pairs(signs) do
+    --     local hl = "LspDiagnosticsSign" .. type
+    --     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+    -- end
 end
 
-setup_lsp_diags()
+-- setup_lsp_diags()
 
 return M;
