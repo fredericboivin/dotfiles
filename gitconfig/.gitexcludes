@@ -1,0 +1,11 @@
+.*.swp
+*.pyc
+*.pyo
+.DS_Store
+.vagrant
+.wkrc
+*.egg-info
+dist/
+.*.swo
+build/
+node_modules/

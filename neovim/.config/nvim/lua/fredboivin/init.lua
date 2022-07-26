@@ -3,6 +3,7 @@ require("fredboivin.lsp_signature");
 require("fredboivin.lsp");
 require("fredboivin.treesitter");
 require("fredboivin.whichkey");
+require("fredboivin.telescope");
 
 function _G.ReloadConfig()
     for name, _ in pairs(package.loaded) do

@@ -1,0 +1,15 @@
+[color]
+    # Colorize as much as possible by default
+    ui = auto
+[core]
+    # Global excludes config. Fits better in my head than the default paths
+    excludesfile = "~/.gitexcludes"
+[pull]
+	rebase = true
+[user]
+	name = Fred Boivin
+	email = fboivin63@gmail.com
+[core]
+	hooksPath = /dev/null
+[pager]
+	branch = false

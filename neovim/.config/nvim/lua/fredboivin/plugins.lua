@@ -19,7 +19,12 @@ Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
 -- Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.0' })
+
+Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug 'folke/which-key.nvim'
+Plug('BurntSushi/ripgrep')
 -- Plug ('pangloss/vim-javascript')
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
