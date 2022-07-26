@@ -33,7 +33,7 @@ set updatetime=300
 
 set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
-let g:fzf_preview_window = 'right:60%'
+" let g:fzf_preview_window = 'right:60%'
 
 imap jj <Esc>
 
@@ -56,6 +56,29 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 nmap <leader>pi :PlugInstall<CR>
 nmap <leader>pc :PlugClean<CR>
+
+" Copy current file path to clipboard
+nnoremap <leader>% :call CopyCurrentFilePath()<CR>
+nnoremap <leader>cp :call CopyLinkToCurrentFilePath()<CR>
+
+function! CopyCurrentFilePath()
+  let @+ = expand('%')
+  echo @+
+endfunction
+
+augroup cdpwd
+    autocmd!
+    autocmd VimEnter * cd $PWD
+augroup END
+
+function! CopyLinkToCurrentFilePath()
+    let absolute_path = $PWD . '/' . expand('%')
+    let cursor_pos = getpos(".")
+    let cursor_line = cursor_pos[1]
+
+    let @+ = '{@ ' . absolute_path . " +" . cursor_line . '}'
+    echo @+
+endfunction
 
 "highlight CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#d65d0e
 

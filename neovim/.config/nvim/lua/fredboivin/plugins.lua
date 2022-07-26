@@ -23,14 +23,15 @@ Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.0' })
 
 Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+Plug('nvim-telescope/telescope-fzy-native.nvim')
 Plug 'folke/which-key.nvim'
 Plug('BurntSushi/ripgrep')
 -- Plug ('pangloss/vim-javascript')
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
 -- Plug ('peitalin/vim-jsx-typescript')
--- Plug ('tpope/vim-dispatch')
--- Plug ('vim-test/vim-test')
+Plug ('tpope/vim-dispatch')
+Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
 Plug ('preservim/nerdtree')

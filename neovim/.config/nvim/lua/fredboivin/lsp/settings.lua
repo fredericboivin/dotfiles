@@ -89,6 +89,6 @@ local function setup_lsp_diags()
     -- end
 end
 
--- setup_lsp_diags()
+setup_lsp_diags()
 
 return M;

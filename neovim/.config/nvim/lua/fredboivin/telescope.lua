@@ -17,6 +17,7 @@ require('telescope').setup{
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-u>"] = false,
         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
       }
     }
@@ -39,5 +40,6 @@ require('telescope').setup{
   }
 }
 
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzy_native')
 -- require'alpha'.setup(require'alpha.themes.dashboard'.config)
