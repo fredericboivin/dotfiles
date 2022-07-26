@@ -37,5 +37,5 @@ let g:neomake_logfile = '/tmp/neomake.log'
 " let neomake_open_list = 3
 
 " [vim-test]
-nmap <Leader>q :TestFile<CR>
-nmap <Leader>s :TestNearest<CR>
+" nmap <Leader>q :TestFile<CR>
+" nmap <Leader>s :TestNearest<CR>

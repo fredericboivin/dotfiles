@@ -39,7 +39,8 @@ Plug ('preservim/nerdtree')
 Plug ('neomake/neomake')
 Plug ('williamboman/nvim-lsp-installer')
 
-Plug("mhinz/vim-startify")
+-- Plug("mhinz/vim-startify")
+Plug("goolord/alpha-nvim")
 Plug("joshdick/onedark.vim") -- dark theme
 
 Plug("onsails/lspkind-nvim") -- icons for auto complete

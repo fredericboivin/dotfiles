@@ -40,3 +40,4 @@ require('telescope').setup{
 }
 
 require('telescope').load_extension('fzf')
+require'alpha'.setup(require'alpha.themes.dashboard'.config)

@@ -83,8 +83,9 @@ let g:fzf_action = {
 
 " Custom things
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
-nnoremap <leader>r :FZF<CR>
+" nnoremap <leader>r :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>fr <cmd>Telescope find_files hidden=true<cr>
 
 " ================== Custom Functions ===================== "
 
@@ -97,6 +98,7 @@ endfunction
 
 
 nmap <leader>w <cmd>w<CR>
+nmap <leader>q <cmd>q<CR>
 nmap <leader>h <cmd>nohlsearch<CR>
 
 " Find files using Telescope command-line sugar.
@@ -104,7 +106,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
