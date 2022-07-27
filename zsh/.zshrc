@@ -58,3 +58,4 @@ export NVM_DIR=~/.nvm
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+TERM=xterm

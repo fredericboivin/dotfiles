@@ -162,14 +162,13 @@ let g:airline_theme='onedark'
 
 set scrolljump=5
 set lazyredraw
-let g:airline_highlighting_cache=1
 set ttyfast
 set updatetime=300
 
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#branch#enabled = 1
 let g:airline#themes#clean#palette = 1
 call airline#parts#define_raw('linenr', '%l')
 call airline#parts#define_accent('linenr', 'bold')
