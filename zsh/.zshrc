@@ -27,7 +27,7 @@ bindkey '^U' backward-kill-line
 bindkey '^Y' yank
 
 # handy key bindings
-bindkey "^S" beginning-of-line
+# bindkey "^S" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^K" kill-line
 bindkey "^P" history-search-backward
