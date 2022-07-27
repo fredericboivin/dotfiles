@@ -41,10 +41,15 @@ imap jj <Esc>
 nnoremap <silent><leader>1 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
 let g:NERDTreeWinSize=50
@@ -118,6 +123,8 @@ function! TrimWhitespace()
     %s/\\\@<!\s\+$//e
     call winrestview(l:save)
 endfunction
+
+let g:tmux_navigator_no_mappings = 1
 
 
 nmap <leader>w <cmd>w<CR>

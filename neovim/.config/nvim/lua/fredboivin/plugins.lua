@@ -26,6 +26,7 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug('nvim-telescope/telescope-fzy-native.nvim')
 Plug 'folke/which-key.nvim'
 Plug('BurntSushi/ripgrep')
+Plug 'christoomey/vim-tmux-navigator'
 -- Plug ('pangloss/vim-javascript')
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
