@@ -40,8 +40,9 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 alias wk="cd ~/code/WalletKit"
 alias pp="cd ~/code/passport-workspace"
 alias rc="cd ~/code/redcoast"
-alias gfm="git pull origin main"
 alias dt="cd ~/dotfiles"
+alias gc="git commit --verbose --no-verify"
+alias gca="git commit --amend --no-verify"
 
 
 eval "$(direnv hook zsh)"
