@@ -51,15 +51,20 @@ Plug("onsails/lspkind-nvim") -- icons for auto complete
 Plug("neovim/nvim-lspconfig")
 Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
 Plug("ray-x/lsp_signature.nvim")
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for neovim Lua API.
-Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
-Plug("hrsh7th/cmp-cmdline") -- completion for command line
-Plug("hrsh7th/cmp-path") -- patho completion
-Plug("hrsh7th/cmp-calc") -- math operations completion
-Plug("hrsh7th/cmp-emoji") -- emoji completion
+-- Plug("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for neovim Lua API.
+--Plug("hrsh7th/cmp-cmdline") -- completion for command line
+-- Plug("hrsh7th/cmp-calc") -- math operations completion
+-- Plug("hrsh7th/cmp-emoji") -- emoji completion
 Plug("ray-x/cmp-treesitter")
+
 Plug("hrsh7th/nvim-cmp")
+Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
+Plug("hrsh7th/cmp-path") -- patho completion
+Plug("saadparwaiz1/cmp_luasnip")
+Plug("hrsh7th/cmp-nvim-lsp")
+Plug("L3MON4D3/LuaSnip")
+Plug 'rafamadriz/friendly-snippets'
+
 
 -- Treesitter
 Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
