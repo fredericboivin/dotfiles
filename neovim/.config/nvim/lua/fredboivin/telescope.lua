@@ -4,6 +4,7 @@ local previewers = require("telescope.previewers")
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {"package-lock.json"},
+    path_display={"smart"},
     layout_strategy = "bottom_pane",
     layout_config = {
       bottom_pane = {height = 0.9, prompt_position = "bottom"},

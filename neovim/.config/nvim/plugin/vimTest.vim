@@ -25,5 +25,5 @@ let g:dispatch_javascript_enabled_makers = ['jest']
 "let dispatch_javascript_enabled_makers = ['jest']
 
 " [vim-test]
-nmap <Leader>q :TestFile<CR>
-nmap <Leader>s :TestNearest<CR>
+" nmap <Leader>q :TestFile<CR>
+" nmap <Leader>s :TestNearest<CR>
