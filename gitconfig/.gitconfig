@@ -13,3 +13,7 @@
 	hooksPath = /dev/null
 [pager]
 	branch = false
+[alias]
+        name = !git symbolic-ref -q HEAD | cut -b 12-
+        fp = !git push origin $(git name) -f
+

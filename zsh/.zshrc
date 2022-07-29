@@ -41,6 +41,7 @@ alias wk="cd ~/code/WalletKit"
 alias pp="cd ~/code/passport-workspace"
 alias rc="cd ~/code/redcoast"
 alias dt="cd ~/dotfiles"
+alias gp="git pull origin main"
 alias gc="git commit --verbose --no-verify"
 alias gca="git commit --amend --no-verify"
 
