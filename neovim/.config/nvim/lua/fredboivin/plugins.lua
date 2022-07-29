@@ -26,7 +26,7 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug('nvim-telescope/telescope-fzy-native.nvim')
 Plug 'folke/which-key.nvim'
 Plug('BurntSushi/ripgrep')
-Plug 'christoomey/vim-tmux-navigator'
+Plug('christoomey/vim-tmux-navigator')
 -- Plug ('pangloss/vim-javascript')
 
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
@@ -48,7 +48,6 @@ Plug ('williamboman/nvim-lsp-installer')
 Plug("joshdick/onedark.vim") -- dark theme
 
 Plug("onsails/lspkind-nvim") -- icons for auto complete
-Plug("neovim/nvim-lspconfig")
 Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
 Plug("ray-x/lsp_signature.nvim")
 -- Plug("hrsh7th/cmp-nvim-lua") -- nvim-cmp source for neovim Lua API.
@@ -56,6 +55,9 @@ Plug("ray-x/lsp_signature.nvim")
 -- Plug("hrsh7th/cmp-calc") -- math operations completion
 -- Plug("hrsh7th/cmp-emoji") -- emoji completion
 Plug("ray-x/cmp-treesitter")
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
