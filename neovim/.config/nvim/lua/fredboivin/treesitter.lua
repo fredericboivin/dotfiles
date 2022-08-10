@@ -13,6 +13,7 @@ local used_parsers = {
     "typescript",
     "yaml",
     "query",
+    "ruby",
 }
 
 -- pass parsers table to turn off certain parsers
