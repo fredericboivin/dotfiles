@@ -34,6 +34,8 @@ bindkey "^P" history-search-backward
 bindkey "^N" insert-last-word
 bindkey "^Q" push-line-or-edit
 
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 alias v=nvim
 export FZF_DEFAULT_COMMAND='ag -g ""'

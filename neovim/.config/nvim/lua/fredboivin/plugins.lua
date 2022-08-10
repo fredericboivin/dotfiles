@@ -41,7 +41,7 @@ Plug("tpope/vim-surround")
 -- Plug ('Xuyuanp/nerdtree-git-plugin')
 -- Plug ('romgrk/winteract.vim')
 -- Plug ('neomake/neomake')
-Plug ('williamboman/nvim-lsp-installer')
+-- Plug ('williamboman/nvim-lsp-installer')
 
 -- Plug("mhinz/vim-startify")
 -- Plug("goolord/alpha-nvim")
