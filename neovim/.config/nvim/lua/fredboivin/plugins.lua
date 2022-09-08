@@ -13,7 +13,7 @@ local Plug = vim.fn["plug#"]
 vim.fn["plug#begin"]("~/.config/nvim/plugged")
 -- ================= looks and GUI stuff ==================
 Plug("vim-airline/vim-airline") -- airline status bar
-Plug('github/copilot.vim')
+-- Plug('github/copilot.vim')
 -- Plug('ellisonleao/gruvbox.nvim')
 Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
