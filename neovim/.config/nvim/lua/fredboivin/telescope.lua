@@ -43,4 +43,5 @@ require('telescope').setup{
 
 -- require('telescope').load_extension('fzf')
 require('telescope').load_extension('fzy_native')
+require("telescope").load_extension("live_grep_args")
 -- require'alpha'.setup(require'alpha.themes.dashboard'.config)

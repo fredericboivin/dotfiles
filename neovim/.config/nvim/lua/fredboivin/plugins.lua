@@ -21,8 +21,9 @@ Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.0' })
+Plug('nvim-telescope/telescope-live-grep-args.nvim')
 
-Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
+-- Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 Plug('nvim-telescope/telescope-fzy-native.nvim')
 Plug 'folke/which-key.nvim'
 Plug('BurntSushi/ripgrep')

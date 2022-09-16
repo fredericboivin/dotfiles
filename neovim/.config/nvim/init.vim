@@ -157,6 +157,7 @@ autocmd BufWritePre *.{js,jsx,ts,tsx,cjs,mjs} :silent EslintFixAll
 
 nmap <leader>oq :copen<cr>
 nmap <leader>ol :lopen<cr>
+nnoremap <leader>lg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
