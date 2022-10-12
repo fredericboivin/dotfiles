@@ -44,9 +44,11 @@ alias pp="cd ~/code/passport-workspace"
 alias rc="cd ~/code/redcoast"
 alias dt="cd ~/dotfiles"
 alias gp="git pull origin main"
+alias gm="git checkout main"
 alias gc="git commit --verbose --no-verify"
 alias gca="git commit --amend --no-verify"
-
+alias gd="git branch -D"
+alias kn="killall -9 node"
 
 eval "$(direnv hook zsh)"
 export GITHUB_TOKEN=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

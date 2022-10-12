@@ -17,6 +17,7 @@ Plug("vim-airline/vim-airline") -- airline status bar
 -- Plug('ellisonleao/gruvbox.nvim')
 Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
+Plug('tpope/vim-unimpaired')
 Plug ('vim-ruby/vim-ruby')
 Plug ('skywind3000/asyncrun.vim')
 Plug('nvim-lua/plenary.nvim')
