@@ -4,6 +4,7 @@ require("fredboivin.lsp");
 require("fredboivin.treesitter");
 require("fredboivin.whichkey");
 require("fredboivin.telescope");
+require("fredboivin.dressing");
 
 function _G.ReloadConfig()
     for name, _ in pairs(package.loaded) do

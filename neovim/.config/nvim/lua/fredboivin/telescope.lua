@@ -3,11 +3,31 @@ local previewers = require("telescope.previewers")
 
 require('telescope').setup{
   defaults = {
-    file_ignore_patterns = {"package-lock.json"},
-    path_display={"smart"},
-    layout_strategy = "bottom_pane",
+    file_ignore_patterns = {"package-lock.json", "wdio/*"},
+    -- path_display={"smart"},
+    -- layout_strategy = "bottom_pane",
+    -- layout_config = {
+    --    bottom_pane = {height = 0.9, prompt_position = "bottom"},
+    -- },
+
+    prompt_prefix = " ",
+    selection_caret = "❯ ",
+    path_display = { "truncate" },
+    selection_strategy = "reset",
+    sorting_strategy = "ascending",
+    layout_strategy = "horizontal",
     layout_config = {
-      bottom_pane = {height = 0.9, prompt_position = "bottom"},
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.5,
+        results_width = 0.5,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.99,
+      height = 0.99,
+      preview_cutoff = 120,
     },
 
     file_previewer = previewers.vim_buffer_cat.new,

@@ -163,7 +163,6 @@ local function setup_lsp_diags()
       },
     })
 
-
     -- for type, icon in pairs(signs) do
     --     local hl = "LspDiagnosticsSign" .. type
     --     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
