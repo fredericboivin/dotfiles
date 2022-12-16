@@ -49,6 +49,7 @@ alias gc="git commit --verbose --no-verify"
 alias gca="git commit --amend --no-verify"
 alias gd="git branch -D"
 alias kn="killall -9 node"
+alias jest="npx jest --watch"
 
 eval "$(direnv hook zsh)"
 export GITHUB_TOKEN=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
@@ -65,4 +66,5 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

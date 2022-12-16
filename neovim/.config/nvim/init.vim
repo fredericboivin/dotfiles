@@ -145,7 +145,7 @@ nmap <leader>h <cmd>nohlsearch<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
@@ -153,11 +153,11 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 autocmd BufWritePre * silent! call TrimWhitespace()
-autocmd BufWritePre *.{js,jsx,ts,tsx,cjs,mjs} :silent EslintFixAll
+autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
 
 nmap <leader>oq :copen<cr>
 nmap <leader>ol :lopen<cr>
-nnoremap <leader>lg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
+nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
@@ -197,6 +197,9 @@ set lazyredraw
 set ttyfast
 set updatetime=300
 
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " Airline
 let g:airline_powerline_fonts = 1

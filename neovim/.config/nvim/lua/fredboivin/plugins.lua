@@ -10,7 +10,6 @@ end
 
 local Plug = vim.fn["plug#"]
 
--- Plug('github/copilot.vim')
 -- Plug('ellisonleao/gruvbox.nvim')
 -- Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 -- Plug ('pangloss/vim-javascript')
@@ -29,6 +28,7 @@ local Plug = vim.fn["plug#"]
 
 vim.fn["plug#begin"]("~/.config/nvim/plugged")
 -- ================= looks and GUI stuff ==================
+Plug('github/copilot.vim')
 Plug("vim-airline/vim-airline") -- airline status bar
 Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
