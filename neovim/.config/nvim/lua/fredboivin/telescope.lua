@@ -1,5 +1,6 @@
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
+local lga_actions = require("telescope-live-grep-args.actions")
 
 require('telescope').setup{
   defaults = {
@@ -53,12 +54,19 @@ require('telescope').setup{
     -- builtin picker
   },
   extensions = {
+    live_grep_args = {
+      mappings = {
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+        }
+      }
+    },
+  },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
-  }
 }
 
 -- require('telescope').load_extension('fzf')
