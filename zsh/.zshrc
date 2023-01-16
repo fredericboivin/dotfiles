@@ -68,3 +68,4 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# precmd () {print -Pn "\e]0;%~\a"}

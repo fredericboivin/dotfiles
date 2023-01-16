@@ -1,13 +1,14 @@
 nmap <leader>g [git-p]
 xmap <leader>g [git-p]
 
-nnoremap <silent> [git-p]p :Git push<cr>
-nnoremap <silent> [git-p]P :Git push --no-verify<cr>
-nnoremap <silent> [git-p]c :Git commit -n<cr>
-nnoremap <silent> [git-p]a :Git commit -n --amend<cr>
-" nnoremap <silent> [git-p]C :Git commit -n<cr>
-nnoremap <silent> [git-p]s :vertical Git<cr>
-nnoremap <silent> [git-p]d :Gvdiff<cr>
+
+nnoremap <silent> <leader>gp :Git push<cr>
+nnoremap <silent> <leader>gP :Git push --no-verify<cr>
+nnoremap <silent> <leader>gc :Git commit -n<cr>
+nnoremap <silent> <leader>ga :Git commit -n --amend<cr>
+" nnoremap <silent<leader>gp]C :Git commit -n<cr>
+nnoremap <silent> <leader>gs :vertical Git<cr>
+nnoremap <silent> <leader>gd :Gvdiff<cr>
 
 " === Conflict Resolution ===
 nnoremap gdh :diffget //2<CR>
