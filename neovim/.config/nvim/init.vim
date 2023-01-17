@@ -152,7 +152,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd FileType typescript, typescriptreact setlocal formatprg=prettier\ --parser\ typescript
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 autocmd BufWritePre * silent! call TrimWhitespace()
 autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
 
