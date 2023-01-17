@@ -1,6 +1,10 @@
 require('dressing').setup({
-   select = {
+  select = {
     backend = { "telescope", "builtin" },
-    builtin = { winhighlight = "Normal:Normal,NormalNC:Normal" },
+    builtin = {
+      win_options = {
+        winhighlight = "Normal:Normal,NormalNC:Normal"
+      },
+    }
   },
 });
