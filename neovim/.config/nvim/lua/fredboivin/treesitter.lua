@@ -1,4 +1,7 @@
 local used_parsers = {
+    "vim",
+    "help",
+    "c",
     "html",
     "javascript",
     "jsdoc",
@@ -55,7 +58,10 @@ require"nvim-treesitter.configs".setup {
     },
     matchup = {enable = true}, -- find plugin
     autopairs = {enable = true}, -- find plugin
-    autotag = {enable = true},
+    autotag = {
+      enable = true,
+      filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'markdown' },
+    },
     rainbow = { -- find plugin
         enable = true,
         extended_mode = true, -- Highlight also non-parentheses delimiters

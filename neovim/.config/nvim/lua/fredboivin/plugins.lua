@@ -49,7 +49,7 @@ Plug ('junegunn/fzf.vim')
 Plug ('preservim/nerdtree')
 Plug("rhysd/clever-f.vim")
 Plug("tpope/vim-surround")
-Plug("joshdick/onedark.vim") -- dark theme
+Plug("navarasu/onedark.nvim") -- dark theme
 Plug('stevearc/dressing.nvim')
 Plug("onsails/lspkind-nvim") -- icons for auto complete
 Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
