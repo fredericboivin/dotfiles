@@ -191,7 +191,7 @@ endif
 set background=dark
 colorscheme onedark
 
-let g:airline_theme='onedark'
+" let g:airline_theme='onedark'
 
 set scrolljump=5
 set lazyredraw
