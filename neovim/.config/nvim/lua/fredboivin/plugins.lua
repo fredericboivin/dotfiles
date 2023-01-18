@@ -10,7 +10,6 @@ end
 
 local Plug = vim.fn["plug#"]
 
--- Plug('ellisonleao/gruvbox.nvim')
 -- Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 -- Plug ('pangloss/vim-javascript')
 -- FUCK YOU Plug ('leafgarland/typescript-vim')
@@ -34,7 +33,8 @@ Plug('tpope/vim-sensible')
 Plug('tpope/vim-fugitive')
 Plug('tpope/vim-unimpaired')
 Plug ('vim-ruby/vim-ruby')
-Plug ('skywind3000/asyncrun.vim')
+-- Plug('ellisonleao/gruvbox.nvim')
+-- Plug ('skywind3000/asyncrun.vim')
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.0' })
 Plug('nvim-telescope/telescope-live-grep-args.nvim')

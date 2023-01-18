@@ -1,7 +1,7 @@
 " lua ./neovim/.config/nvim/lua/fredboivin/
 " vimscript ./neovim/.config/nvim/plugin/
 "
-
+" onedark
 set nocompatible
 
 lua require('fredboivin')
@@ -188,8 +188,8 @@ nnoremap ]Q :clast<CR>
 if (has("termguicolors"))
   set termguicolors
 endif
-set background=dark
-colorscheme onedark
+" set background=dark
+" colorscheme onedark
 
 " let g:airline_theme='onedark'
 
