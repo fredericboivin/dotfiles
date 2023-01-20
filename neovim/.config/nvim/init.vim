@@ -191,8 +191,6 @@ endif
 " set background=dark
 " colorscheme onedark
 
-" let g:airline_theme='onedark'
-
 set scrolljump=5
 set lazyredraw
 set ttyfast
@@ -201,18 +199,3 @@ set updatetime=300
 
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
-
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#themes#clean#palette = 1
-call airline#parts#define_raw('linenr', '%l')
-call airline#parts#define_accent('linenr', 'bold')
-let g:airline_section_z = airline#section#create(['%3p%%  ',
-            \ g:airline_symbols.linenr .' ', 'linenr', ':%c '])
-
-let g:airline_section_warning = ''
-let g:airline_highlighting_cache = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#whitespace#enabled = 1
-
