@@ -1,6 +1,7 @@
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
  vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 local M = {};
 local cmp = require('cmp')
 local luasnip = require('luasnip')
@@ -45,13 +46,13 @@ M.set_keymap = function(_, bufnr)
         "<cmd>lua vim.diagnostic.open_float()<CR>", opts
     )
     buf_set_keymap(
-        "n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts
+        "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts
     )
     buf_set_keymap(
-        "n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts
+        "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts
     )
     buf_set_keymap(
-        "n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts
+        "n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts
     )
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
