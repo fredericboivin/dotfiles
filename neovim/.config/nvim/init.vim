@@ -42,10 +42,10 @@ imap jj <Esc>
 nnoremap <silent><leader>1 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 
 
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+"nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+"nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+"nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " nnoremap <C-J> <C-W><C-J>
 " nnoremap <C-K> <C-W><C-K>
@@ -55,6 +55,7 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " NERDTree
 let g:NERDTreeWinSize=50
 let NERDTreeShowHidden=1
+
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -114,18 +115,18 @@ function! s:build_location_list(lines)
 endfunction
 
 " Settings
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-l': function('s:build_location_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+"let g:fzf_action = {
+"  \ 'ctrl-q': function('s:build_quickfix_list'),
+"  \ 'ctrl-l': function('s:build_location_list'),
+"  \ 'ctrl-t': 'tab split',
+"  \ 'ctrl-x': 'split',
+"  \ 'ctrl-v': 'vsplit' }
 
 " Custom things
-nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+" nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 " nnoremap <leader>r :FZF<CR>
-nnoremap <Leader>b :Buffers<CR>
+" nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>fr <cmd>Telescope find_files hidden=true<cr>
 
 " ================== Custom Functions ===================== "
@@ -139,7 +140,6 @@ endfunction
 
 let g:tmux_navigator_no_mappings = 1
 
-
 nmap <leader>w <cmd>w<CR>
 nmap <leader>q <cmd>q<CR>
 nmap <leader>h <cmd>nohlsearch<CR>
@@ -149,6 +149,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
@@ -158,7 +159,6 @@ autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
 
 nmap <leader>oq :copen<cr>
 nmap <leader>ol :lopen<cr>
-nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
@@ -197,5 +197,6 @@ set ttyfast
 set updatetime=300
 :set nohlsearch
 
+" Copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
