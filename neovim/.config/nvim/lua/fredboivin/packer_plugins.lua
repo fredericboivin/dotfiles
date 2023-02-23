@@ -40,8 +40,8 @@ function M.setup()
     -- vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
     local packer_grp = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
     vim.api.nvim_create_autocmd(
-      { "BufWritePost" },
-      { pattern = vim.fn.expand "$MYVIMRC", command = "source <afile> | PackerCompile", group = packer_grp }
+    { "BufWritePost" },
+    { pattern = vim.fn.expand "$MYVIMRC", command = "source <afile> | PackerCompile", group = packer_grp }
     )
   end
 
@@ -59,6 +59,13 @@ function M.setup()
       config = function()
         require'alpha'.setup(require'alpha.themes.startify'.config)
       end,
+    }
+
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
     }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
