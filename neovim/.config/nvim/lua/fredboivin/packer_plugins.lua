@@ -73,7 +73,6 @@ function M.setup()
       config = function()
         require('bufferline').setup()
       end
-
     }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim

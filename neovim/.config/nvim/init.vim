@@ -47,10 +47,10 @@ nnoremap <silent><leader>1 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
 "nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 "nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
 let g:NERDTreeWinSize=50
