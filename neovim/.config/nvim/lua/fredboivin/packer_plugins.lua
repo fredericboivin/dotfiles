@@ -68,6 +68,14 @@ function M.setup()
       end
     }
 
+    use {
+      'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons',
+      config = function()
+        require('bufferline').setup()
+      end
+
+    }
+
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest
     -- https://github.com/jamestthompson3/nvim-remote-containers
