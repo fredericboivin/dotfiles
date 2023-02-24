@@ -41,7 +41,7 @@ Plug('nvim-telescope/telescope-live-grep-args.nvim')
 Plug('nvim-telescope/telescope-fzy-native.nvim')
 Plug 'folke/which-key.nvim'
 Plug('BurntSushi/ripgrep')
-Plug('christoomey/vim-tmux-navigator')
+-- Plug('christoomey/vim-tmux-navigator')
 -- Plug ('tpope/vim-dispatch')
 -- Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
