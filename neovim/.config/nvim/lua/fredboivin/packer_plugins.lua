@@ -52,6 +52,14 @@ function M.setup()
     -- Performance
     use { "lewis6991/impatient.nvim" }
 
+    -- WhichKey
+    use {
+      "folke/which-key.nvim",
+      config = function()
+        require("config.whichkey").setup()
+      end,
+    }
+
     -- Startup screen
     use {
       "goolord/alpha-nvim",

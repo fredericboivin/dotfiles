@@ -4,7 +4,6 @@ require("fredboivin.plugins");
 require("fredboivin.lsp_signature");
 require("fredboivin.lsp");
 require("fredboivin.treesitter");
-require("fredboivin.whichkey");
 require("fredboivin.telescope");
 require("fredboivin.dressing");
 require("fredboivin.onedark");
