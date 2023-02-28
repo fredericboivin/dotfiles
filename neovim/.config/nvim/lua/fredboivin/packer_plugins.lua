@@ -84,6 +84,16 @@ function M.setup()
       end
     }
 
+    use {
+      "kyazdani42/nvim-tree.lua",
+      requires = {
+        'nvim-tree/nvim-web-devicons'
+      },
+      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      config = function()
+        require("config.nvimtree").setup()
+      end,
+    }
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest
     -- https://github.com/jamestthompson3/nvim-remote-containers
