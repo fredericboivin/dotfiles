@@ -51,21 +51,21 @@ Plug("rhysd/clever-f.vim")
 Plug("tpope/vim-surround")
 Plug("navarasu/onedark.nvim") -- dark theme
 Plug('stevearc/dressing.nvim')
-Plug("onsails/lspkind-nvim") -- icons for auto complete
-Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
-Plug("ray-x/lsp_signature.nvim")
-Plug("ray-x/cmp-treesitter")
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
+-- Plug("onsails/lspkind-nvim") -- icons for auto complete
+-- Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
+-- Plug("ray-x/lsp_signature.nvim")
+-- Plug("ray-x/cmp-treesitter")
+-- Plug 'williamboman/mason.nvim'
+-- Plug 'williamboman/mason-lspconfig.nvim'
+-- Plug 'neovim/nvim-lspconfig'
 
-Plug("hrsh7th/nvim-cmp")
-Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
-Plug("hrsh7th/cmp-path") -- patho completion
-Plug("saadparwaiz1/cmp_luasnip")
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("L3MON4D3/LuaSnip")
-Plug 'rafamadriz/friendly-snippets'
+-- Plug("hrsh7th/nvim-cmp")
+-- Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
+-- Plug("hrsh7th/cmp-path") -- patho completion
+-- Plug("saadparwaiz1/cmp_luasnip")
+-- Plug("hrsh7th/cmp-nvim-lsp")
+-- Plug("L3MON4D3/LuaSnip")
+-- Plug 'rafamadriz/friendly-snippets'
 
 
 -- Treesitter
