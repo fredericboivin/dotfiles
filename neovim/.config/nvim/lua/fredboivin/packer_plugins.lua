@@ -99,7 +99,7 @@ function M.setup()
       },
       cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeClose" },
       config = function()
-        require("config.nvimtree").setup()
+        require("config.nvim-tree").setup()
       end,
     }
 
