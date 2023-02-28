@@ -4,6 +4,10 @@ export ZSH="/Users/fredboivin/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh

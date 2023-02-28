@@ -149,6 +149,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
 nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart

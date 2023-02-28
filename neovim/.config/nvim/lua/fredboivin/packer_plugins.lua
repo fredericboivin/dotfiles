@@ -52,6 +52,14 @@ function M.setup()
     -- Performance
     use { "lewis6991/impatient.nvim" }
 
+     -- IndentLine
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufReadPre",
+      config = function()
+        require("config.indentblankline").setup()
+      end,
+    }
     -- WhichKey
     use {
       "folke/which-key.nvim",

@@ -19,6 +19,7 @@ function _G.ReloadConfig()
     vim.api.nvim_command("!make -C ~/dotfiles")
     dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
     vim.api.nvim_command("so $HOME/.config/nvim/init.vim")
+    vim.api.nvim_command("PackerSync")
 
     print("Vim config reloaded!")
 end
