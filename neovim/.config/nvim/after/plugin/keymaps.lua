@@ -9,3 +9,7 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 -- Switch buffer
 keymap("n", "<S-h>", ":bprevious<CR>", default_opts)
 keymap("n", "<S-l>", ":bnext<CR>", default_opts)
+
+-- NvimTree
+keymap("n", "<C-f>", ":NvimTreeFindFile<CR>", default_opts)
+keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)

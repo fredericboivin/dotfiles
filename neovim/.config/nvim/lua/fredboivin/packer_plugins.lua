@@ -89,7 +89,7 @@ function M.setup()
       requires = {
         'nvim-tree/nvim-web-devicons'
       },
-      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeClose" },
       config = function()
         require("config.nvimtree").setup()
       end,

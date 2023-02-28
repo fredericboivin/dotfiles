@@ -46,7 +46,7 @@ Plug('BurntSushi/ripgrep')
 -- Plug ('vim-test/vim-test')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
-Plug ('preservim/nerdtree')
+-- Plug ('preservim/nerdtree')
 Plug("rhysd/clever-f.vim")
 Plug("tpope/vim-surround")
 Plug("navarasu/onedark.nvim") -- dark theme
