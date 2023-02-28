@@ -13,3 +13,20 @@ keymap("n", "<S-l>", ":bnext<CR>", default_opts)
 -- NvimTree
 keymap("n", "<C-f>", ":NvimTreeFindFile<CR>", default_opts)
 keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)
+
+-- Visual line wraps
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_opts)
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_opts)
+
+-- Better indent
+keymap("v", "<", "<gv", default_opts)
+keymap("v", ">", ">gv", default_opts)
+
+-- Paste over currently selected text without yanking it
+keymap("v", "p", '"_dP', default_opts)
+
+-- Resizing panes
+keymap("n", "<Left>", ":vertical resize +1<CR>", default_opts)
+keymap("n", "<Right>", ":vertical resize -1<CR>", default_opts)
+keymap("n", "<Up>", ":resize -1<CR>", default_opts)
+keymap("n", "<Down>", ":resize +1<CR>", default_opts)
