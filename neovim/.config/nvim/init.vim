@@ -153,7 +153,6 @@ set scrolljump=5
 set lazyredraw
 set ttyfast
 set updatetime=300
-:set nohlsearch
 
 " Copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")

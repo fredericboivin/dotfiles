@@ -229,6 +229,40 @@ function M.setup()
       end,
     }
 
+    use {
+      "nvim-telescope/telescope.nvim",
+      opt = true,
+      config = function()
+        require("config.telescope").setup()
+      end,
+      cmd = { "Telescope" },
+      module = "telescope",
+      keys = { "<leader>f", "<leader>p" },
+      wants = {
+        "plenary.nvim",
+        "popup.nvim",
+        "telescope-fzf-native.nvim",
+        "telescope-project.nvim",
+        "telescope-repo.nvim",
+        "telescope-file-browser.nvim",
+        "project.nvim",
+      },
+      requires = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        "nvim-telescope/telescope-project.nvim",
+        "cljoly/telescope-repo.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
+        {
+          "ahmedkhalf/project.nvim",
+          config = function()
+            require("project_nvim").setup {}
+          end,
+        },
+      },
+    }
+
     -- lspsaga.nvim
     -- use({
     --   "glepnir/lspsaga.nvim",
