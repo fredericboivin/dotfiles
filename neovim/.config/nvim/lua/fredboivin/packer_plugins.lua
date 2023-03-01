@@ -8,7 +8,7 @@ function M.setup()
   local conf = {
     profile = {
       enable = true,
-      threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+      threshold = 1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
 
     display = {
@@ -49,8 +49,27 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
+      -- Load only when require
+    use { "nvim-lua/plenary.nvim", module = "plenary" }
+    --
+     -- Notification
+    use {
+      "rcarriga/nvim-notify",
+      event = "VimEnter",
+      config = function()
+        vim.notify = require "notify"
+      end,
+    }
+
     -- Performance
     use { "lewis6991/impatient.nvim" }
+
+    use {
+      "navarasu/onedark.nvim",
+      config = function()
+        require("config.onedark").setup()
+      end,
+    }
 
      -- IndentLine
     use {
@@ -79,10 +98,13 @@ function M.setup()
     }
 
     use {
-      'lewis6991/gitsigns.nvim',
+      "lewis6991/gitsigns.nvim",
+      event = "BufReadPre",
+      wants = "plenary.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
       config = function()
         require('gitsigns').setup()
-      end
+      end,
     }
 
     use {
@@ -99,16 +121,26 @@ function M.setup()
       },
       cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeClose" },
       config = function()
-        require("config.nvimtree").setup()
+        require("config.nvim-tree").setup()
       end,
+    }
+
+    -- Status line
+    use {
+      "nvim-lualine/lualine.nvim",
+      after = "nvim-treesitter",
+      config = function()
+        require("config.lualine").setup()
+      end,
+      wants = "nvim-web-devicons",
     }
 
     -- Completion
     use {
       "ms-jpq/coq_nvim",
-      branch = "coq",
-      event = "InsertEnter",
       opt = true,
+      event = "InsertEnter",
+      branch = "coq",
       run = ":COQdeps",
       config = function()
         require("config.coq").setup()
@@ -120,6 +152,77 @@ function M.setup()
       disable = false,
     }
 
+    -- LSP
+    use {
+      "neovim/nvim-lspconfig",
+      -- opt = true,
+      -- event = "BufReadPre",
+      wants = { "null-ls.nvim", "mason.nvim", "coq_nvim" },
+      config = function()
+        require("config.lsp").setup()
+      end,
+      requires = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "folke/lua-dev.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
+        {
+          "j-hui/fidget.nvim",
+          config = function()
+            require("fidget").setup {}
+          end,
+        },
+      },
+    }
+
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      opt = true,
+      event = "BufRead",
+      run = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects" },
+      },
+    }
+    -- trouble.nvim
+    use {
+      "folke/trouble.nvim",
+      event = "BufReadPre",
+      wants = "nvim-web-devicons",
+      cmd = { "TroubleToggle", "Trouble" },
+      config = function()
+        require("trouble").setup {
+          use_diagnostic_signs = true,
+        }
+      end,
+    }
+
+    -- lspsaga.nvim
+    use {
+      "tami5/lspsaga.nvim",
+      event = "VimEnter",
+      cmd = { "Lspsaga" },
+      config = function()
+        require("lspsaga").setup {}
+      end,
+    }
+
+    use {
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("project_nvim").setup {
+          detection_methods = { "pattern", "lsp" },
+          patterns = { ".git" },
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
+    }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest

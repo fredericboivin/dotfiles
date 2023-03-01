@@ -61,17 +61,17 @@ nnoremap <C-H> <C-W><C-H>
 "nnoremap <C-t> :NERDTreeToggle<CR>
 "nnoremap <C-f> :NERDTreeFind<CR>
 
-function! RemoveQFItem()
-  let curqfidx = line('.') - 1
-  let qfall = getqflist()
-  call remove(qfall, curqfidx)
-  call setqflist(qfall, 'r')
-  execute curqfidx + 1 . "cfirst"
-  :copen
-endfunction
-:command! RemoveQFItem :call RemoveQFItem()
-" Use map <buffer> to only map dd in the quickfix window. Requires +localmap
-autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
+" function! RemoveQFItem()
+"   let curqfidx = line('.') - 1
+"   let qfall = getqflist()
+"   call remove(qfall, curqfidx)
+"   call setqflist(qfall, 'r')
+"   execute curqfidx + 1 . "cfirst"
+"   :copen
+" endfunction
+" :command! RemoveQFItem :call RemoveQFItem()
+" " Use map <buffer> to only map dd in the quickfix window. Requires +localmap
+" autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 
 nmap <leader>pi :PlugInstall<CR>
 nmap <leader>pc :PlugClean<CR>
@@ -138,7 +138,7 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-let g:tmux_navigator_no_mappings = 1
+" let g:tmux_navigator_no_mappings = 1
 
 nmap <leader>w <cmd>w<CR>
 nmap <leader>q <cmd>q<CR>
@@ -152,19 +152,19 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
 nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-autocmd BufWritePre * silent! call TrimWhitespace()
-autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
+" autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+" autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+" autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+" autocmd BufWritePre * silent! call TrimWhitespace()
+" autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
 
-nmap <leader>oq :copen<cr>
-nmap <leader>ol :lopen<cr>
-
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
+"nmap <leader>oq :copen<cr>
+"nmap <leader>ol :lopen<cr>
+"
+"nnoremap [q :cprevious<CR>
+"nnoremap ]q :cnext<CR>
+"nnoremap [Q :cfirst<CR>
+"nnoremap ]Q :clast<CR>
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support

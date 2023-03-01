@@ -30,7 +30,7 @@ vim.fn["plug#begin"]("~/.config/nvim/plugged")
 Plug('github/copilot.vim')
 -- Plug("vim-airline/vim-airline") -- airline status bar
 Plug('tpope/vim-sensible')
-Plug('tpope/vim-fugitive')
+-- Plug('tpope/vim-fugitive')
 Plug('tpope/vim-unimpaired')
 -- FEB Plug ('vim-ruby/vim-ruby')
 -- Plug('ellisonleao/gruvbox.nvim')
@@ -47,31 +47,31 @@ Plug('BurntSushi/ripgrep')
 Plug ('junegunn/fzf', { ['do'] = vim.fn["fzf#install()"] })
 Plug ('junegunn/fzf.vim')
 -- Plug ('preservim/nerdtree')
-Plug("rhysd/clever-f.vim")
-Plug("tpope/vim-surround")
-Plug("navarasu/onedark.nvim") -- dark theme
+-- Plug("rhysd/clever-f.vim")
+-- Plug("tpope/vim-surround")
+-- Plug("navarasu/onedark.nvim") -- dark theme
 Plug('stevearc/dressing.nvim')
-Plug("onsails/lspkind-nvim") -- icons for auto complete
-Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
-Plug("ray-x/lsp_signature.nvim")
-Plug("ray-x/cmp-treesitter")
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
+-- Plug("onsails/lspkind-nvim") -- icons for auto complete
+-- Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
+-- Plug("ray-x/lsp_signature.nvim")
+-- Plug("ray-x/cmp-treesitter")
+-- Plug 'williamboman/mason.nvim'
+-- Plug 'williamboman/mason-lspconfig.nvim'
+-- Plug 'neovim/nvim-lspconfig'
 
-Plug("hrsh7th/nvim-cmp")
-Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
-Plug("hrsh7th/cmp-path") -- patho completion
-Plug("saadparwaiz1/cmp_luasnip")
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("L3MON4D3/LuaSnip")
-Plug 'rafamadriz/friendly-snippets'
+-- Plug("hrsh7th/nvim-cmp")
+-- Plug("hrsh7th/cmp-buffer") -- nvim-cmp source buffers
+-- Plug("hrsh7th/cmp-path") -- patho completion
+-- Plug("saadparwaiz1/cmp_luasnip")
+-- Plug("hrsh7th/cmp-nvim-lsp")
+-- Plug("L3MON4D3/LuaSnip")
+-- Plug 'rafamadriz/friendly-snippets'
 
 
 -- Treesitter
-Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-Plug("nvim-treesitter/nvim-treesitter-textobjects")
-Plug("windwp/nvim-ts-autotag")
-Plug("nvim-treesitter/playground")
-Plug 'kyazdani42/nvim-web-devicons'
+-- Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+-- Plug("nvim-treesitter/nvim-treesitter-textobjects")
+-- Plug("windwp/nvim-ts-autotag")
+-- Plug("nvim-treesitter/playground")
+-- Plug 'kyazdani42/nvim-web-devicons'
 vim.fn["plug#end"]()
