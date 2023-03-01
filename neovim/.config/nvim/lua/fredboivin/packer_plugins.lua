@@ -68,7 +68,18 @@ function M.setup()
 
       -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
-    --
+
+    --use {
+    --  'notjedi/nvim-rooter.lua',
+    --  config = function() 
+    --    require'nvim-rooter'.setup{
+    --      rooter_patterns = { '.git', 'tsconfig.base.json' },
+    --      trigger_patterns = { '*' },
+    --      manual = false,
+
+    --    }
+    --  end
+    --}
      -- Notification
     use {
       "rcarriga/nvim-notify",
