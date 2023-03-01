@@ -22,15 +22,16 @@ function M.setup()
   local mappings = {
     b = {
       name = "Buffer",
-      c = { "<Cmd>bd!<Cr>", "Close current buffer" },
-      D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
-      b = { "<cmd>BufferLinePick<Cr>", "Pick buffer" },
+      c = { "<Cmd>bd!<Cr>", "Close" },
+      D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all" },
+      b = { "<cmd>BufferLinePick<Cr>", "Pick" },
     },
 
     z = {
       name = "Packer",
       c = { "<cmd>PackerCompile<cr>", "Compile" },
       i = { "<cmd>PackerInstall<cr>", "Install" },
+      i = { "<cmd>PackerProfile<cr>", "Profile" },
       s = { "<cmd>PackerSync<cr>", "Sync" },
       S = { "<cmd>PackerStatus<cr>", "Status" },
       u = { "<cmd>PackerUpdate<cr>", "Update" },
