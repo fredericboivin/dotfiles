@@ -107,14 +107,14 @@ function M.setup()
       lualine_c = {
         { separator },
         { lsp_client, icon = " ", color = { fg = colors.violet, gui = "bold" } },
-        { lsp_progress },
+        -- { lsp_progress },
         --{
         --  gps.get_location,
         --  cond = gps.is_available,
         --  color = { fg = colors.green },
         --},
       },
-      lualine_x = { "filename", "encoding", "fileformat", "filetype" },
+      lualine_x = { "filename", "encoding", "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },

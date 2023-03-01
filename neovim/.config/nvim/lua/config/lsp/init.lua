@@ -23,7 +23,6 @@ local function on_attach(client, bufnr)
 
    -- Configure highlighting
   require("config.lsp.highlighter").setup(client)
-
   require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
 
@@ -40,7 +39,6 @@ require("config.lsp.handlers").setup()
 function M.setup()
    -- null-ls
   require("config.lsp.null-ls").setup(opts)
-
   require("config.lsp.installer").setup(servers, opts)
 end
 
