@@ -8,7 +8,7 @@ function M.setup()
   local conf = {
     profile = {
       enable = true,
-      threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
+      threshold = 1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
 
     display = {
@@ -51,6 +51,15 @@ function M.setup()
 
     -- Performance
     use { "lewis6991/impatient.nvim" }
+
+     -- Notification
+    use {
+      "rcarriga/nvim-notify",
+      event = "VimEnter",
+      config = function()
+        vim.notify = require "notify"
+      end,
+    }
 
      -- IndentLine
     use {
@@ -120,6 +129,20 @@ function M.setup()
       disable = false,
     }
 
+    -- LSP
+    use {
+      "neovim/nvim-lspconfig",
+      opt = true,
+      event = "BufReadPre",
+      wants = { "mason.nvim", "coq_nvim" },
+      config = function()
+        require("config.lsp").setup()
+      end,
+      requires = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+      },
+    }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest

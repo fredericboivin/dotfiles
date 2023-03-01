@@ -1,4 +1,5 @@
 
+require "utils"
 require("fredboivin.packer_plugins").setup();
 require("fredboivin.plugins");
 -- require("fredboivin.lsp_signature");
@@ -20,7 +21,7 @@ function _G.ReloadConfig()
     dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
     -- vim.api.nvim_command("so $HOME/.config/nvim/init.vim")
     vim.api.nvim_command("so $MYVIMRC")
-    vim.api.nvim_command("PackerSync")
+    -- vim.api.nvim_command("PackerSync")
 
     print("Vim config reloaded!")
 end
