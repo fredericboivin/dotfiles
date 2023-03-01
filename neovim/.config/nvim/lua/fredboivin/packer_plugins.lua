@@ -138,7 +138,7 @@ function M.setup()
     use {
       'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons',
       config = function()
-        require('bufferline').setup()
+        require('config.bufferline').setup()
       end
     }
 
@@ -230,14 +230,18 @@ function M.setup()
     }
 
     -- lspsaga.nvim
-    use {
-      "tami5/lspsaga.nvim",
-      event = "VimEnter",
-      cmd = { "Lspsaga" },
-      config = function()
-        require("lspsaga").setup {}
-      end,
-    }
+    -- use({
+    --   "glepnir/lspsaga.nvim",
+    --   branch = "main",
+    --   config = function()
+    --     require("lspsaga").setup({})
+    --   end,
+    --   requires = {
+    --     {"nvim-tree/nvim-web-devicons"},
+    --     --Please make sure you install markdown and markdown_inline parser
+    --     {"nvim-treesitter/nvim-treesitter"}
+    --   }
+    -- })
 
     -- use {
     --   "ahmedkhalf/project.nvim",
