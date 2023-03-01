@@ -49,7 +49,7 @@ Plug ('junegunn/fzf.vim')
 -- Plug ('preservim/nerdtree')
 -- Plug("rhysd/clever-f.vim")
 -- Plug("tpope/vim-surround")
-Plug("navarasu/onedark.nvim") -- dark theme
+-- Plug("navarasu/onedark.nvim") -- dark theme
 Plug('stevearc/dressing.nvim')
 -- Plug("onsails/lspkind-nvim") -- icons for auto complete
 -- Plug("jose-elias-alvarez/nvim-lsp-ts-utils")
@@ -69,9 +69,9 @@ Plug('stevearc/dressing.nvim')
 
 
 -- Treesitter
-Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-Plug("nvim-treesitter/nvim-treesitter-textobjects")
-Plug("windwp/nvim-ts-autotag")
-Plug("nvim-treesitter/playground")
-Plug 'kyazdani42/nvim-web-devicons'
+-- Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+-- Plug("nvim-treesitter/nvim-treesitter-textobjects")
+-- Plug("windwp/nvim-ts-autotag")
+-- Plug("nvim-treesitter/playground")
+-- Plug 'kyazdani42/nvim-web-devicons'
 vim.fn["plug#end"]()

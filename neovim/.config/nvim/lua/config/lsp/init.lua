@@ -21,6 +21,9 @@ local function on_attach(client, bufnr)
   -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
 
+   -- Configure highlighting
+  require("config.lsp.highlighter").setup(client)
+
   require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
 

@@ -49,15 +49,25 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
-    -- Performance
-    use { "lewis6991/impatient.nvim" }
-
+      -- Load only when require
+    use { "nvim-lua/plenary.nvim", module = "plenary" }
+    --
      -- Notification
     use {
       "rcarriga/nvim-notify",
       event = "VimEnter",
       config = function()
         vim.notify = require "notify"
+      end,
+    }
+
+    -- Performance
+    use { "lewis6991/impatient.nvim" }
+
+    use {
+      "navarasu/onedark.nvim",
+      config = function()
+        require("config.onedark").setup()
       end,
     }
 
@@ -88,10 +98,13 @@ function M.setup()
     }
 
     use {
-      'lewis6991/gitsigns.nvim',
+      "lewis6991/gitsigns.nvim",
+      event = "BufReadPre",
+      wants = "plenary.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
       config = function()
         require('gitsigns').setup()
-      end
+      end,
     }
 
     use {
@@ -115,7 +128,7 @@ function M.setup()
     -- Status line
     use {
       "nvim-lualine/lualine.nvim",
-      -- after = "nvim-treesitter",
+      after = "nvim-treesitter",
       config = function()
         require("config.lualine").setup()
       end,
@@ -125,9 +138,9 @@ function M.setup()
     -- Completion
     use {
       "ms-jpq/coq_nvim",
-      branch = "coq",
-      event = "InsertEnter",
       opt = true,
+      event = "InsertEnter",
+      branch = "coq",
       run = ":COQdeps",
       config = function()
         require("config.coq").setup()
@@ -142,8 +155,8 @@ function M.setup()
     -- LSP
     use {
       "neovim/nvim-lspconfig",
-      opt = true,
-      event = "BufReadPre",
+      -- opt = true,
+      -- event = "BufReadPre",
       wants = { "null-ls.nvim", "mason.nvim", "coq_nvim" },
       config = function()
         require("config.lsp").setup()
@@ -162,6 +175,19 @@ function M.setup()
       },
     }
 
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      opt = true,
+      event = "BufRead",
+      run = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects" },
+      },
+    }
     -- trouble.nvim
     use {
       "folke/trouble.nvim",
@@ -183,6 +209,19 @@ function M.setup()
       config = function()
         require("lspsaga").setup {}
       end,
+    }
+
+    use {
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("project_nvim").setup {
+          detection_methods = { "pattern", "lsp" },
+          patterns = { ".git" },
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
     }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
