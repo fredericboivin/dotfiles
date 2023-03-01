@@ -14,7 +14,8 @@ syntax on
 
 set backspace=2
 set cursorline
-set title
+set title " Set the title of the window to the current file
+set number " Show line number in the gutter
 
 set splitbelow
 set splitright
@@ -23,7 +24,6 @@ set noswapfile
 set nobackup
 set noerrorbells visualbell t_vb=
 set belloff=all
-set number
 set expandtab
 set ignorecase
 set autoindent

@@ -1,8 +1,0 @@
---local nvim_lsp = require("lspconfig")
---local lsp_settings = require("fredboivin.lsp.settings");
---
---nvim_lsp.eslint.setup {
---    capabilities = lsp_settings.capabilities,
---    flags = {debounce_text_changes = 150},
---    on_attach = lsp_settings.set_keymap,
---}

@@ -110,7 +110,7 @@ function M.setup()
     use {
       'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons',
       config = function()
-        require('bufferline').setup()
+        require('config.bufferline').setup()
       end
     }
 

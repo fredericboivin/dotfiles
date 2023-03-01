@@ -116,7 +116,7 @@ function M.setup()
       },
       lualine_x = { "filename", "encoding", "filetype" },
       lualine_y = { "progress" },
-      lualine_z = { "location" },
+      -- lualine_z = { "location" },
     },
     inactive_sections = {
       lualine_a = {},
