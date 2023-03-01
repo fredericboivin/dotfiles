@@ -112,6 +112,16 @@ function M.setup()
       end,
     }
 
+    -- Status line
+    use {
+      "nvim-lualine/lualine.nvim",
+      -- after = "nvim-treesitter",
+      config = function()
+        require("config.lualine").setup()
+      end,
+      wants = "nvim-web-devicons",
+    }
+
     -- Completion
     use {
       "ms-jpq/coq_nvim",
@@ -134,14 +144,45 @@ function M.setup()
       "neovim/nvim-lspconfig",
       opt = true,
       event = "BufReadPre",
-      wants = { "mason.nvim", "coq_nvim" },
+      wants = { "null-ls.nvim", "mason.nvim", "coq_nvim" },
       config = function()
         require("config.lsp").setup()
       end,
       requires = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "folke/lua-dev.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
+        {
+          "j-hui/fidget.nvim",
+          config = function()
+            require("fidget").setup {}
+          end,
+        },
       },
+    }
+
+    -- trouble.nvim
+    use {
+      "folke/trouble.nvim",
+      event = "BufReadPre",
+      wants = "nvim-web-devicons",
+      cmd = { "TroubleToggle", "Trouble" },
+      config = function()
+        require("trouble").setup {
+          use_diagnostic_signs = true,
+        }
+      end,
+    }
+
+    -- lspsaga.nvim
+    use {
+      "tami5/lspsaga.nvim",
+      event = "VimEnter",
+      cmd = { "Lspsaga" },
+      config = function()
+        require("lspsaga").setup {}
+      end,
     }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim

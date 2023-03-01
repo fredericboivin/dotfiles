@@ -16,9 +16,6 @@ function M.setup(servers, server_options)
   require("mason-lspconfig").setup_handlers {
     function(server_name)
       local opts = vim.tbl_deep_extend("force", server_options, servers[server_name] or {})
-      -- For coq.nvim
-      -- local coq = require "coq"
-      -- server:setup(coq.lsp_ensure_capabilities(opts))
       lspconfig[server_name].setup(opts)
     end,
   }

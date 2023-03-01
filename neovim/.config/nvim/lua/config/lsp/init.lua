@@ -5,7 +5,6 @@ local servers = {
   jsonls = {},
   pyright = {},
   rust_analyzer = {},
-  -- sumneko_lua = {},
   tsserver = {},
   vimls = {},
 }
@@ -21,6 +20,8 @@ local function on_attach(client, bufnr)
 
   -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
+
+  require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
 
 local opts = {
@@ -30,7 +31,13 @@ local opts = {
   },
 }
 
+-- Setup LSP handlers
+require("config.lsp.handlers").setup()
+
 function M.setup()
+   -- null-ls
+  require("config.lsp.null-ls").setup(opts)
+
   require("config.lsp.installer").setup(servers, opts)
 end
 

@@ -19,14 +19,22 @@ local function keymappings(client, bufnr)
   local keymap_l = {
     l = {
       name = "Code",
-      r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-      a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-      d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+      --r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+      --a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+      --d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+      --i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+      R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      a = { "<cmd>Telescope lsp_code_actions<CR>", "Code Action" },
+      d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
+      f = { "<cmd>Lspsaga lsp_finder<CR>", "Finder" },
       i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+      n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+      r = { "<cmd>Telescope lsp_references<CR>", "Lists LSP references for word under the cursor" },
+      t = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
     },
   }
   if client.resolved_capabilities.document_formatting then
-    keymap_l.l.f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
+    keymap_l.l.F = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
   end
 
   local keymap_g = {
