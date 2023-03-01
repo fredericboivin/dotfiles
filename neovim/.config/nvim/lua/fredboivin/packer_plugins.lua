@@ -127,7 +127,7 @@ function M.setup()
     use {
       'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons',
       config = function()
-        require('config.bufferline').setup()
+        require('bufferline').setup()
       end
     }
 
@@ -228,18 +228,18 @@ function M.setup()
       end,
     }
 
-    use {
-      "ahmedkhalf/project.nvim",
-      config = function()
-        require("project_nvim").setup {
-          detection_methods = { "pattern", "lsp" },
-          patterns = { ".git" },
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-      end
-    }
+    -- use {
+    --   "ahmedkhalf/project.nvim",
+    --   config = function()
+    --     require("project_nvim").setup {
+    --       detection_methods = { "pattern", "lsp" },
+    --       patterns = { ".git" },
+    --       -- your configuration comes here
+    --       -- or leave it empty to use the default settings
+    --       -- refer to the configuration section below
+    --     }
+    --   end
+    -- }
 
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest
@@ -264,7 +264,7 @@ function M.setup()
   local packer = require "packer"
 
   -- Performance
-  pcall(require, "impatient")
+  -- pcall(require, "impatient")
   -- pcall(require, "packer_compiled")
 
   packer.init(conf)
