@@ -52,15 +52,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" NERDTree
-" let g:NERDTreeWinSize=50
-" let NERDTreeShowHidden=1
-
-"nnoremap <leader>n :NERDTreeFocus<CR>
-"nnoremap <C-n> :NERDTree<CR>
-"nnoremap <C-t> :NERDTreeToggle<CR>
-"nnoremap <C-f> :NERDTreeFind<CR>
-
 " function! RemoveQFItem()
 "   let curqfidx = line('.') - 1
 "   let qfall = getqflist()
@@ -99,30 +90,6 @@ function! CopyLinkToCurrentFilePath()
     echo @+
 endfunction
 
-"highlight CocHighlightText ctermfg=231 guifg=#ffffff ctermbg=60 guibg=#d65d0e
-
-" Functions
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-function! s:build_location_list(lines)
-  call setloclist(0, map(copy(a:lines), '{ "filename": v:val }'))
-  lopen
-  ll
-endfunction
-
-" Settings
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-"let g:fzf_action = {
-"  \ 'ctrl-q': function('s:build_quickfix_list'),
-"  \ 'ctrl-l': function('s:build_location_list'),
-"  \ 'ctrl-t': 'tab split',
-"  \ 'ctrl-x': 'split',
-"  \ 'ctrl-v': 'vsplit' }
-
 " Custom things
 " nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 " nnoremap <leader>r :FZF<CR>
@@ -158,14 +125,6 @@ nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_gre
 " autocmd BufWritePre * silent! call TrimWhitespace()
 " autocmd BufWritePre *.{ts,tsx} :silent EslintFixAll
 
-"nmap <leader>oq :copen<cr>
-"nmap <leader>ol :lopen<cr>
-"
-"nnoremap [q :cprevious<CR>
-"nnoremap ]q :cnext<CR>
-"nnoremap [Q :cfirst<CR>
-"nnoremap ]Q :clast<CR>
-
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -189,8 +148,6 @@ nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_gre
 if (has("termguicolors"))
   set termguicolors
 endif
-" set background=dark
-" colorscheme onedark
 
 set scrolljump=5
 set lazyredraw
