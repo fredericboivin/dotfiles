@@ -22,6 +22,11 @@ keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_opts)
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_opts)
 
+-- keymap("n", "<C-h>", "<C-\\><C-n><C-w>h", default_opts)
+-- keymap("n", "<C-j>", "<C-\\><C-n><C-w>j", default_opts)
+-- keymap("n", "<C-k>", "<C-\\><C-n><C-w>k", default_opts)
+-- keymap("n", "<C-l>", "<C-\\><C-n><C-w>l", default_opts)
+
 -- Better indent
 keymap("v", "<", "<gv", default_opts)
 keymap("v", ">", ">gv", default_opts)
