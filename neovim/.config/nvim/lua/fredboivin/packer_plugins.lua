@@ -100,6 +100,13 @@ function M.setup()
     -- Performance
     use { "lewis6991/impatient.nvim" }
 
+    use {
+      'stevearc/dressing.nvim',
+      config = function()
+        require('config.dressing').setup()
+      end
+    }
+
     -- Colorscheme
     use {
       "navarasu/onedark.nvim",

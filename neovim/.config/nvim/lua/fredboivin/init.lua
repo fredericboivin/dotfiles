@@ -5,7 +5,7 @@ require("fredboivin.plugins");
 -- require("fredboivin.lsp");
 -- require("fredboivin.treesitter");
 -- require("fredboivin.telescope");
-require("fredboivin.dressing");
+-- require("fredboivin.dressing");
 -- require("fredboivin.onedark");
 
 function _G.ReloadConfig()
