@@ -69,7 +69,7 @@ function M.setup()
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use { 'tpope/vim-fugitive' } 
 
     -- Colorscheme
     -- use {
