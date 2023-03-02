@@ -1,12 +1,8 @@
 local M = {}
 
 function M.setup()
-  local coq = require "coq" {
-    auto_start = "shut-up",
-    keymap = {
-      jump_to_mark = "",
-    },
-  }
+  local coq = require "coq"
+  coq.Now() -- Start coq
 
   -- 3party sources
   require "coq_3p" {

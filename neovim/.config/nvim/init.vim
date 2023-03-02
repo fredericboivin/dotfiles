@@ -120,6 +120,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
 nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
+let g:coq_settings = { "keymap.jump_to_mark": "" }
 " autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 " autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
