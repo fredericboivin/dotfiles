@@ -66,8 +66,16 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
-      -- Load only when require
+    -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
+
+    -- Colorscheme
+    -- use {
+    --   "sainnhe/everforest",
+    --   config = function()
+    --     vim.cmd "colorscheme everforest"
+    --   end,
+    -- }
 
     --use {
     --  'notjedi/nvim-rooter.lua',
@@ -80,7 +88,7 @@ function M.setup()
     --    }
     --  end
     --}
-     -- Notification
+    -- Notification
     use {
       "rcarriga/nvim-notify",
       event = "VimEnter",
@@ -92,14 +100,16 @@ function M.setup()
     -- Performance
     use { "lewis6991/impatient.nvim" }
 
+    -- Colorscheme
     use {
       "navarasu/onedark.nvim",
       config = function()
         require("config.onedark").setup()
       end,
+      disable = false,
     }
 
-     -- IndentLine
+    -- IndentLine
     use {
       "lukas-reineke/indent-blankline.nvim",
       event = "BufReadPre",
