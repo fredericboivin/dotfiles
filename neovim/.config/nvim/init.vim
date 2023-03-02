@@ -65,7 +65,7 @@ function! CopyLinkToCurrentFilePath()
     echo @+
 endfunction
 
-nnoremap <Leader>fr <cmd>Telescope find_files hidden=true<cr>
+" nnoremap <Leader>fr <cmd>Telescope find_files hidden=true<cr>
 
 " ================== Custom Functions ===================== "
 
@@ -81,13 +81,13 @@ nmap <leader>q <cmd>q<CR>
 nmap <leader>h <cmd>nohlsearch<CR>
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fm <cmd>Telescope keymaps<cr>
-" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
-nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fm <cmd>Telescope keymaps<cr>
+" " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" " nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
+" nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 let g:coq_settings = { "keymap.jump_to_mark": "" }
 if (has("termguicolors"))
