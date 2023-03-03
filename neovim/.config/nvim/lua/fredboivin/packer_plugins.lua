@@ -59,7 +59,7 @@ function M.setup()
       }
       vim.cmd [[packadd packer.nvim]]
     end
-    vim.cmd "autocmd BufWritePost packer_plugins.lua source <afile> | PackerCompile"
+    -- vim.cmd "autocmd BufWritePost packer_plugins.lua source <afile> | PackerCompile"
   end
 
   -- Plugins
@@ -113,8 +113,9 @@ function M.setup()
     use {
       "sainnhe/everforest",
       config = function()
+        vim.g.termguicolors = true
         vim.g.everforest_better_performance = 1
-        vim.g.everforest_background = 'hard'
+        vim.g.everforest_background = 'medium'
         vim.cmd "colorscheme everforest"
       end,
     }
