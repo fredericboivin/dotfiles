@@ -16,7 +16,7 @@ keymap("n", "<S-l>", ":bnext<CR>", default_opts)
 
 -- NvimTree
 keymap("n", "<C-f>", ":NvimTreeFindFile<CR>", default_opts)
-keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)
+-- keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)
 
 -- Visual line wraps
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_opts)
