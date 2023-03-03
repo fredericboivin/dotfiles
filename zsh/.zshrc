@@ -13,6 +13,7 @@ plugins=(git)
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
 source "${ZINIT_HOME}/zinit.zsh"
 
 zinit light romkatv/powerlevel10k
@@ -51,10 +52,6 @@ SAVEHIST=1000000
 
 alias v=nvim
 export FZF_DEFAULT_COMMAND='ag -g ""'
-alias wk="cd ~/code/WalletKit"
-alias pp="cd ~/code/passport-workspace"
-alias rc="cd ~/code/redcoast"
-alias dt="cd ~/dotfiles"
 alias gp="git pull origin main"
 alias gm="git checkout main"
 alias gc="git commit --verbose --no-verify"
@@ -81,4 +78,3 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-# precmd () {print -Pn "\e]0;%~\a"}
