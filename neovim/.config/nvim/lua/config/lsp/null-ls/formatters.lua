@@ -33,15 +33,15 @@ function M.setup(client, buf)
     enable = not (client.name == "null-ls")
   end
 
-  client.server_capabilities.document_formatting = enable
-  client.server_capabilities.document_range_formatting = enable
-  if client.server_capabilities.document_formatting then
+  client.server_capabilities.documentFormattingProvider = enable
+  client.server_capabilities.documentRangeFormattingProvider = enable
+  if client.server_capabilities.documentFormattingProvider then
     vim.cmd [[
-      augroup LspFormat
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua require("config.lsp.null-ls.formatters").format()
-      augroup END
-    ]]
+       augroup LspFormat
+       autocmd! * <buffer>
+       autocmd BufWritePre <buffer> lua require("config.lsp.null-ls.formatters").format()
+       augroup END
+       ]]
   end
 end
 

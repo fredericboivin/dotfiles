@@ -18,6 +18,14 @@ function M.setup(servers, server_options)
       local opts = vim.tbl_deep_extend("force", server_options, servers[server_name] or {})
       lspconfig[server_name].setup(opts)
     end,
+    ["tsserver"] = function()
+      local opts = vim.tbl_deep_extend("force", server_options, servers["tsserver"] or {})
+      require("typescript").setup {
+        disable_commands = false,
+        debug = true,
+        server = opts,
+      }
+    end,
   }
 end
 

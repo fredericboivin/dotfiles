@@ -204,7 +204,7 @@ function M.setup()
       "neovim/nvim-lspconfig",
       -- opt = true,
       -- event = "BufReadPre",
-      wants = { "null-ls.nvim", "mason.nvim", "coq_nvim" },
+      wants = { "null-ls.nvim", "mason.nvim", "coq_nvim", "typescript.nvim" },
       config = function()
         require("config.lsp").setup()
       end,
@@ -219,6 +219,7 @@ function M.setup()
             require("fidget").setup {}
           end,
         },
+        "jose-elias-alvarez/typescript.nvim",
       },
     }
 

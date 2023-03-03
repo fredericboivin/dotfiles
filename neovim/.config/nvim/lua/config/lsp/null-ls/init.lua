@@ -20,7 +20,7 @@ end
 
 local sources = {
   -- formatting
-  b.formatting.prettierd,
+  -- b.formatting.prettierd,
   b.formatting.eslint_d,
   -- with_root_file(b.formatting.prettierd, ".prettierrc"),
   -- b.formatting.shfmt,

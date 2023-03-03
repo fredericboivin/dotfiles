@@ -33,8 +33,8 @@ local function keymappings(client, bufnr)
       t = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
     },
   }
-  if client.server_capabilities.document_formatting then
-    keymap_l.l.F = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
+  if client.server_capabilities.documentFormattingProvider then
+    keymap_l.l.F = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format Document" }
   end
 
   local keymap_g = {
