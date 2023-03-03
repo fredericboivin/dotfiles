@@ -4,6 +4,7 @@
 [core]
     # Global excludes config. Fits better in my head than the default paths
     excludesfile = "~/.gitexcludes"
+    editor = nvim
 [pull]
 	rebase = true
 [user]
