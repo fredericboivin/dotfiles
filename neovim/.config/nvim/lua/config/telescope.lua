@@ -1,8 +1,9 @@
 local M = {}
 
 function M.setup()
-  local actions = require "telescope.actions"
   local telescope = require "telescope"
+  local actions = require "telescope.actions"
+  local action_layout = require "telescope.actions.layout"
 
   telescope.setup {
     defaults = {
@@ -25,6 +26,7 @@ function M.setup()
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-n>"] = actions.cycle_history_next,
           ["<C-p>"] = actions.cycle_history_prev,
+          ["<C-h>"] = action_layout.toggle_preview
         },
       },
     },

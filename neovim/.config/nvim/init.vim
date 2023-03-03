@@ -91,7 +91,7 @@ nmap <leader>h <cmd>nohlsearch<CR>
 
 let g:coq_settings = { "keymap.jump_to_mark": "" }
 if (has("termguicolors"))
-  set termguicolors
+  " set termguicolors
 endif
 
 set scrolljump=5

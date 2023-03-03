@@ -111,12 +111,21 @@ function M.setup()
 
     -- Colorscheme
     use {
-      "navarasu/onedark.nvim",
+      "sainnhe/everforest",
       config = function()
-        require("config.onedark").setup()
+        vim.g.everforest_better_performance = 1
+        vim.g.everforest_background = 'hard'
+        vim.cmd "colorscheme everforest"
       end,
-      disable = false,
     }
+    -- Colorscheme
+    -- use {
+    --   "navarasu/onedark.nvim",
+    --   config = function()
+    --     require("config.onedark").setup()
+    --   end,
+    --   disable = false,
+    -- }
 
     -- IndentLine
     use {
