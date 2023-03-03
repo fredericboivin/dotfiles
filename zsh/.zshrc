@@ -2,13 +2,21 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="/Users/fredboivin/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 __git_files () {
     _wanted files expl 'local files' _files
 }
 
 plugins=(git)
+
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light romkatv/powerlevel10k
+zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/everforest-dark.zsh
 
 source $ZSH/oh-my-zsh.sh
 
