@@ -40,6 +40,7 @@ function M.setup()
     f = {
       name = "Find",
       s = { "<cmd>Telescope git_branches<cr>", "Git branches" },
+      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       f = { "<cmd>Telescope find_files<cr>", "Files" },
       h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
       d = { "<cmd>lua require('utils.finder').find_dotfiles()<cr>", "Dotfiles" },
