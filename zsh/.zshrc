@@ -4,9 +4,9 @@ export ZSH="/Users/fredboivin/.oh-my-zsh"
 
 # ZSH_THEME="robbyrussell"
 
-__git_files () {
-    _wanted files expl 'local files' _files
-}
+# __git_files () {
+#     _wanted files expl 'local files' _files
+# }
 
 plugins=(git)
 
@@ -71,10 +71,10 @@ export PATH=~/.nvm/versions/node/v16.13.2/bin:$PATH
 export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

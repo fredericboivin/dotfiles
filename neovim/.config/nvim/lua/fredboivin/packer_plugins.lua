@@ -115,7 +115,7 @@ function M.setup()
       config = function()
         vim.g.termguicolors = true
         vim.g.everforest_better_performance = 1
-        vim.g.everforest_background = 'medium'
+        vim.g.everforest_background = 'hard'
         vim.cmd "colorscheme everforest"
       end,
     }
