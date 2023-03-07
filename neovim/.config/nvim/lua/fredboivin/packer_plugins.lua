@@ -113,8 +113,8 @@ function M.setup()
     use {
       "sainnhe/everforest",
       config = function()
-        vim.g.termguicolors = true
-        vim.g.everforest_better_performance = 1
+        -- vim.g.termguicolors = true
+        -- vim.g.everforest_better_performance = 1
         vim.g.everforest_background = 'hard'
         vim.cmd "colorscheme everforest"
       end,
