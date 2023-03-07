@@ -222,6 +222,7 @@ function M.setup()
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "folke/lua-dev.nvim",
+        "RRethy/vim-illuminate",
         "jose-elias-alvarez/null-ls.nvim",
         {
           "j-hui/fidget.nvim",
