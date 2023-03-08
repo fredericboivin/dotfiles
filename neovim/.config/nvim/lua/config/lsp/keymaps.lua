@@ -45,7 +45,21 @@ local function keymappings(client, bufnr)
     I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
   }
+
+  local keymap_t = {
+    t = {
+      name = "Trouble",
+      d = { "<Cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
+      w = { "<Cmd>Trouble workspace_diagnostics<CR>", "Workspace diagnostics" },
+      r = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      q = { "<Cmd>Trouble quickfix<CR>", "Quickfix" },
+      l = { "<Cmd>Trouble loclist<CR>", "Loclist" },
+      t = { "<Cmd>TroubleToggle<CR>", "Toggle" },
+    }
+  }
+
   whichkey.register(keymap_l, { buffer = bufnr, prefix = "<leader>" })
+  whichkey.register(keymap_t, { buffer = bufnr, prefix = "<leader>" })
   whichkey.register(keymap_g, { buffer = bufnr, prefix = "g" })
 end
 

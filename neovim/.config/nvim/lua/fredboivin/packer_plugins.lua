@@ -71,26 +71,6 @@ function M.setup()
 
     use { 'tpope/vim-fugitive' } 
 
-    -- Colorscheme
-    -- use {
-    --   "sainnhe/everforest",
-    --   config = function()
-    --     vim.cmd "colorscheme everforest"
-    --   end,
-    -- }
-
-    --use {
-    --  'notjedi/nvim-rooter.lua',
-    --  config = function() 
-    --    require'nvim-rooter'.setup{
-    --      rooter_patterns = { '.git', 'tsconfig.base.json' },
-    --      trigger_patterns = { '*' },
-    --      manual = false,
-
-    --    }
-    --  end
-    --}
-    -- Notification
     use {
       "rcarriga/nvim-notify",
       event = "VimEnter",
@@ -120,14 +100,6 @@ function M.setup()
         vim.cmd "colorscheme everforest"
       end,
     }
-    -- Colorscheme
-    -- use {
-    --   "navarasu/onedark.nvim",
-    --   config = function()
-    --     require("config.onedark").setup()
-    --   end,
-    --   disable = false,
-    -- }
 
     -- IndentLine
     use {
@@ -253,6 +225,7 @@ function M.setup()
       "folke/trouble.nvim",
       event = "BufReadPre",
       wants = "nvim-web-devicons",
+      module = { "trouble.providers.telescope" },
       cmd = { "TroubleToggle", "Trouble" },
       config = function()
         require("trouble").setup {
@@ -271,6 +244,7 @@ function M.setup()
       module = "telescope",
       keys = { "<leader>f", "<leader>p" },
       wants = {
+        "trouble.nvim",
         "plenary.nvim",
         "popup.nvim",
         "telescope-fzf-native.nvim",

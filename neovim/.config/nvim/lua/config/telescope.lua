@@ -4,6 +4,7 @@ function M.setup()
   local telescope = require "telescope"
   local actions = require "telescope.actions"
   local action_layout = require "telescope.actions.layout"
+  local trouble = require "trouble.providers.telescope"
 
   telescope.setup {
     defaults = {
@@ -29,7 +30,8 @@ function M.setup()
           ["<C-k>"] = actions.move_selection_previous,
           ["<C-n>"] = actions.cycle_history_next,
           ["<C-p>"] = actions.cycle_history_prev,
-          ["<C-h>"] = action_layout.toggle_preview
+          ["<C-h>"] = action_layout.toggle_preview,
+          ["<c-z>"] = trouble.open_with_trouble,
         },
       },
     },
