@@ -70,6 +70,8 @@ function M.setup()
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
     use { 'tpope/vim-fugitive' } 
+    use { 'tpope/vim-sensible' } 
+    use { 'tpope/vim-unimpaired' } 
 
     use {
       "rcarriga/nvim-notify",

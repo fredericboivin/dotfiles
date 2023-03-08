@@ -15,7 +15,7 @@ local Plug = vim.fn["plug#"]
 vim.fn["plug#begin"]("~/.config/nvim/plugged")
 -- ================= looks and GUI stuff ==================
 Plug('github/copilot.vim')
-Plug('tpope/vim-sensible')
+-- Plug('tpope/vim-sensible')
 -- Plug('tpope/vim-fugitive')
 -- Plug('tpope/vim-unimpaired')
 Plug('nvim-lua/plenary.nvim')
