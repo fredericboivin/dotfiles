@@ -3,13 +3,9 @@ local M = {}
 
 function M.setup()
   require('dressing').setup({
+    input = { relative = "editor" },
     select = {
-      backend = { "telescope", "builtin" },
-      builtin = {
-        win_options = {
-          winhighlight = "Normal:Normal,NormalNC:Normal"
-        },
-      }
+      backend = { "telescope", "fzf", "builtin" },
     },
   });
 end

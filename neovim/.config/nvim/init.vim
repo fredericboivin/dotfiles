@@ -51,10 +51,10 @@ function! CopyCurrentFilePath()
   echo @+
 endfunction
 
-augroup cdpwd
-    autocmd!
-    autocmd VimEnter * cd $PWD
-augroup END
+"augroup cdpwd
+"    autocmd!
+"    autocmd VimEnter * cd $PWD
+"augroup END
 
 function! CopyLinkToCurrentFilePath()
     let absolute_path = $PWD . '/' . expand('%')
