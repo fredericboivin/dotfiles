@@ -25,6 +25,7 @@ function M.setup()
       c = { "<Cmd>bd!<Cr>", "Close" },
       D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all" },
       b = { "<cmd>BufferLinePick<Cr>", "Pick" },
+      o = { "<Cmd>%bd|e#|bd#<Cr>", "Delete others" },
     },
 
     z = {
@@ -47,7 +48,7 @@ function M.setup()
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
       l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols" },
       o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
-      g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+      g = { "<cmd>Telescope live_grep --hidden=true<cr>", "Live Grep" },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
       r = { "<cmd>Telescope file_browser<cr>", "Browser" },
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
@@ -56,8 +57,8 @@ function M.setup()
 
     p = {
       name = "Project",
-      p = { "<cmd>lua require'telescope'.extensions.project.project{}<cr>", "List" },
-      s = { "<cmd>Telescope repo list<cr>", "Search" },
+      p = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "List" },
+      -- s = { "<cmd>Telescope repo list<cr>", "Search" },
     }
   }
 

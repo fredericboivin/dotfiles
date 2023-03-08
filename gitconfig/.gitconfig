@@ -1,20 +1,31 @@
 [color]
-    # Colorize as much as possible by default
-    ui = auto
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [core]
-    # Global excludes config. Fits better in my head than the default paths
-    excludesfile = "~/.gitexcludes"
-    editor = nvim
+  excludesfile = "~/.gitexcludes"
+  editor = nvim
 [pull]
-	rebase = true
+  rebase = true
 [user]
-	name = Fred Boivin
-	email = fboivin63@gmail.com
+  name = Fred Boivin
+  email = fboivin63@gmail.com
 [core]
-	hooksPath = /dev/null
+  hooksPath = /dev/null
 [pager]
-	branch = false
+  branch = false
 [alias]
-        name = !git symbolic-ref -q HEAD | cut -b 12-
-        fp = !git push origin $(git name) -f
+  name = !git symbolic-ref -q HEAD | cut -b 12-
+  fp = !git push origin $(git name) -f
 
