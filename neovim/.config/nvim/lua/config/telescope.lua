@@ -5,6 +5,7 @@ function M.setup()
   local actions = require "telescope.actions"
   local action_layout = require "telescope.actions.layout"
   local trouble = require "trouble.providers.telescope"
+  local lga_actions = require "telescope-live-grep-args.actions"
 
   telescope.setup {
     defaults = {
@@ -38,7 +39,7 @@ function M.setup()
     pickers = {
       live_grep = {
         additional_args = function(opts)
-          return {"--hidden"}
+          return { "--hidden" }
         end
       },
     },

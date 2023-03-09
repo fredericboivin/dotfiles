@@ -10,7 +10,6 @@ function M.setup()
       enable = true,
       threshold = 1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
-
     display = {
       open_fn = function()
         return require("packer.util").float { border = "rounded" }
@@ -69,9 +68,9 @@ function M.setup()
     -- Load only when require
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
-    use { 'tpope/vim-fugitive' } 
-    use { 'tpope/vim-sensible' } 
-    use { 'tpope/vim-unimpaired' } 
+    use { 'tpope/vim-fugitive' }
+    use { 'tpope/vim-sensible' }
+    use { 'tpope/vim-unimpaired' }
 
     use {
       "rcarriga/nvim-notify",
@@ -125,7 +124,7 @@ function M.setup()
       "goolord/alpha-nvim",
       requires = { 'nvim-tree/nvim-web-devicons' },
       config = function()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
+        require 'alpha'.setup(require 'alpha.themes.startify'.config)
       end,
     }
 
@@ -178,8 +177,8 @@ function M.setup()
         require("config.coq").setup()
       end,
       requires = {
-        { "ms-jpq/coq.artifacts", branch = "artifacts" },
-        { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+        { "ms-jpq/coq.artifacts",  branch = "artifacts" },
+        { "ms-jpq/coq.thirdparty", branch = "3p",       module = "coq_3p" },
       },
       disable = false,
     }
