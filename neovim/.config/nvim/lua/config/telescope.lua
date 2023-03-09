@@ -5,7 +5,7 @@ function M.setup()
   local actions = require "telescope.actions"
   local action_layout = require "telescope.actions.layout"
   local trouble = require "trouble.providers.telescope"
-  local lga_actions = require "telescope-live-grep-args.actions"
+  -- local lga_actions = require "telescope-live-grep-args.actions"
 
   telescope.setup {
     defaults = {
