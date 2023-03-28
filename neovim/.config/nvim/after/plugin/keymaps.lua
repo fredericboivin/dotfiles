@@ -15,7 +15,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", default_opts)
 keymap("n", "<S-l>", ":bnext<CR>", default_opts)
 
 -- NvimTree
-keymap("n", "<C-f>", ":NvimTreeFindFile<CR>", default_opts)
+keymap("n", "<C-f>", ":NvimTreeFocus<CR>", default_opts)
 -- keymap("n", "<C-t>", ":NvimTreeToggle<CR>", default_opts)
 
 -- Visual line wraps
@@ -33,6 +33,8 @@ keymap("v", ">", ">gv", default_opts)
 
 -- Paste over currently selected text without yanking it
 keymap("v", "p", '"_dP', default_opts)
+-- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Resizing panes
 keymap("n", "<Left>", ":vertical resize +1<CR>", default_opts)

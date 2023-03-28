@@ -72,6 +72,7 @@ export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
 # source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

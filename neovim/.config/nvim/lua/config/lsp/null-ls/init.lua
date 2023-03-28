@@ -19,9 +19,10 @@ local with_root_file = function(builtin, file)
 end
 
 local sources = {
+  b.formatting.rubocop,
   -- formatting
   -- b.formatting.prettierd,
-  b.formatting.eslint_d,
+  -- b.formatting.eslint_d,
   -- with_root_file(b.formatting.prettierd, ".prettierrc"),
   -- b.formatting.shfmt,
   -- b.formatting.fixjson,
@@ -31,7 +32,8 @@ local sources = {
 
   -- diagnostics
   b.diagnostics.write_good,
-  b.diagnostics.eslint_d,
+  -- b.diagnostics.eslint_d,
+  b.diagnostics.rubocop,
   b.diagnostics.tsc,
   -- with_root_file(b.diagnostics.selene, "selene.toml"),
   -- with_diagnostics_code(b.diagnostics.shellcheck),
@@ -39,7 +41,7 @@ local sources = {
   -- code actions
   -- b.code_actions.gitsigns,
   -- b.code_actions.gitrebase,
-  b.code_actions.eslint_d,
+  -- b.code_actions.eslint_d,
 
   -- hover
   b.hover.dictionary,

@@ -18,6 +18,26 @@ function M.setup(servers, server_options)
       local opts = vim.tbl_deep_extend("force", server_options, servers[server_name] or {})
       lspconfig[server_name].setup(opts)
     end,
+    ["ruby_ls"] = function()
+      local opts = vim.tbl_deep_extend("force", server_options, servers["ruby_ls"] or {})
+      require'lspconfig'.ruby_ls.setup{
+        cmd = { "bundle", "exec", "ruby-lsp" },
+        filetypes = { "ruby" },
+        init_options = {
+          enabledFeatures = {
+            "documentHighlights",
+            -- "documentSymbols",
+            "foldingRanges",
+            "selectionRanges",
+            -- "semanticHighlighting",
+            "formatting",
+            "codeActions",
+          },
+
+        },
+        server = opts,
+      }
+    end,
     ["tsserver"] = function()
       local opts = vim.tbl_deep_extend("force", server_options, servers["tsserver"] or {})
       require("typescript").setup {
