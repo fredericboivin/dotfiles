@@ -7,6 +7,7 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   vimls = {},
+  ruby_ls = {},
 }
 
 local function on_attach(client, bufnr)
@@ -21,7 +22,7 @@ local function on_attach(client, bufnr)
   -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
 
-   -- Configure highlighting
+  -- Configure highlighting
   require("config.lsp.highlighter").setup(client)
   require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
@@ -37,7 +38,7 @@ local opts = {
 require("config.lsp.handlers").setup()
 
 function M.setup()
-   -- null-ls
+  -- null-ls
   require("config.lsp.null-ls").setup(opts)
   require("config.lsp.installer").setup(servers, opts)
 end

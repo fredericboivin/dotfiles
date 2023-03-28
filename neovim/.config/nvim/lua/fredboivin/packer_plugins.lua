@@ -71,6 +71,7 @@ function M.setup()
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-sensible' }
     use { 'tpope/vim-unimpaired' }
+    use { 'tpope/vim-surround' }
 
     use {
       "rcarriga/nvim-notify",
