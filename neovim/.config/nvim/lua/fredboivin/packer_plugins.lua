@@ -70,8 +70,8 @@ function M.setup()
 
     use { 'tpope/vim-fugitive' }
     use { 'tpope/vim-sensible' }
-    use { 'tpope/vim-unimpaired' }
-    use { 'tpope/vim-surround' }
+    -- use { 'tpope/vim-unimpaired' }
+    -- use { 'tpope/vim-surround' }
 
     use {
       "rcarriga/nvim-notify",
@@ -168,21 +168,21 @@ function M.setup()
     }
 
     -- Completion
-    use {
-      "ms-jpq/coq_nvim",
-      opt = true,
-      event = "InsertEnter",
-      branch = "coq",
-      run = ":COQdeps",
-      config = function()
-        require("config.coq").setup()
-      end,
-      requires = {
-        { "ms-jpq/coq.artifacts",  branch = "artifacts" },
-        { "ms-jpq/coq.thirdparty", branch = "3p",       module = "coq_3p" },
-      },
-      disable = false,
-    }
+     -- use {
+     --   "ms-jpq/coq_nvim",
+     --   opt = true,
+     --   event = "InsertEnter",
+     --   branch = "coq",
+     --   run = ":COQdeps",
+     --   config = function()
+     --     require("config.coq").setup()
+     --   end,
+     --   requires = {
+     --     { "ms-jpq/coq.artifacts",  branch = "artifacts" },
+     --     { "ms-jpq/coq.thirdparty", branch = "3p",       module = "coq_3p" },
+     --   },
+     --   disable = false,
+     -- }
 
     -- LSP
     use {
@@ -220,13 +220,12 @@ function M.setup()
       end,
       requires = {
         { "nvim-treesitter/nvim-treesitter-textobjects" },
+        { "nvim-treesitter/playground" },
       },
     }
     -- trouble.nvim
     use {
       "folke/trouble.nvim",
-      event = "BufReadPre",
-      wants = "nvim-web-devicons",
       module = { "trouble.providers.telescope" },
       cmd = { "TroubleToggle", "Trouble" },
       config = function()
@@ -238,13 +237,10 @@ function M.setup()
 
     use {
       "nvim-telescope/telescope.nvim",
-      opt = true,
+      event = { "VimEnter" },
       config = function()
         require("config.telescope").setup()
       end,
-      cmd = { "Telescope" },
-      module = "telescope",
-      keys = { "<leader>f", "<leader>p" },
       wants = {
         "trouble.nvim",
         "plenary.nvim",
@@ -321,7 +317,7 @@ function M.setup()
   local packer = require "packer"
 
   -- Performance
-  -- pcall(require, "impatient")
+  pcall(require, "impatient")
   -- pcall(require, "packer_compiled")
 
   packer.init(conf)
