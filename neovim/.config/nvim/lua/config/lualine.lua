@@ -19,6 +19,18 @@ local function separator()
   return "%="
 end
 
+local function lsp_formatters(msg)
+  local buf_ft = vim.bo.filetype
+  local buf_client_names = {}
+
+  -- add formatter
+  local formatters = require "config.lsp.null-ls.formatters"
+  local supported_formatters = formatters.list_registered(buf_ft)
+  vim.list_extend(buf_client_names, supported_formatters)
+
+  return "[" .. table.concat(buf_client_names, ", ") .. "]"
+end
+
 local function lsp_client(msg)
   msg = msg or ""
   local buf_clients = vim.lsp.buf_get_clients()
@@ -40,9 +52,9 @@ local function lsp_client(msg)
   end
 
   -- add formatter
-  local formatters = require "config.lsp.null-ls.formatters"
-  local supported_formatters = formatters.list_registered(buf_ft)
-  vim.list_extend(buf_client_names, supported_formatters)
+  -- local formatters = require "config.lsp.null-ls.formatters"
+  -- local supported_formatters = formatters.list_registered(buf_ft)
+  -- vim.list_extend(buf_client_names, supported_formatters)
 
   -- add linter
   local linters = require "config.lsp.null-ls.linters"
@@ -86,11 +98,11 @@ function M.setup()
   require("lualine").setup {
     options = {
       icons_enabled = true,
-      theme = "everforest",
+      -- theme = "everforest",
       component_separators = { left = "", right = "" },
-      section_separators = { left = " ", right = "" },
+      section_separators = { left = "", right = "" },
       disabled_filetypes = {},
-      always_divide_middle = true,
+      always_divide_middle = false,
     },
     sections = {
       lualine_a = { "mode" },
@@ -105,9 +117,9 @@ function M.setup()
         },
       },
       lualine_c = {
-        { separator },
         { lsp_client, icon = " ", color = { fg = colors.violet, gui = "bold" } },
-        -- { lsp_progress },
+        { lsp_formatters, icon = " ", color = { fg = colors.violet, gui = "bold" } },
+        { lsp_progress },
         --{
         --  gps.get_location,
         --  cond = gps.is_available,
@@ -115,8 +127,8 @@ function M.setup()
         --},
       },
       lualine_x = { "filename", "encoding", "filetype" },
-      lualine_y = { "progress" },
-      -- lualine_z = { "location" },
+      lualine_y = { },
+      lualine_z = { },
     },
     inactive_sections = {
       lualine_a = {},

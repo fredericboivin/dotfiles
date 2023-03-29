@@ -15,9 +15,7 @@ function M.toggle()
 end
 
 function M.highlight(client, bufnr)
-  utils.info("Enabled document highlight", "Document Highlight")
   if M.highlight then
-    utils.info("Enabled document highlight", "Document Highlight")
     if client.server_capabilities.documentHighlightProvider then
       local present, _ = pcall(require, "illuminate")
       if not present then

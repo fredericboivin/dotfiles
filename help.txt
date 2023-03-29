@@ -1,0 +1,1 @@
+:Git mergetool and :Git difftool load their changesets into the quickfix list.

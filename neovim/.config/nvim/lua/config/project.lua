@@ -6,7 +6,6 @@ function M.setup()
     patterns = { ".git" },
     ignore_lsp = { "null-ls" },
     silent_chdir = true,
-    -- silent_chdir = false,
   }
 end
 
