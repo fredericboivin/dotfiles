@@ -69,6 +69,13 @@ function M.setup()
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
     use { 'tpope/vim-fugitive' }
+    use {
+      'ThePrimeagen/harpoon',
+      config = function()
+        require('config.harpoon').setup()
+      end,
+    }
+
     use { 'tpope/vim-sensible' }
     -- use { 'tpope/vim-unimpaired' }
     -- use { 'tpope/vim-surround' }
@@ -251,6 +258,7 @@ function M.setup()
         "telescope-file-browser.nvim",
         "project.nvim",
       },
+
       requires = {
         "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim",
@@ -266,6 +274,8 @@ function M.setup()
         },
       },
     }
+
+    use { 'BurntSushi/ripgrep' }
 
     -- lspsaga.nvim
     -- use({
