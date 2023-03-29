@@ -1,19 +1,5 @@
--- Plugins
--- load vim plug if it is not installed
-if vim.fn.empty(vim.fn.glob("~/.config/nvim/autoload/plug.vim")) == 1 then
-  vim.cmd(
-  "silent !curl -fLo ~/.config/nvim/autoload/plug.vim " ..
-  "--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  )
-  vim.cmd("autocmd VimEnter * PlugInstall --sync | source $MYVIMRC")
-end
-
-local Plug = vim.fn["plug#"]
-
 -- Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 
-vim.fn["plug#begin"]("~/.config/nvim/plugged")
--- ================= looks and GUI stuff ==================
 -- Plug('github/copilot.vim')
 -- Plug('tpope/vim-sensible')
 -- Plug('tpope/vim-fugitive')
@@ -40,4 +26,3 @@ vim.fn["plug#begin"]("~/.config/nvim/plugged")
 -- Plug("nvim-treesitter/nvim-treesitter-textobjects")
 -- Plug("windwp/nvim-ts-autotag")
 -- Plug("nvim-treesitter/playground")
-vim.fn["plug#end"]()

@@ -1,6 +1,6 @@
 require "utils"
 require("fredboivin.packer_plugins").setup();
-require("fredboivin.plugins");
+-- require("fredboivin.plugins");
 -- require("fredboivin.lsp_signature");
 -- require("fredboivin.lsp");
 -- require("fredboivin.treesitter");
