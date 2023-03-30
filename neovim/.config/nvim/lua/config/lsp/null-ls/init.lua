@@ -27,7 +27,7 @@ local sources = {
 
   -- diagnostics
   -- b.diagnostics.write_good,
-  -- b.diagnostics.eslint_d,
+  b.diagnostics.eslint_d,
   b.diagnostics.rubocop,
   -- b.diagnostics.tsc,
   -- with_root_file(b.diagnostics.selene, "selene.toml"),

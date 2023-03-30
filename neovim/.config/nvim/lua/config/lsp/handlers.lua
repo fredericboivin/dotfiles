@@ -24,10 +24,10 @@ function M.setup()
 
   -- Diagnostic signs
   local diagnostic_signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignError", text = " " },
+    { name = "DiagnosticSignWarn",  text = " " },
+    { name = "DiagnosticSignHint",  text = " " },
+    { name = "DiagnosticSignInfo",  text = " " },
   }
   for _, sign in ipairs(diagnostic_signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
@@ -37,7 +37,7 @@ function M.setup()
   vim.diagnostic.config(lsp.diagnostic)
 
   -- Hover configuration
-  -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp.float)
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp.float)
 
   -- Signature help configuration
   -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp.float)

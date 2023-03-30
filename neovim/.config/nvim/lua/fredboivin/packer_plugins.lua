@@ -115,7 +115,7 @@ function M.setup()
       "lukas-reineke/indent-blankline.nvim",
       event = "BufReadPre",
       config = function()
-        require("config.indentblankline").setup()
+        require("config.indent").setup()
       end,
     })
     -- WhichKey
@@ -276,34 +276,6 @@ function M.setup()
     })
 
     use({ "BurntSushi/ripgrep" })
-
-    -- lspsaga.nvim
-    -- use({
-    --   "glepnir/lspsaga.nvim",
-    --   branch = "main",
-    --   config = function()
-    --     require("lspsaga").setup({})
-    --   end,
-    --   requires = {
-    --     {"nvim-tree/nvim-web-devicons"},
-    --     --Please make sure you install markdown and markdown_inline parser
-    --     {"nvim-treesitter/nvim-treesitter"}
-    --   }
-    -- })
-
-    -- use {
-    --   "ahmedkhalf/project.nvim",
-    --   config = function()
-    --     require("project_nvim").setup {
-    --       detection_methods = { "pattern", "lsp" },
-    --       patterns = { ".git" },
-    --       -- your configuration comes here
-    --       -- or leave it empty to use the default settings
-    --       -- refer to the configuration section below
-    --     }
-    --   end
-    -- }
-
     -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
     -- https://github.com/rbong/vim-buffest
     -- https://github.com/jamestthompson3/nvim-remote-containers
