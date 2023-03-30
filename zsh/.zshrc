@@ -47,6 +47,7 @@ bindkey "^P" history-search-backward
 bindkey "^N" insert-last-word
 bindkey "^Q" push-line-or-edit
 
+alias nerdfix="~/code/nerdfix/target/release/nerdfix"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
