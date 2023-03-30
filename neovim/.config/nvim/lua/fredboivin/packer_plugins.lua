@@ -1,5 +1,8 @@
 return {
-  'lewis6991/impatient.nvim',
+  {
+    'lewis6991/impatient.nvim',
+    lazy = false,
+  },
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
@@ -33,14 +36,10 @@ return {
     end,
   },
   {
-    "sainnhe/everforest",
+    'folke/tokyonight.nvim',
     lazy = false,
     config = function()
-      -- vim.g.termguicolors = true
-      -- vim.g.everforest_better_performance = 1
-      vim.g.everforest_enable_italic = 1
-      vim.g.everforest_background = "hard"
-      vim.cmd("colorscheme everforest")
+      vim.cmd [[colorscheme tokyonight-moon]]
     end,
   },
 
@@ -77,7 +76,8 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    -- tag = "v3.*",
+    version = "v3.*",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("config.bufferline").setup()

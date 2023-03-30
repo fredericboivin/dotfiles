@@ -21,15 +21,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
 
---require("fredboivin.packer_plugins").setup()
--- require("fredboivin.plugins");
--- require("fredboivin.lsp_signature");
--- require("fredboivin.lsp");
--- require("fredboivin.treesitter");
--- require("fredboivin.telescope");
--- require("fredboivin.dressing");
--- require("fredboivin.onedark");
-
 function _G.ReloadConfig()
   vim.api.nvim_command("!make delete -C ~/dotfiles")
   vim.api.nvim_command("!make -C ~/dotfiles")
