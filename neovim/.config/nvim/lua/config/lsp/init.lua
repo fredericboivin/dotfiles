@@ -63,7 +63,7 @@ local function on_attach(client, bufnr)
 
   -- Configure highlighting
   require("config.lsp.highlighter").setup(client)
-  -- require("config.lsp.null-ls.formatters").setup(client, bufnr)
+  require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
 
 local opts = {

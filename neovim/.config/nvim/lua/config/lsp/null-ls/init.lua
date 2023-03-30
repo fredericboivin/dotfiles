@@ -21,14 +21,9 @@ end
 local sources = {
   b.formatting.rubocop,
   -- formatting
+  -- b.formatting.stylua,
   b.formatting.prettierd,
-  -- b.formatting.eslint_d,
-  -- with_root_file(b.formatting.prettierd, ".prettierrc"),
-  -- b.formatting.shfmt,
-  -- b.formatting.fixjson,
-  -- b.formatting.black.with { extra_args = { "--fast" } },
-  -- b.formatting.isort,
-  -- with_root_file(b.formatting.stylua, "stylua.toml"),
+  with_root_file(b.formatting.stylua, "stylua.toml"),
 
   -- diagnostics
   -- b.diagnostics.write_good,

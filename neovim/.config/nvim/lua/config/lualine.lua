@@ -24,7 +24,7 @@ local function lsp_formatters(msg)
   local buf_client_names = {}
 
   -- add formatter
-  local formatters = require "config.lsp.null-ls.formatters"
+  local formatters = require("config.lsp.null-ls.formatters")
   local supported_formatters = formatters.list_registered(buf_ft)
   vim.list_extend(buf_client_names, supported_formatters)
 
@@ -57,12 +57,12 @@ local function lsp_client(msg)
   -- vim.list_extend(buf_client_names, supported_formatters)
 
   -- add linter
-  local linters = require "config.lsp.null-ls.linters"
+  local linters = require("config.lsp.null-ls.linters")
   local supported_linters = linters.list_registered(buf_ft)
   vim.list_extend(buf_client_names, supported_linters)
 
   -- add hover
-  local hovers = require "config.lsp.null-ls.hovers"
+  local hovers = require("config.lsp.null-ls.hovers")
   local supported_hovers = hovers.list_registered(buf_ft)
   vim.list_extend(buf_client_names, supported_hovers)
 
@@ -70,32 +70,32 @@ local function lsp_client(msg)
 end
 
 -------- use fidget.nvim ------
- local function lsp_progress(_, is_active)
-   if not is_active then
-     return
-   end
-   local messages = vim.lsp.util.get_progress_messages()
-   if #messages == 0 then
-     return ""
-   end
-   local status = {}
-   for _, msg in pairs(messages) do
-     local title = ""
-     if msg.title then
-       title = msg.title
-     end
-     table.insert(status, (msg.percentage or 0) .. "%% " .. title)
-   end
-   local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-   local ms = vim.loop.hrtime() / 1000000
-   local frame = math.floor(ms / 120) % #spinners
-   return table.concat(status, "  ") .. " " .. spinners[frame + 1]
- end
+local function lsp_progress(_, is_active)
+  if not is_active then
+    return
+  end
+  local messages = vim.lsp.util.get_progress_messages()
+  if #messages == 0 then
+    return ""
+  end
+  local status = {}
+  for _, msg in pairs(messages) do
+    local title = ""
+    if msg.title then
+      title = msg.title
+    end
+    table.insert(status, (msg.percentage or 0) .. "%% " .. title)
+  end
+  local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+  local ms = vim.loop.hrtime() / 1000000
+  local frame = math.floor(ms / 120) % #spinners
+  return table.concat(status, "  ") .. " " .. spinners[frame + 1]
+end
 
 function M.setup()
   -- local gps = require "nvim-gps"
 
-  require("lualine").setup {
+  require("lualine").setup({
     options = {
       icons_enabled = true,
       -- theme = "everforest",
@@ -112,13 +112,13 @@ function M.setup()
         {
           "diagnostics",
           sources = { "nvim_diagnostic" },
-          symbols = { error = " ", warn = " ", info = " ", hint = " " },
+          symbols = { error = "", warn = "", info = "", hint = "󰛨" },
           colored = false,
         },
       },
       lualine_c = {
-        { lsp_client, icon = " ", color = { fg = colors.violet, gui = "bold" } },
-        { lsp_formatters, icon = " ", color = { fg = colors.violet, gui = "bold" } },
+        { lsp_client,     icon = "", color = { fg = colors.violet, gui = "bold" } },
+        { lsp_formatters, icon = "", color = { fg = colors.violet, gui = "bold" } },
         { lsp_progress },
         --{
         --  gps.get_location,
@@ -127,8 +127,8 @@ function M.setup()
         --},
       },
       lualine_x = { "filename", "encoding", "filetype" },
-      lualine_y = { },
-      lualine_z = { },
+      lualine_y = {},
+      lualine_z = {},
     },
     inactive_sections = {
       lualine_a = {},
@@ -140,7 +140,7 @@ function M.setup()
     },
     tabline = {},
     extensions = {},
-  }
+  })
 end
 
 return M

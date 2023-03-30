@@ -1,13 +1,13 @@
 local M = {}
 
 function M.setup()
-  local telescope = require "telescope"
-  local actions = require "telescope.actions"
-  local action_layout = require "telescope.actions.layout"
-  local trouble = require "trouble.providers.telescope"
+  local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  local action_layout = require("telescope.actions.layout")
+  local trouble = require("trouble.providers.telescope")
   -- local lga_actions = require "telescope-live-grep-args.actions"
 
-  telescope.setup {
+  telescope.setup({
     defaults = {
       selection_strategy = "reset",
       sorting_strategy = "ascending",
@@ -40,15 +40,15 @@ function M.setup()
       live_grep = {
         additional_args = function(opts)
           return { "--hidden" }
-        end
+        end,
       },
     },
-  }
+  })
 
-  telescope.load_extension "fzf"
-  telescope.load_extension "repo"
-  telescope.load_extension "file_browser"
-  telescope.load_extension "projects" -- project.nvim
+  -- telescope.load_extension "fzy_native"
+  -- telescope.load_extension "repo"
+  -- telescope.load_extension "file_browser"
+  telescope.load_extension("projects") -- project.nvim
 end
 
 return M

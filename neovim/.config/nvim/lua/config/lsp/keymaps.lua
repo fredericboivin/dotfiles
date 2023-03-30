@@ -1,6 +1,6 @@
 local M = {}
 
-local whichkey = require "which-key"
+local whichkey = require("which-key")
 
 local keymap = vim.api.nvim_set_keymap
 local buf_keymap = vim.api.nvim_buf_set_keymap
@@ -26,7 +26,7 @@ local function keymappings(client, bufnr)
       R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
       d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-      f = { "<cmd>Lspsaga lsp_finder<CR>", "Finder" },
+      f = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Finder" },
       i = { "<cmd>LspInfo<CR>", "Lsp Info" },
       n = { "<cmd>Lspsaga rename<CR>", "Rename" },
       r = { "<cmd>Telescope lsp_references<CR>", "Lists LSP references for word under the cursor" },
@@ -55,7 +55,7 @@ local function keymappings(client, bufnr)
       q = { "<Cmd>Trouble quickfix<CR>", "Quickfix" },
       l = { "<Cmd>Trouble loclist<CR>", "Loclist" },
       t = { "<Cmd>TroubleToggle<CR>", "Toggle" },
-    }
+    },
   }
 
   whichkey.register(keymap_l, { buffer = bufnr, prefix = "<leader>" })

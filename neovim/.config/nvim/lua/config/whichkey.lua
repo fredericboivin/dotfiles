@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local whichkey = require "which-key"
+  local whichkey = require("which-key")
 
   local conf = {
     window = {
@@ -11,7 +11,7 @@ function M.setup()
   }
 
   local opts = {
-    mode = "n", -- Normal mode
+    mode = "n",   -- Normal mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
     silent = true, -- use `silent` when creating keymaps
@@ -27,7 +27,6 @@ function M.setup()
       b = { "<cmd>BufferLinePick<Cr>", "Pick" },
       o = { "<Cmd>%bd|e#|bd#<Cr>", "Delete others" },
     },
-
     z = {
       name = "Packer",
       c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -37,7 +36,6 @@ function M.setup()
       S = { "<cmd>PackerStatus<cr>", "Status" },
       u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
-
     f = {
       name = "Find",
       s = { "<cmd>Telescope git_branches<cr>", "Git branches" },
@@ -54,12 +52,19 @@ function M.setup()
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
       e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },
-
+    t = {
+      name = "Trouble",
+      d = { "<Cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
+      w = { "<Cmd>Trouble workspace_diagnostics<CR>", "Workspace diagnostics" },
+      r = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      q = { "<Cmd>Trouble quickfix<CR>", "Quickfix" },
+      l = { "<Cmd>Trouble loclist<CR>", "Loclist" },
+      t = { "<Cmd>TroubleToggle<CR>", "Toggle" },
+    },
     p = {
       name = "Project",
       p = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "List" },
-      -- s = { "<cmd>Telescope repo list<cr>", "Search" },
-    }
+    },
   }
 
   whichkey.setup(conf)

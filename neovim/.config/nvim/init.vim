@@ -31,16 +31,10 @@ set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
 imap jj <Esc>
 
-" Open Vim configuration file for editing
-nnoremap <silent><leader>1 :e ~/dotfiles/neovim/.config/nvim/init.vim<CR>
-
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-nmap <leader>pi :PlugInstall<CR>
-nmap <leader>pc :PlugClean<CR>
 
 " Copy current file path to clipboard
 nnoremap <leader>% :call CopyCurrentFilePath()<CR>
@@ -79,15 +73,6 @@ endfunction
 nmap <leader>w <cmd>w<CR>
 nmap <leader>q <cmd>q<CR>
 nmap <leader>h <cmd>nohlsearch<CR>
-
-" Find files using Telescope command-line sugar.
-" nnoremap <leader>ff <cmd>Telescope find_files<cr>
-" nnoremap <leader>fm <cmd>Telescope keymaps<cr>
-" " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-" " nnoremap <leader>fb <cmd>Telescope buffers<cr>
-" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-" nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
-" nnoremap <leader>fg :lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>
 
 let g:coq_settings = { "keymap.jump_to_mark": "" }
 if (has("termguicolors"))

@@ -1,5 +1,5 @@
-require "utils"
-require("fredboivin.packer_plugins").setup();
+require("utils")
+require("fredboivin.packer_plugins").setup()
 -- require("fredboivin.plugins");
 -- require("fredboivin.lsp_signature");
 -- require("fredboivin.lsp");
@@ -19,9 +19,6 @@ function _G.ReloadConfig()
     print("Vim config reloaded!")
 end
 
-vim.api.nvim_set_keymap(
-    "n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>",
-    {silent = silent, noremap = true}
-)
+vim.api.nvim_set_keymap("n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>", { silent = silent, noremap = true })
 
 vim.cmd("command! ReloadConfig lua ReloadConfig()")

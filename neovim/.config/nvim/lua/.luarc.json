@@ -1,0 +1,12 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "describe",
+        "it",
+        "before_each",
+        "after_each",
+        "packer_plugins",
+        "MiniTest",
+        "packer_bootstrap"
+    ]
+}
