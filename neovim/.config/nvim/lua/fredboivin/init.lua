@@ -13,7 +13,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-require('lazy').setup('fredboivin.packer_plugins');
+require('lazy').setup('fredboivin.packer_plugins', {
+  defaults = { lazy = true }
+});
+
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
 
 --require("fredboivin.packer_plugins").setup()
 -- require("fredboivin.plugins");
@@ -27,12 +33,6 @@ require('lazy').setup('fredboivin.packer_plugins');
 function _G.ReloadConfig()
   vim.api.nvim_command("!make delete -C ~/dotfiles")
   vim.api.nvim_command("!make -C ~/dotfiles")
-  dofile(vim.fn.expand("$HOME/.config/nvim/lua/fredboivin/init.lua"))
-  -- vim.api.nvim_command("so $HOME/.config/nvim/init.vim")
-  vim.api.nvim_command("so $MYVIMRC")
-  -- vim.api.nvim_command("PackerSync")
-
-  print("Vim config reloaded!")
 end
 
 vim.api.nvim_set_keymap("n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>", { silent = silent, noremap = true })

@@ -1,25 +1,40 @@
 return {
   'lewis6991/impatient.nvim',
-  "tpope/vim-fugitive",
-  "tpope/vim-sensible",
-  "tpope/vim-surround",
-  "tpope/vim-unimpaired",
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
+  {
+    "tpope/vim-sensible",
+    event = "VeryLazy",
+  },
+  {
+    "tpope/vim-surround",
+    event = "VeryLazy",
+  },
+  {
+    "tpope/vim-unimpaired",
+    event = "VeryLazy",
+  },
   "nvim-lua/plenary.nvim",
   "ThePrimeagen/harpoon",
   {
     'stevearc/dressing.nvim',
+    lazy = false,
     config = function()
       require 'config.dressing'.setup()
     end,
   },
   {
     "rcarriga/nvim-notify",
+    lazy = false,
     config = function()
       vim.notify = require("notify")
     end,
   },
   {
     "sainnhe/everforest",
+    lazy = false,
     config = function()
       -- vim.g.termguicolors = true
       -- vim.g.everforest_better_performance = 1
@@ -32,14 +47,14 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = 'VeryLazy',
     config = function()
       require("config.indent").setup()
     end,
   },
   {
     "folke/which-key.nvim",
-    event = "VimEnter",
+    lazy = false,
     config = function()
       require("config.whichkey").setup()
     end,
@@ -47,13 +62,14 @@ return {
   {
     "goolord/alpha-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
     config = function()
       require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
     config = function()
       require("gitsigns").setup()
@@ -80,6 +96,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
@@ -90,6 +107,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
       require("config.lsp").setup()
     end,
@@ -122,7 +140,6 @@ return {
   },
   {
     "folke/trouble.nvim",
-    module = { "trouble.providers.telescope" },
     cmd = { "TroubleToggle", "Trouble" },
     config = function()
       require("trouble").setup({
@@ -132,6 +149,7 @@ return {
   },
   {
     "ahmedkhalf/project.nvim",
+    lazy = false,
     config = function()
       require("config.project").setup()
     end,
@@ -141,6 +159,7 @@ return {
     config = function()
       require("config.telescope").setup()
     end,
+    cmd = "Telescope",
     dependencies = {
       "ahmedkhalf/project.nvim",
       "nvim-lua/popup.nvim",
