@@ -39,7 +39,7 @@ return {
     'folke/tokyonight.nvim',
     lazy = false,
     config = function()
-      vim.cmd [[colorscheme tokyonight-moon]]
+      vim.cmd [[colorscheme tokyonight-storm]]
     end,
   },
 
@@ -169,4 +169,21 @@ return {
     },
   },
   { "BurntSushi/ripgrep" },
+  { "vim-test/vim-test" },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-go",
+      "haydenmeade/neotest-jest",
+      "nvim-neotest/neotest-vim-test",
+    },
+    config = function()
+      require("config.neotest").setup()
+    end,
+  }
 }

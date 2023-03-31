@@ -117,8 +117,8 @@ function M.setup()
         },
       },
       lualine_c = {
-        { lsp_client,     icon = "", color = { fg = colors.violet, gui = "bold" } },
-        { lsp_formatters, icon = "", color = { fg = colors.violet, gui = "bold" } },
+        { lsp_client,     icon = nil, color = { fg = colors.violet, gui = "bold" } },
+        { lsp_formatters, icon = nil, color = { fg = colors.violet, gui = "bold" } },
         --{
         --  gps.get_location,
         --  cond = gps.is_available,

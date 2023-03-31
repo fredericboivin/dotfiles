@@ -19,7 +19,7 @@ local with_root_file = function(builtin, file)
 end
 
 local sources = {
-  b.formatting.rubocop,
+  -- b.formatting.rubocop,
   -- formatting
   -- b.formatting.stylua,
   b.formatting.prettierd,
