@@ -2,12 +2,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="/Users/fredboivin/.oh-my-zsh"
 
-# ZSH_THEME="robbyrussell"
-
-# __git_files () {
-#     _wanted files expl 'local files' _files
-# }
-
 plugins=(git)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -61,7 +55,7 @@ alias gd="git branch -D"
 alias kn="killall -9 node"
 alias jest="npx jest --watch"
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 export GITHUB_TOKEN=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
 # export NVM_DIR="$HOME/.nvm"
 
