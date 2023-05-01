@@ -22,13 +22,13 @@ local sources = {
   -- b.formatting.rubocop,
   -- formatting
   -- b.formatting.stylua,
-  b.formatting.prettierd,
+  -- b.formatting.prettierd,
   with_root_file(b.formatting.stylua, "stylua.toml"),
 
   -- diagnostics
   -- b.diagnostics.write_good,
-  b.diagnostics.eslint_d,
-  b.diagnostics.rubocop,
+  -- b.diagnostics.eslint_d,
+  -- b.diagnostics.rubocop,
   -- b.diagnostics.tsc,
   -- with_root_file(b.diagnostics.selene, "selene.toml"),
   -- with_diagnostics_code(b.diagnostics.shellcheck),
@@ -39,7 +39,7 @@ local sources = {
   -- b.code_actions.eslint_d,
 
   -- hover
-  b.hover.dictionary,
+  -- b.hover.dictionary,
 }
 
 function M.setup(opts)
