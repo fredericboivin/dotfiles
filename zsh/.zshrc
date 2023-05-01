@@ -13,7 +13,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light romkatv/powerlevel10k
 zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/everforest-dark.zsh
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 autoload -Uz compinit
 compinit
