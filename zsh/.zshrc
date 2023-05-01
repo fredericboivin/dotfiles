@@ -1,6 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/Users/fredboivin/.oh-my-zsh"
+# export ZSH="/Users/fredboivin/.oh-my-zsh"
 
 plugins=(git)
 
@@ -66,8 +66,8 @@ alias jest="npx jest --watch"
 # export NVM_DIR=~/.nvm
 # [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
