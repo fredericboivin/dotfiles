@@ -56,15 +56,15 @@ alias kn="killall -9 node"
 alias jest="npx jest --watch"
 
 # eval "$(direnv hook zsh)"
-export GITHUB_TOKEN=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
+# export GITHUB_TOKEN=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
 # export NVM_DIR="$HOME/.nvm"
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH=~/.nvm/versions/node/v16.13.2/bin:$PATH
+# export PATH=~/.nvm/versions/node/v16.13.2/bin:$PATH
 
-export NVM_DIR=~/.nvm
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+# export NVM_DIR=~/.nvm
+# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
 
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
@@ -72,7 +72,7 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
