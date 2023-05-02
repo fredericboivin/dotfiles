@@ -83,6 +83,7 @@ set scrolljump=5
 set lazyredraw
 set ttyfast
 set updatetime=300
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
