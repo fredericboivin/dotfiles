@@ -165,11 +165,12 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
+      "nvim-telescope/telescope-live-grep-args.nvim",
       "folke/trouble.nvim",
     },
   },
-  { "BurntSushi/ripgrep" },
-  { "vim-test/vim-test", lazy = false },
+  { "BurntSushi/ripgrep", lazy = false },
+  { "vim-test/vim-test",  lazy = false },
   {
     "nvim-neotest/neotest",
     dependencies = {

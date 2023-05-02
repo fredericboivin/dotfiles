@@ -59,7 +59,10 @@ function M.setup()
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
       l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols" },
       o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
-      g = { "<cmd>Telescope live_grep --hidden=true<cr>", "Live Grep" },
+      -- g = { "<cmd>Telescope live_grep --hidden=true<cr>", "Live Grep" },
+      g = {
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+        "Live Grep" },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
       r = { "<cmd>Telescope file_browser<cr>", "Browser" },
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },

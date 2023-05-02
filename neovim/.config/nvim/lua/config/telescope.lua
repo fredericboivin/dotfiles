@@ -5,7 +5,7 @@ function M.setup()
   local actions = require("telescope.actions")
   local action_layout = require("telescope.actions.layout")
   local trouble = require("trouble.providers.telescope")
-  -- local lga_actions = require "telescope-live-grep-args.actions"
+  local lga_actions = require("telescope-live-grep-args.actions")
 
   telescope.setup({
     defaults = {
@@ -28,7 +28,7 @@ function M.setup()
       mappings = {
         i = {
           ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
+          -- ["<C-k>"] = actions.move_selection_previous,
           ["<C-n>"] = actions.cycle_history_next,
           ["<C-p>"] = actions.cycle_history_prev,
           ["<C-h>"] = action_layout.toggle_preview,
@@ -37,15 +37,25 @@ function M.setup()
       },
     },
     pickers = {
-      live_grep = {
+      live_grep_args = {
         additional_args = function(opts)
           return { "--hidden" }
         end,
       },
     },
+    extensions = {
+      live_grep_args = {
+        mappings = {
+          i = {
+            ["<C-k>"] = lga_actions.quote_prompt(),
+          }
+        }
+      },
+    },
   })
 
   telescope.load_extension "fzy_native"
+  telescope.load_extension "live_grep_args"
   -- telescope.load_extension "repo"
   -- telescope.load_extension "file_browser"
   telescope.load_extension("projects") -- project.nvim
