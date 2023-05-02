@@ -169,7 +169,7 @@ return {
     },
   },
   { "BurntSushi/ripgrep" },
-  { "vim-test/vim-test" },
+  { "vim-test/vim-test", lazy = false },
   {
     "nvim-neotest/neotest",
     dependencies = {

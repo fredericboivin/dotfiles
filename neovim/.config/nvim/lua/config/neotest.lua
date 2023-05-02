@@ -3,7 +3,8 @@ local M = {}
 function M.setup()
   require("neotest").setup {
     discovery = {
-      concurrent = 1
+      concurrent = 0,
+      enabled = false
     },
     diagnostic = {
       enabled = true
