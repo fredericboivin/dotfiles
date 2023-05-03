@@ -1,4 +1,4 @@
-mv ~/.zshrc ~/.zshrc_copy
+# mv ~/.zshrc ~/.zshrc_copy
 make delete && make
 
 # kitty +list-fonts
