@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("nvim-treesitter.configs").setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = { 'ruby', 'bash', 'diff', 'lua', 'git_config', 'git_rebase', 'gitcommit', 'git_attributes',
+    ensure_installed = { 'ruby', 'bash', 'diff', 'lua', 'git_config', 'git_rebase', 'gitcommit',
       'graphql', 'http', 'json', 'luadoc', 'make', 'markdown', 'regex', 'vimdoc', 'vim', 'yaml' },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
