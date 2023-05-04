@@ -5,6 +5,7 @@ local servers = {
   jsonls = {},
   pyright = {},
   rust_analyzer = {},
+  sorbet = {},
   lua_ls = {
     settings = {
       Lua = {
