@@ -33,21 +33,21 @@ local servers = {
   },
   tsserver = {},
   vimls = {},
-  ruby_ls = {
-    cmd = { "bundle", "exec", "ruby-lsp" },
-    filetypes = { "ruby" },
-    init_options = {
-      enabledFeatures = {
-        "documentHighlights",
-        "documentSymbols",
-        "foldingRanges",
-        "selectionRanges",
-        "semanticHighlighting",
-        "formatting",
-        "codeActions",
-      },
-    },
-  },
+  -- ruby_ls = {
+  --   cmd = { "bundle", "exec", "ruby-lsp" },
+  --   filetypes = { "ruby" },
+  --   init_options = {
+  --     enabledFeatures = {
+  --       "documentHighlights",
+  --       "documentSymbols",
+  --       "foldingRanges",
+  --       "selectionRanges",
+  --       "semanticHighlighting",
+  --       "formatting",
+  --       "codeActions",
+  --     },
+  --   },
+  -- },
 }
 
 local function on_attach(client, bufnr)
