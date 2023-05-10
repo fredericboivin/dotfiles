@@ -12,6 +12,10 @@ return {
     event = "VeryLazy",
   },
   {
+    'github/copilot.vim',
+    event = "VeryLazy"
+  },
+  {
     "tpope/vim-surround",
     event = "VeryLazy",
   },
