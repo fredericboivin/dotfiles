@@ -55,6 +55,8 @@ alias gd="git branch -D"
 alias kn="killall -9 node"
 alias jest="npx jest --watch"
 
+alias dr="systemctl restart dotfiles.service"
+
 # eval "$(direnv hook zsh)"
 # export GITHUB_TOKEN=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
 # export NVM_DIR="$HOME/.nvm"
