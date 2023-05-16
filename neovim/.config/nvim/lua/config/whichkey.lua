@@ -36,6 +36,10 @@ function M.setup()
       S = { "<cmd>PackerStatus<cr>", "Status" },
       u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
+    g = {
+      name = "Git",
+      c = { "<cmd>0GcLog<cr>", "File log" },
+    },
     n = {
       name = "Neotest",
       a = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach" },
