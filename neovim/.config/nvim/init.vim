@@ -2,10 +2,10 @@ set nocompatible
 
 lua require('fredboivin')
 
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 
 filetype plugin indent on
-syntax on
+" syntax on
 
 set backspace=2
 set cursorline
@@ -27,7 +27,7 @@ set softtabstop=2
 set shiftwidth=2
 set updatetime=300
 
-set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
+" set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
 
 imap jj <Esc>
 
@@ -44,11 +44,6 @@ function! CopyCurrentFilePath()
   let @+ = expand('%')
   echo @+
 endfunction
-
-"augroup cdpwd
-"    autocmd!
-"    autocmd VimEnter * cd $PWD
-"augroup END
 
 function! CopyLinkToCurrentFilePath()
     let absolute_path = $PWD . '/' . expand('%')
@@ -74,15 +69,11 @@ nmap <leader>w <cmd>w<CR>
 nmap <leader>q <cmd>q<CR>
 nmap <leader>h <cmd>nohlsearch<CR>
 
-let g:coq_settings = { "keymap.jump_to_mark": "" }
-if (has("termguicolors"))
-  " set termguicolors
-endif
-
 set scrolljump=5
 set lazyredraw
 set ttyfast
 set updatetime=300
+
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Copilot
