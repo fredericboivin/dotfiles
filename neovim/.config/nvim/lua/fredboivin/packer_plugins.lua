@@ -20,6 +20,14 @@ return {
     event = "VeryLazy",
   },
   {
+    "phaazon/hop.nvim",
+    lazy = false,
+    branch = 'v2',
+    config = function()
+      require('config.hop').setup()
+    end,
+  },
+  {
     "tpope/vim-unimpaired",
     event = "VeryLazy",
   },
@@ -46,8 +54,6 @@ return {
       vim.cmd [[colorscheme tokyonight-storm]]
     end,
   },
-
-
   {
     "lukas-reineke/indent-blankline.nvim",
     event = 'VeryLazy',
