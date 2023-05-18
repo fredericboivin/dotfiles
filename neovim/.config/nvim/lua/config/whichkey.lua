@@ -29,7 +29,11 @@ function M.setup()
     },
     g = {
       name = "Git",
-      c = { "<cmd>0GcLog<cr>", "File log" },
+      c = { "<Cmd>0GcLog<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Commit history' },
+      g = { "<cmd>Git<cr>", "Git" },
+      b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Blame" },
+      d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "Diff this" },
+      D = { "<cmd>lua require('gitsigns').diffthis('~')<cr>", "Diff this" },
     },
     n = {
       name = "Neotest",
@@ -57,7 +61,8 @@ function M.setup()
       -- g = { "<cmd>Telescope live_grep --hidden=true<cr>", "Live Grep" },
       g = {
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
-        "Live Grep" },
+        "Live Grep"
+      },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
       r = { "<cmd>Telescope file_browser<cr>", "Browser" },
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },

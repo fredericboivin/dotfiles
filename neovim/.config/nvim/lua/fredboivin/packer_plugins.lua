@@ -81,7 +81,7 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
     config = function()
-      require("gitsigns").setup()
+      require("config.gitsigns").setup()
     end,
   },
   {
