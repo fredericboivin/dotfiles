@@ -10,6 +10,7 @@ function M.setup()
   telescope.setup({
     defaults = {
       selection_strategy = "reset",
+      file_ignore_patterns = { "^vendor/", "^sorbet/" },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
       layout_config = {
@@ -104,6 +105,9 @@ function M.setup()
 
           ["?"] = actions.which_key,
         },
+      },
+      preview = {
+        hide_on_startup = true,
       },
     },
     pickers = {

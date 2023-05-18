@@ -3,3 +3,4 @@ neovim/.config/nvim/plugged
 neovim/.config/nvim/plugin/packer_compiled.lua
 .DS_Store
 **/.DS_Store
+vendor/
