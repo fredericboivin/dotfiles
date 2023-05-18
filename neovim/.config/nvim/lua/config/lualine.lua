@@ -15,22 +15,6 @@ local colors = {
   red = "#ec5f67",
 }
 
-local function separator()
-  return "%="
-end
-
-local function lsp_formatters(msg)
-  local buf_ft = vim.bo.filetype
-  local buf_client_names = {}
-
-  -- add formatter
-  local formatters = require("config.lsp.null-ls.formatters")
-  local supported_formatters = formatters.list_registered(buf_ft)
-  vim.list_extend(buf_client_names, supported_formatters)
-
-  return "[" .. table.concat(buf_client_names, ", ") .. "]"
-end
-
 local function lsp_client(msg)
   msg = msg or ""
   local buf_clients = vim.lsp.buf_get_clients()
@@ -50,11 +34,6 @@ local function lsp_client(msg)
       table.insert(buf_client_names, client.name)
     end
   end
-
-  -- add formatter
-  -- local formatters = require "config.lsp.null-ls.formatters"
-  -- local supported_formatters = formatters.list_registered(buf_ft)
-  -- vim.list_extend(buf_client_names, supported_formatters)
 
   -- add linter
   local linters = require("config.lsp.null-ls.linters")
@@ -93,12 +72,9 @@ local function lsp_progress(_, is_active)
 end
 
 function M.setup()
-  -- local gps = require "nvim-gps"
-
   require("lualine").setup({
     options = {
-      icons_enabled = true,
-      -- theme = "everforest",
+      icons_enabled = false,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
       disabled_filetypes = {},
@@ -117,23 +93,30 @@ function M.setup()
         },
       },
       lualine_c = {
-        { lsp_client,     icon = nil, color = { fg = colors.violet, gui = "bold" } },
-        { lsp_formatters, icon = nil, color = { fg = colors.violet, gui = "bold" } },
-        --{
-        --  gps.get_location,
-        --  cond = gps.is_available,
-        --  color = { fg = colors.green },
-        --},
+        { lsp_client, icon = nil, color = { fg = colors.violet, gui = "bold" } },
+        {
+          'filename',
+          file_status = true,      -- Displays file status (readonly status, modified status)
+          newfile_status = false,  -- Display new file status (new file means no write after created)
+          path = 1,                -- 0: Just the filename
+          shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+          symbols = {
+            modified = '[+]',      -- Text to show when the file is modified.
+            readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+            unnamed = '[No Name]', -- Text to show for unnamed buffers.
+            newfile = '[New]',     -- Text to show for newly created file before first write
+          }
+        }
       },
-      lualine_x = { "filename", "encoding", "filetype" },
+      lualine_x = {},
       lualine_y = {},
       lualine_z = {},
     },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = { "filename" },
-      lualine_x = { "location" },
+      lualine_c = {},
+      lualine_x = {},
       lualine_y = {},
       lualine_z = {},
     },
