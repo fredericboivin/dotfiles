@@ -32,7 +32,13 @@ return {
     event = "VeryLazy",
   },
   "nvim-lua/plenary.nvim",
-  "ThePrimeagen/harpoon",
+  {
+    "ThePrimeagen/harpoon",
+    event = "VeryLazy",
+    config = function()
+      require 'config.harpoon'.setup()
+    end,
+  },
   {
     'stevearc/dressing.nvim',
     lazy = false,
@@ -50,8 +56,9 @@ return {
   {
     'folke/tokyonight.nvim',
     lazy = false,
+    priority = 1000,
     config = function()
-      vim.cmd [[colorscheme tokyonight-storm]]
+      vim.cmd [[colorscheme tokyonight-moon]]
     end,
   },
   {
