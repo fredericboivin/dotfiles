@@ -58,6 +58,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require("config.tokyonight").setup()
       vim.cmd [[colorscheme tokyonight-moon]]
     end,
   },
@@ -90,6 +91,19 @@ return {
     config = function()
       require("config.gitsigns").setup()
     end,
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    event = "BufRead",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
   },
   {
     "akinsho/bufferline.nvim",
