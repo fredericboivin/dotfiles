@@ -75,7 +75,9 @@ set ttyfast
 set updatetime=300
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
-
+let test#strategy = "neovim"
+let test#neovim#term_position = "horizontal"
+let g:test#neovim#start_normal = 1
 " Copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true

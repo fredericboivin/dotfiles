@@ -45,3 +45,5 @@ keymap("n", "<Down>", ":resize +1<CR>", default_opts)
 -- Better escape using jk in insert and terminal mode
 keymap("i", "jk", "<ESC>", default_opts)
 keymap("t", "jk", "<C-\\><C-n>", default_opts)
+
+keymap("n", "<C-c>", "<cmd>normal! ciw<cr>a", default_opts)
