@@ -1,6 +1,6 @@
 - ripgrep
 - kitty-terminfo
-- ag
-- fd
+- silversearcher-ag
+- fd-find
 - fzf
 - stow
