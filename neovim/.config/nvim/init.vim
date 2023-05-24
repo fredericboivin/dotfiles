@@ -59,7 +59,7 @@ endfunction
 " ================== Custom Functions ===================== "
 
 " Trim Whitespaces
-function! TrimWhitespace()
+function! TrimWhitespace()  
     let l:save = winsaveview()
     %s/\\\@<!\s\+$//e
     call winrestview(l:save)
@@ -67,12 +67,19 @@ endfunction
 
 nmap <leader>w <cmd>w<CR>
 nmap <leader>q <cmd>q<CR>
-nmap <leader>h <cmd>nohlsearch<CR>
+nmap <leader>h <cmd>:call TrimWhitespace()<CR>
 
 set scrolljump=5
 set lazyredraw
 set ttyfast
 set updatetime=300
+
+  let g:projectionist_heuristics = {
+  \   "*": {
+  \     "lib/*.rb": {"alternate": "test/{}_test.rb"},
+  \     "test/*_test.rb": {"alternate": "lib/{}.rb"},
+  \   }
+  \ }
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 let test#strategy = "neovim"

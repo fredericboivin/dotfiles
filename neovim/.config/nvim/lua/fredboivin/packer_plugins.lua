@@ -20,6 +20,10 @@ return {
     event = "VeryLazy",
   },
   {
+    "tpope/vim-projectionist",
+    event = "VeryLazy"
+  },
+  {
     "phaazon/hop.nvim",
     lazy = false,
     branch = 'v2',
