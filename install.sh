@@ -1,4 +1,4 @@
  if [ -f ~/.zshrc ]; then
-  mv .zshrc .zshrc.bak
+  mv ~/.zshrc ~/.zshrc.bak
 fi
 make delete && make
