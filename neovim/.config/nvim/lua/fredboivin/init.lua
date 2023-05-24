@@ -13,9 +13,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-require('lazy').setup('fredboivin.packer_plugins', {
+require('lazy').setup {
+  spec = {
+    { import = "fredboivin.packer_plugins" },
+    { import = "config.completion" },
+  },
   defaults = { lazy = true }
-});
+}
 
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0

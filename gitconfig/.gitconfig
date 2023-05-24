@@ -18,6 +18,8 @@
   editor = nvim
 [pull]
   rebase = true
+[push]
+  autoSetupRemote = true
 [user]
   name = Fred Boivin
   email = fboivin63@gmail.com
