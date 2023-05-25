@@ -81,7 +81,7 @@ function M.setup()
     p = {
       name = "Project",
       p = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "List" },
-      d = { "<Cmd>G difftool<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Test' }
+      d = { "<Cmd>G difftool<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Current changelist' }
     },
   }
 
