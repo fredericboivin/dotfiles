@@ -19,12 +19,12 @@ set noswapfile
 set nobackup
 set noerrorbells visualbell t_vb=
 set belloff=all
-set expandtab
+" set expandtab
 set ignorecase
-set autoindent
-set smartindent
-set softtabstop=2
-set shiftwidth=2
+" set autoindent
+" set smartindent
+" set softtabstop=2
+" set shiftwidth=2
 set updatetime=300
 
 " set wildignore+=*/tmp/*,*/.git/*,*/vendor/bundle/*,*/build/*
