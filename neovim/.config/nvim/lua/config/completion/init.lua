@@ -30,6 +30,7 @@ return {
       local source_names = {
         nvim_lsp = "(LSP)",
         luasnip = "(Snippet)",
+        copilot = "(Copilot)",
         -- cmp_tabnine = "(TabNine)",
         -- codeium = "(Codeium)",
         buffer = "(Buffer)",
@@ -54,6 +55,7 @@ return {
           priority_weight = 2,
           comparators = {
             -- require "cmp_tabnine.compare",
+            require("copilot_cmp.comparators").prioritize,
             compare.score,
             compare.recently_used,
             compare.offset,
@@ -83,6 +85,7 @@ return {
                 fallback()
               end
             end,
+
           },
           ["<C-j>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -117,6 +120,7 @@ return {
           -- { name = "nvim_lsp_signature_help", group_index = 1 },
           { name = "nvim_lsp", group_index = 1 },
           -- { name = "cmp_tabnine", group_index = 1 },
+          { name = "copilot",  group_index = 2 },
           { name = "codeium",  group_index = 1 },
           { name = "luasnip",  group_index = 1 },
           { name = "buffer",   group_index = 2 },
@@ -230,7 +234,7 @@ return {
     config = function(_, opts)
       require("luasnip").setup(opts)
 
-      local snippets_folder = vim.fn.stdpath "config" .. "/lua/plugins/completion/snippets/"
+      local snippets_folder = vim.fn.stdpath "config" .. "/lua/config/completion/snippets/"
       require("luasnip.loaders.from_lua").lazy_load { paths = snippets_folder }
 
       vim.api.nvim_create_user_command("LuaSnipEdit", function()

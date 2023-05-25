@@ -11,10 +11,10 @@ return {
     "tpope/vim-sensible",
     event = "VeryLazy",
   },
-  {
-    'github/copilot.vim',
-    event = "VeryLazy"
-  },
+  -- {
+  --   'github/copilot.vim',
+  --   event = "VeryLazy"
+  -- },
   {
     "tpope/vim-surround",
     event = "VeryLazy",
@@ -97,6 +97,14 @@ return {
     end,
   },
   {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { 'zbirenbaum/copilot.lua' },
+    event = "VeryLazy",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  },
+  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     event = "BufRead",
@@ -118,7 +126,17 @@ return {
       require("config.bufferline").setup()
     end,
   },
-
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
