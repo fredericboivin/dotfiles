@@ -21,6 +21,22 @@ return {
         build = "cargo build --workspace --release",
         enabled = false,
       },
+      {
+        "zbirenbaum/copilot-cmp",
+        dependencies = "copilot.lua",
+        opts = {},
+        config = function(_, opts)
+          local copilot_cmp = require("copilot_cmp")
+          copilot_cmp.setup(opts)
+          -- attach cmp source whenever copilot attaches
+          -- fixes lazy-loading issues with the copilot cmp source
+          require("utils").on_attach(function(client)
+            if client.name == "copilot" then
+              copilot_cmp._on_insert_enter({})
+            end
+          end)
+        end,
+      },
     },
     config = function()
       local cmp = require "cmp"
@@ -120,7 +136,7 @@ return {
           -- { name = "nvim_lsp_signature_help", group_index = 1 },
           { name = "nvim_lsp", group_index = 1 },
           -- { name = "cmp_tabnine", group_index = 1 },
-          { name = "copilot",  group_index = 2 },
+          { name = "copilot",  group_index = 1 },
           { name = "codeium",  group_index = 1 },
           { name = "luasnip",  group_index = 1 },
           { name = "buffer",   group_index = 2 },

@@ -96,14 +96,14 @@ return {
       require("config.gitsigns").setup()
     end,
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { 'zbirenbaum/copilot.lua' },
-    event = "VeryLazy",
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   dependencies = { 'zbirenbaum/copilot.lua' },
+  --   lazy = false,
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- },
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",

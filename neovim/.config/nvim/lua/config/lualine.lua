@@ -109,7 +109,7 @@ function M.setup()
           }
         }
       },
-      lualine_x = {},
+      lualine_x = { "filetype" },
       lualine_y = {},
       lualine_z = {},
     },
