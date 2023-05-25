@@ -30,6 +30,6 @@ function _G.ReloadConfig()
   vim.api.nvim_command("!make -C ~/dotfiles")
 end
 
-vim.api.nvim_set_keymap("n", "<localleader>3", "<Cmd>lua ReloadConfig()<CR>", { silent = silent, noremap = true })
+vim.api.nvim_set_keymap("n", "<localleader>1", "<Cmd>lua ReloadConfig()<CR>", { silent = silent, noremap = true })
 
 vim.cmd("command! ReloadConfig lua ReloadConfig()")

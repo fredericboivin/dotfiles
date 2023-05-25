@@ -86,5 +86,5 @@ let test#strategy = "neovim"
 let test#neovim#term_position = "horizontal"
 let g:test#neovim#start_normal = 1
 " Copilot
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+" map <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
