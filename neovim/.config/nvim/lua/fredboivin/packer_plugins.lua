@@ -4,6 +4,10 @@ return {
     lazy = false,
   },
   {
+    "Shopify/shadowenv.vim",
+    lazy = false,
+  },
+  {
     "tpope/vim-fugitive",
     event = "VeryLazy",
   },
