@@ -32,7 +32,7 @@ keymap("v", "<", "<gv", default_opts)
 keymap("v", ">", ">gv", default_opts)
 
 -- Paste over currently selected text without yanking it
-keymap("v", "p", '"_dP', default_opts)
+keymap("x", "p", '"_dP', default_opts)
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
