@@ -27,6 +27,10 @@ function M.setup()
       b = { "<cmd>BufferLinePick<Cr>", "Pick" },
       o = { "<Cmd>%bd|e#|bd#<Cr>", "Delete others" },
     },
+    h = {
+      name = "Harpoon",
+      t = { "<Cmd>lua require('harpoon.term').gotoTerminal(1)<CR>", "Terminal 1" },
+    },
     g = {
       name = "Git",
       c = { "<Cmd>0GcLog<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Commit history' },
@@ -57,15 +61,13 @@ function M.setup()
       h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
       d = { "<cmd>lua require('utils.finder').find_dotfiles()<cr>", "Dotfiles" },
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-      l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols" },
+      l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Dynamic workspace symbols" },
       o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
-      -- g = { "<cmd>Telescope live_grep --hidden=true<cr>", "Live Grep" },
       g = {
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
         "Live Grep"
       },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
-      r = { "<cmd>Telescope file_browser<cr>", "Browser" },
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
       e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },

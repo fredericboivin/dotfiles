@@ -5,7 +5,7 @@ function M.setup()
     detection_methods = { "pattern" },
     patterns = { ".git" },
     ignore_lsp = { "null-ls" },
-    silent_chdir = false,
+    silent_chdir = true,
   }
 end
 

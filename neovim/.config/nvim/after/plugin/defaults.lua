@@ -16,6 +16,7 @@ opt.smartindent = true
 opt.shiftround = true
 opt.shiftwidth = 2
 opt.tabstop = 2
+opt.hidden = true
 
 vim.cmd [[
    augroup YankHighlight

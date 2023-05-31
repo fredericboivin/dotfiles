@@ -19,12 +19,12 @@ local function keymappings(client, bufnr)
   local keymap_l = {
     l = {
       name = "Code",
-      -- R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+      n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+      -- R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       -- d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
       -- f = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics loclist" },
       -- i = { "<cmd>LspInfo<CR>", "Lsp Info" },
-      n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
       -- r = { "<cmd>Telescope lsp_references<CR>", "Telescope lsp_references" },
       -- t = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
     },
@@ -37,14 +37,14 @@ local function keymappings(client, bufnr)
   local keymap_g = {
     name = "Goto",
     d = { "<cmd>Telescope lsp_definitions<cr>", "Definition" },
+    D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
     r = { "<cmd>Telescope lsp_references<cr>", "References" },
     I = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
-    b = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
-    -- d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
-    D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
+    t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
     s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
+    -- t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+    -- d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
     -- I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
-    t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
   }
 
   local keymap_t = {
