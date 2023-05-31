@@ -19,36 +19,42 @@ local function keymappings(client, bufnr)
   local keymap_l = {
     l = {
       name = "Code",
-      R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      -- R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-      d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-      f = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Finder" },
-      i = { "<cmd>LspInfo<CR>", "Lsp Info" },
-      -- n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+      -- d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
+      -- f = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics loclist" },
+      -- i = { "<cmd>LspInfo<CR>", "Lsp Info" },
       n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-      r = { "<cmd>Telescope lsp_references<CR>", "Lists LSP references for word under the cursor" },
-      t = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
+      -- r = { "<cmd>Telescope lsp_references<CR>", "Telescope lsp_references" },
+      -- t = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
     },
   }
+
   if client.server_capabilities.documentFormattingProvider then
     keymap_l.l.F = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format Document" }
   end
 
   local keymap_g = {
     name = "Goto",
-    d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
+    d = { "<cmd>Telescope lsp_definitions<cr>", "Definition" },
+    r = { "<cmd>Telescope lsp_references<cr>", "References" },
+    I = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
+    b = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
+    -- d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
     D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
     s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
-    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+    -- I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
   }
 
   local keymap_t = {
     t = {
       name = "Trouble",
-      d = { "<Cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
+      -- d = { "<Cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
       w = { "<Cmd>Trouble workspace_diagnostics<CR>", "Workspace diagnostics" },
-      r = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      r = { "<cmd>Trouble lsp_references<cr>", "Trouble lsp_references" },
+      d = { "<cmd>Trouble lsp_definitions<cr>", "Trouble lsp_definitions" },
+      D = { "<cmd>Trouble lsp_type_definitions<cr>", "Trouble lsp_type_definitions" },
       q = { "<Cmd>Trouble quickfix<CR>", "Quickfix" },
       l = { "<Cmd>Trouble loclist<CR>", "Loclist" },
       t = { "<Cmd>TroubleToggle<CR>", "Toggle" },

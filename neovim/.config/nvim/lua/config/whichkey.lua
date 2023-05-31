@@ -69,15 +69,6 @@ function M.setup()
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
       e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },
-    t = {
-      name = "Trouble",
-      d = { "<Cmd>Trouble document_diagnostics<CR>", "Document diagnostics" },
-      w = { "<Cmd>Trouble workspace_diagnostics<CR>", "Workspace diagnostics" },
-      r = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
-      q = { "<Cmd>Trouble quickfix<CR>", "Quickfix" },
-      l = { "<Cmd>Trouble loclist<CR>", "Loclist" },
-      t = { "<Cmd>TroubleToggle<CR>", "Toggle" },
-    },
     p = {
       name = "Project",
       p = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "List" },
