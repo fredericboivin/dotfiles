@@ -273,6 +273,13 @@ return {
   { "BurntSushi/ripgrep", lazy = false },
   { "vim-test/vim-test",  lazy = false },
   {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end,
+    event = "VeryLazy"
+  },
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",

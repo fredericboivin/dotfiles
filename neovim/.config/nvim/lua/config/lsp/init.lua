@@ -1,10 +1,10 @@
 local M = {}
 
 local servers = {
-  html = {},
-  jsonls = {},
-  pyright = {},
-  rust_analyzer = {},
+  -- html = {},
+  -- jsonls = {},
+  -- pyright = {},
+  -- rust_analyzer = {},
   -- sorbet = {},
   lua_ls = {
     settings = {
