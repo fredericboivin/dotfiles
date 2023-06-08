@@ -74,13 +74,6 @@ set lazyredraw
 set ttyfast
 set updatetime=300
 
-  let g:projectionist_heuristics = {
-  \   "*": {
-  \     "lib/*.rb": {"alternate": "test/{}_test.rb"},
-  \     "test/*_test.rb": {"alternate": "lib/{}.rb"},
-  \   }
-  \ }
-
 autocmd BufReadPost fugitive://* set bufhidden=delete
 let test#strategy = "neovim"
 let test#neovim#term_position = "horizontal"
