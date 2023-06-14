@@ -9,16 +9,16 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias zshreload="source ~/.zshrc"
 
 # ZINIT
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-
-source "${ZINIT_HOME}/zinit.zsh"
-
-zinit light romkatv/powerlevel10k
-# Load pure theme
-zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
-zinit light sindresorhus/pure
+# ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+# [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# 
+# source "${ZINIT_HOME}/zinit.zsh"
+# 
+# zinit light romkatv/powerlevel10k
+# # Load pure theme
+# zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
+# zinit light sindresorhus/pure
 # zinit snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/everforest-dark.zsh
 
 autoload -Uz compinit
@@ -63,4 +63,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
