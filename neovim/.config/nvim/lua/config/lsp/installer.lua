@@ -6,7 +6,7 @@ function M.setup(servers, server_options)
   require("mason").setup {}
 
   require("mason-lspconfig").setup {
-    ensure_installed = false,
+    ensure_installed = {},
     automatic_installation = false,
   }
 

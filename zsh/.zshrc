@@ -24,6 +24,8 @@ alias zshreload="source ~/.zshrc"
 autoload -Uz compinit
 compinit
 
+eval "$(starship init zsh)"
+
 # bash ctrl-u behaviour
 # @see https://stackoverflow.com/questions/4405200/can-i-make-control-u-behavior-be-the-same-for-zsh-as-it-is-for-bash
 bindkey '^U' backward-kill-line
