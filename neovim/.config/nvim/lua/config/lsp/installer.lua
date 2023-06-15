@@ -6,7 +6,7 @@ function M.setup(servers, server_options)
   require("mason").setup {}
 
   require("mason-lspconfig").setup {
-    ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = false,
     automatic_installation = false,
   }
 
@@ -20,7 +20,11 @@ function M.setup(servers, server_options)
     end,
     ["ruby_ls"] = function()
       local opts = vim.tbl_deep_extend("force", server_options, servers["ruby_ls"] or {})
-      require'lspconfig'.ruby_ls.setup(opts)
+      require 'lspconfig'.ruby_ls.setup(opts)
+    end,
+    ["sorbet"] = function()
+      local opts = vim.tbl_deep_extend("force", server_options, servers["sorbet"] or {})
+      require 'lspconfig'.sorbet.setup(opts)
     end,
     ["tsserver"] = function()
       local opts = vim.tbl_deep_extend("force", server_options, servers["tsserver"] or {})
