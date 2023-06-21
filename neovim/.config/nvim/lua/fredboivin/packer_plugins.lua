@@ -12,6 +12,10 @@ return {
     event = "VeryLazy",
   },
   {
+    "tpope/vim-rhubarb",
+    event = "VeryLazy",
+  },
+  {
     "tpope/vim-sensible",
     event = "VeryLazy",
   },

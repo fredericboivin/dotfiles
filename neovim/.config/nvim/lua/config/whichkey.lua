@@ -33,7 +33,7 @@ function M.setup()
     },
     g = {
       name = "Git",
-      c = { "<Cmd>0GcLog<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Commit history' },
+      c = { "<Cmd>0GcLog<CR>", 'Commit history' },
       g = { "<cmd>Git<cr>", "Git" },
       b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Blame" },
       d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "Diff this" },
@@ -41,7 +41,8 @@ function M.setup()
     },
     n = {
       name = "Neotest",
-      n = { "<cmd>TestFile <cr>", "File" },
+      f = { "<cmd>TestFile <cr>", "File" },
+      n = { "<cmd>TestNearest<cr>", "Nearest" },
       -- a = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach" },
       -- f = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", "Run File" },
       -- F = { "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", "Debug File" },
@@ -69,6 +70,7 @@ function M.setup()
       },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
       w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer" },
+      r = { "<cmd>Telescope resume<cr>", "Resume" },
       e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     },
     p = {
