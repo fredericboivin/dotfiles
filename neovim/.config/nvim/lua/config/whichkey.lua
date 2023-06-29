@@ -56,6 +56,7 @@ function M.setup()
     },
     f = {
       name = "Find",
+      a = { "<cmd>Telescope telescope-alternate alternate_file<cr>", "Alternate" },
       s = { "<cmd>Telescope git_branches<cr>", "Git branches" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       f = { "<cmd>Telescope find_files<cr>", "Files" },
