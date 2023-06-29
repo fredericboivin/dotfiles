@@ -20,17 +20,9 @@ return {
     "tpope/vim-sensible",
     event = "VeryLazy",
   },
-  -- {
-  --   'github/copilot.vim',
-  --   event = "VeryLazy"
-  -- },
   {
     "tpope/vim-surround",
     event = "VeryLazy",
-  },
-  {
-    "tpope/vim-projectionist",
-    event = "VeryLazy"
   },
   {
     "phaazon/hop.nvim",
@@ -105,14 +97,6 @@ return {
       require("config.gitsigns").setup()
     end,
   },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   dependencies = { 'zbirenbaum/copilot.lua' },
-  --   lazy = false,
-  --   config = function()
-  --     require("copilot_cmp").setup()
-  --   end
-  -- },
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
@@ -286,16 +270,4 @@ return {
     end,
     event = "VeryLazy"
   },
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-      "zidhuss/neotest-minitest",
-    },
-    config = function()
-      require("config.neotest").setup()
-    end,
-  }
 }
