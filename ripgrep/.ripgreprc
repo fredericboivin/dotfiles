@@ -1,2 +1,2 @@
 --type-add
-spec:*.{spec}*
+test:*{test}*

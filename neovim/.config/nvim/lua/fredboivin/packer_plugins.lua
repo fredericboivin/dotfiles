@@ -270,6 +270,7 @@ return {
       "ahmedkhalf/project.nvim",
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
+      "otavioschwanck/telescope-alternate",
       "nvim-telescope/telescope-fzy-native.nvim",
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       "nvim-telescope/telescope-live-grep-args.nvim",
