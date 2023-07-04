@@ -4,6 +4,7 @@ all:
 	stow --verbose --target=$$HOME --restow gitconfig 
 	stow --verbose --target=$$HOME --restow ripgrep
 	stow --verbose --target=$$HOME --restow zsh
+	stow --verbose --target=$$HOME --restow tmux
 
 delete:
 	stow --verbose --target=$$HOME --delete neovim
@@ -11,3 +12,4 @@ delete:
 	stow --verbose --target=$$HOME --delete gitconfig 
 	stow --verbose --target=$$HOME --delete ripgrep
 	stow --verbose --target=$$HOME --delete zsh
+	stow --verbose --target=$$HOME --delete tmux
