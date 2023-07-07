@@ -148,6 +148,12 @@ function M.setup()
           { "test/.*/(.*)_test.rb", {
             { "app/**/[1].rb", "Implementation" },
           } },
+          { "lib/.*/(.*).rb", {
+            { "test/**/[1]_test.rb", "Test" },
+          } },
+          { "test/.*/(.*)_test.rb", {
+            { "lib/**/[1].rb", "Implementation" },
+          } },
           {
             "gems/(.*)/lib/.*/(.*).rb",
             {

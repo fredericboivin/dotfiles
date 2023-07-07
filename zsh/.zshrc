@@ -1,8 +1,8 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias zshreload="source ~/.zshrc"
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 eval "$(starship init zsh)"
 
@@ -18,10 +18,18 @@ bindkey '^Y' yank
 # bindkey "^N" insert-last-word
 # bindkey "^Q" push-line-or-edit
 
+source ~/antigen/antigen.zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+antigen apply
+
 HISTSIZE=1000000
 SAVEHIST=1000000
 
 alias v=nvim
+alias t='tmux at'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 # Dev
@@ -40,3 +48,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # chruby 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
