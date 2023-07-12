@@ -8,6 +8,15 @@ return {
     lazy = false,
   },
   {
+    "junegunn/fzf",
+    lazy = false,
+  },
+  {
+    "junegunn/fzf.vim",
+    dependencies = { "junegunn/fzf" },
+    lazy = false,
+  },
+  {
     "tpope/vim-fugitive",
     event = "VeryLazy",
   },
