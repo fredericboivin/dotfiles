@@ -75,7 +75,7 @@ set ttyfast
 set updatetime=300
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
-let g:fzf_preview_window = 'down:30%'
+let g:fzf_preview_window = 'down:40%'
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 let test#strategy = "neovim"
