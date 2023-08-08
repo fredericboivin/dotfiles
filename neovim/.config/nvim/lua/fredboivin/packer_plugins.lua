@@ -235,6 +235,7 @@ return {
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "nvim-treesitter/playground" },
+      { "RRethy/nvim-treesitter-endwise" }
     },
   },
   {

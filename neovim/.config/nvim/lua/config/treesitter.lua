@@ -96,7 +96,7 @@ function M.setup()
 
     -- endwise
     endwise = {
-      enable = false,
+      enable = true,
     },
   }
 end

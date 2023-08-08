@@ -11,6 +11,7 @@ opt.guifont = "Fira_Code:h14"
 
 -- opt.autoindent = true
 -- opt.breakindent = true
+opt.cindent = true
 opt.smartcase = true
 opt.smartindent = true
 opt.shiftround = true
