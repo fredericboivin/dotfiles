@@ -9,8 +9,8 @@ opt.scrollback = 100000
 opt.clipboard = "unnamedplus"
 opt.guifont = "Fira_Code:h14"
 
-opt.autoindent = true
-opt.breakindent = true
+-- opt.autoindent = true
+-- opt.breakindent = true
 opt.smartcase = true
 opt.smartindent = true
 opt.shiftround = true
