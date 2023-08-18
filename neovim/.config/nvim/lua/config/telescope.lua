@@ -111,7 +111,9 @@ function M.setup()
       },
     },
     pickers = {
-      lsp_references = { fname_width = 100 },
+      lsp_references = {
+        fname_width = 200
+      },
       live_grep_args = {
         additional_args = function()
           return { "--hidden" }
