@@ -1,5 +1,6 @@
 return {
   {
+
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -10,17 +11,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "petertriho/cmp-git",
       -- "hrsh7th/cmp-nvim-lsp-signature-help",
-      {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-        enabled = false,
-      },
-      { "jcdickinson/codeium.nvim", config = true, enabled = false },
-      {
-        "jcdickinson/http.nvim",
-        build = "cargo build --workspace --release",
-        enabled = false,
-      },
       {
         "zbirenbaum/copilot-cmp",
         dependencies = "copilot.lua",
@@ -47,8 +37,6 @@ return {
         nvim_lsp = "(LSP)",
         luasnip = "(Snippet)",
         copilot = "(Copilot)",
-        -- cmp_tabnine = "(TabNine)",
-        -- codeium = "(Codeium)",
         buffer = "(Buffer)",
         path = "(Path)",
       }
@@ -137,7 +125,6 @@ return {
           { name = "nvim_lsp", group_index = 1 },
           -- { name = "cmp_tabnine", group_index = 1 },
           { name = "copilot",  group_index = 1 },
-          { name = "codeium",  group_index = 1 },
           { name = "luasnip",  group_index = 1 },
           { name = "buffer",   group_index = 2 },
           { name = "path",     group_index = 2 },
@@ -156,11 +143,6 @@ return {
             item.menu = source_names[entry.source.name]
             item.dup = duplicates[entry.source.name] or duplicates_default
 
-            -- if entry.source.name == "cmp_tabnine" then
-            --   item.kind = ""
-            -- elseif entry.source.name == "codeium" then
-            --   item.kind = ""
-            -- end
             return item
           end,
         },
@@ -190,20 +172,6 @@ return {
 
       -- Git
       require("cmp_git").setup { filetypes = { "NeogitCommitMessage" } }
-
-      -- TabNine
-      -- local tabnine = require "cmp_tabnine.config"
-      -- tabnine:setup {
-      --   max_lines = 1000,
-      --   max_num_results = 20,
-      --   sort = true,
-      --   run_on_every_keystroke = true,
-      --   snippet_placeholder = "..",
-      --   ignored_file_types = { -- default is not to ignore
-      --     -- uncomment to ignore in lua:
-      --     -- lua = true
-      --   },
-      -- }
     end,
   },
   {
