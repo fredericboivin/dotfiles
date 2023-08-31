@@ -12,6 +12,21 @@ return {
     lazy = false,
   },
   {
+    'akinsho/toggleterm.nvim',
+    version = "*", 
+    lazy = false,
+    config = function()
+      local toggleterm = require('toggleterm')
+
+      toggleterm.setup({
+        open_mapping = '<C-g>',
+        hide_number = true,
+        start_in_insert = true,
+        direction = 'float', -- vertical | float | tab
+      })
+    end
+  },
+  {
     "junegunn/fzf.vim",
     dependencies = { "junegunn/fzf" },
     lazy = false,
