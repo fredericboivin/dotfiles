@@ -26,6 +26,8 @@ vim.cmd [[
    augroup end
  ]]
 
+vim.cmd([[autocmd FileType ruby setlocal indentkeys-=.]])
+
 vim.api.nvim_create_user_command('Redir', function(ctx)
   local lines = vim.split(vim.api.nvim_exec(ctx.args, true), '\n', { plain = true })
   vim.cmd('new')
