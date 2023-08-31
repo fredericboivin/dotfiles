@@ -111,6 +111,13 @@ function M.setup()
       },
     },
     pickers = {
+      buffers = {
+        mappings = {
+          i = {
+            ['<c-d>'] = require('telescope.actions').delete_buffer
+          }
+        }
+      },
       lsp_references = {
         fname_width = 200
       },
