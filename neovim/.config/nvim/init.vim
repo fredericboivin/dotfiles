@@ -78,7 +78,7 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 let g:fzf_preview_window = 'down:40%'
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
-let test#strategy = "neovim"
+let test#strategy = "toggleterm"
 let test#neovim#term_position = "horizontal"
 let g:test#neovim#start_normal = 1
 " Copilot
