@@ -22,6 +22,20 @@ return {
         open_mapping = '<C-g>',
         hide_number = true,
         start_in_insert = true,
+        autochdir = true,
+        shade_terminals = true,
+        float_opts = {
+          width = function()
+            return math.ceil(vim.o.columns * 0.95)
+          end,
+          height = function()
+            return math.ceil(vim.o.lines * 0.90)
+          end,
+          highlights = {
+            border = "FloatBorder",
+            background = "NormalFloat",
+          },
+        },
         direction = 'float', -- vertical | float | tab
       })
     end
