@@ -4,6 +4,13 @@ return {
     lazy = false,
   },
   {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    disabled = true,
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {}
+  },
+  {
     "Shopify/shadowenv.vim",
     lazy = false,
   },
