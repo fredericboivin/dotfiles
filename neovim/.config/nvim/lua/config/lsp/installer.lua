@@ -6,7 +6,7 @@ function M.setup(servers, server_options)
   require("mason").setup {}
 
   require("mason-lspconfig").setup {
-    ensure_installed = {},
+    ensure_installed = { 'sorbet' },
     automatic_installation = false,
   }
 
