@@ -6,6 +6,7 @@ all:
 	stow --verbose --target=$$HOME --restow zsh
 	stow --verbose --target=$$HOME --restow tmux
 	stow --verbose --target=$$HOME --restow starship
+	stow --verbose --target=$$HOME --restow pryrc
 
 delete:
 	stow --verbose --target=$$HOME --delete neovim
@@ -15,3 +16,4 @@ delete:
 	stow --verbose --target=$$HOME --delete zsh
 	stow --verbose --target=$$HOME --delete tmux
 	stow --verbose --target=$$HOME --delete starship
+	stow --verbose --target=$$HOME --delete pryrc
