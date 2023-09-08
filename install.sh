@@ -17,4 +17,9 @@ then
 	cargo install starship --locked
 fi
 
+if ! command -v bob &> /dev/null
+then
+	cargo install bob-nvim --locked
+fi
+
 make delete && make
