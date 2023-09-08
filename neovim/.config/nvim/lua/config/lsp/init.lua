@@ -1,11 +1,7 @@
 local M = {}
 
 local servers = {
-  -- html = {},
-  -- jsonls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- sorbet = {},
+  sorbet = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -31,8 +27,8 @@ local servers = {
       },
     },
   },
-  tsserver = {},
-  vimls = {},
+  -- tsserver = {},
+  -- vimls = {},
   -- ruby_ls = {
   --   cmd = { "bundle", "exec", "ruby-lsp" },
   --   filetypes = { "ruby" },
