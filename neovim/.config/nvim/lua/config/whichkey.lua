@@ -19,6 +19,11 @@ function M.setup()
     nowait = false, -- use `nowait` when creating keymaps
   }
 
+  local function smart_search()
+    local query = vim.fn.input("Search: ")
+    vim.cmd("OpenBrowserSmartSearch " .. query)
+  end
+
   local mappings = {
     b = {
       name = "Buffer",
@@ -79,6 +84,12 @@ function M.setup()
       name = "Project",
       p = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "List" },
       d = { "<Cmd>G difftool<CR> | <Cmd>cclose<CR> | <Cmd>Trouble quickfix<CR>", 'Current changelist' }
+    },
+    o = {
+      name = "Browser",
+      s = { smart_search, "Smart Search" },
+      p = { "<cmd>OpenGithubProject<cr>", "Github Project" },
+      f = { "<cmd>OpenGithubFile<cr>", "Github File" },
     },
   }
 
