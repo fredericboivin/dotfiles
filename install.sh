@@ -19,7 +19,7 @@ fi
 
 if ! command -v bob &> /dev/null
 then
-	cargo install bob-nvim --locked
+	cargo install bob-nvim@2.5.0 --locked
 fi
 
 make delete && make
