@@ -13,7 +13,7 @@ local servers = {
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = { "vim", "describe", "it", "before_each", "after_each", "packer_plugins", "MiniTest" },
+          globals = { "vim", "describe", "it", "before_each", "after_each", "plugins", "MiniTest" },
           -- disable = { "lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space" },
         },
         workspace = {

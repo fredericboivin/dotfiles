@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   spec = {
-    { import = "fredboivin.packer_plugins" },
+    { import = "fredboivin.plugins" },
     { import = "config.completion" },
   },
   defaults = { lazy = true }
