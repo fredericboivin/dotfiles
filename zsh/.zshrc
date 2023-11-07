@@ -29,6 +29,8 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 alias v=nvim
+alias s=spin ssh
+alias sp=dev cd shopify
 alias t='tmux at'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
