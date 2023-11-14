@@ -4,6 +4,10 @@ return {
     lazy = false,
   },
   {
+    'jpalardy/vim-slime',
+    lazy = false,
+  },
+  {
     "m4xshen/hardtime.nvim",
     lazy = true,
     disabled = true,
