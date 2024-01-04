@@ -24,3 +24,4 @@ then
 fi
 
 make delete && make
+nvim --headless "+Lazy install"

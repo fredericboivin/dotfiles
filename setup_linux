@@ -1,0 +1,3 @@
+sudo apt update -y
+sudo apt upgrade -y
+sudo /bin/sh starship/install.sh -y
