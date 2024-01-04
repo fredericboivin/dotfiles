@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [ -f ~/.zshrc ]; then
-  mv ~/.zshrc ~/.zshrc.bak
+	mv ~/.zshrc ~/.zshrc.bak
 fi
 
 # Install the antigen plugin/theme manager if it's not already installed.
@@ -12,10 +12,11 @@ if [[ ! -d $HOME/antigen ]]; then
 	cd -
 fi
 
-if ! command -v starship &> /dev/null
-then
-	cargo install starship --locked
-fi
+case $( uname -s ) in
+	Linux) /bin/sh setup_linux;;
+	Darwin) /bin/sh setup_mac;;
+	*)     echo other;;
+esac
 
 if ! command -v bob &> /dev/null
 then
