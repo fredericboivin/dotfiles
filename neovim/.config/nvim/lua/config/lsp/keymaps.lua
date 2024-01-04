@@ -21,6 +21,7 @@ local function keymappings(client, bufnr)
       name = "Code",
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
       n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+      s = { "<cmd>AerialToggle<CR>", "Aerials sidebar" },
       -- R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
       -- d = { "<cmd>Telescope diagnostics<CR>", "Telescope diagnostics" },
       -- f = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics loclist" },
