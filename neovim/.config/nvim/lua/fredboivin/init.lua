@@ -18,7 +18,10 @@ require('lazy').setup {
     { import = "fredboivin.plugins" },
     { import = "config.completion" },
   },
-  defaults = { lazy = true }
+  defaults = { lazy = true },
+  change_detection = {
+		notify = false,
+	},
 }
 
 vim.g.loaded_python3_provider = 0
