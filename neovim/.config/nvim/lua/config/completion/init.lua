@@ -1,6 +1,5 @@
 return {
   {
-
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -31,7 +30,6 @@ return {
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
-      local icons = require "config.icons"
       local compare = require "cmp.config.compare"
       local source_names = {
         nvim_lsp = "(LSP)",
@@ -137,9 +135,9 @@ return {
             local max_width = 80
             local duplicates_default = 0
             if max_width ~= 0 and #item.abbr > max_width then
-              item.abbr = string.sub(item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
+              item.abbr = string.sub(item.abbr, 1, max_width - 1)
             end
-            item.kind = icons.kind[item.kind]
+            -- item.kind = icons.kind[item.kind]
             item.menu = source_names[entry.source.name]
             item.dup = duplicates[entry.source.name] or duplicates_default
 
