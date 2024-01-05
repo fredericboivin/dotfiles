@@ -97,13 +97,6 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    lazy = false,
-    config = function()
-      vim.notify = require("notify")
-    end,
-  },
-  {
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
