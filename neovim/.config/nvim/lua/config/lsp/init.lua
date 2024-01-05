@@ -6,15 +6,11 @@ local servers = {
     settings = {
       Lua = {
         runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = "LuaJIT",
-          -- Setup your lua path
           path = vim.split(package.path, ";"),
         },
         diagnostics = {
-          -- Get the language server to recognize the `vim` global
           globals = { "vim", "describe", "it", "before_each", "after_each", "plugins", "MiniTest" },
-          -- disable = { "lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space" },
         },
         workspace = {
           checkThirdParty = false,
@@ -27,23 +23,6 @@ local servers = {
       },
     },
   },
-  -- tsserver = {},
-  -- vimls = {},
-  -- ruby_ls = {
-  --   cmd = { "bundle", "exec", "ruby-lsp" },
-  --   filetypes = { "ruby" },
-  --   init_options = {
-  --     enabledFeatures = {
-  --       "documentHighlights",
-  --       "documentSymbols",
-  --       "foldingRanges",
-  --       "selectionRanges",
-  --       "semanticHighlighting",
-  --       "formatting",
-  --       "codeActions",
-  --     },
-  --   },
-  -- },
 }
 
 local function on_attach(client, bufnr)
@@ -55,12 +34,8 @@ local function on_attach(client, bufnr)
   -- See `:help formatexpr` for more information.
   vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
 
-  -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
-
-  -- Configure highlighting
   require("config.lsp.highlighter").setup(client)
-  -- require("config.lsp.null-ls.formatters").setup(client, bufnr)
 end
 
 local opts = {
@@ -74,8 +49,6 @@ local opts = {
 require("config.lsp.handlers").setup()
 
 function M.setup()
-  -- null-ls
-  -- require("config.lsp.null-ls").setup(opts)
   require("config.lsp.installer").setup(servers, opts)
 end
 
