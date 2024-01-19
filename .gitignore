@@ -1,5 +1,6 @@
 neovim/.config/nvim/autoload
 neovim/.config/nvim/plugged
+tmux/.tmux/plugins/**
 neovim/.config/nvim/plugin/packer_compiled.lua
 .DS_Store
 **/.DS_Store
