@@ -29,3 +29,4 @@ bob install stable
 bob use stable
 
 make delete && make
+nvim --headless "+Lazy! sync" +qa || true
