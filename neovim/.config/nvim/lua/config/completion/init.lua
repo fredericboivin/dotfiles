@@ -9,7 +9,7 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "petertriho/cmp-git",
-      -- "hrsh7th/cmp-nvim-lsp-signature-help",
+      "onsails/lspkind.nvim",
       {
         "zbirenbaum/copilot-cmp",
         dependencies = "copilot.lua",
@@ -31,19 +31,6 @@ return {
       local cmp = require "cmp"
       local luasnip = require "luasnip"
       local compare = require "cmp.config.compare"
-      local source_names = {
-        nvim_lsp = "(LSP)",
-        luasnip = "(Snippet)",
-        copilot = "(Copilot)",
-        buffer = "(Buffer)",
-        path = "(Path)",
-      }
-      local duplicates = {
-        buffer = 1,
-        path = 1,
-        nvim_lsp = 0,
-        luasnip = 1,
-      }
       local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
@@ -67,6 +54,10 @@ return {
             compare.length,
             compare.order,
           },
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
         },
         snippet = {
           expand = function(args)
@@ -130,19 +121,13 @@ return {
           { name = "orgmode",  group_index = 2 },
         },
         formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = function(entry, item)
-            local max_width = 80
-            local duplicates_default = 0
-            if max_width ~= 0 and #item.abbr > max_width then
-              item.abbr = string.sub(item.abbr, 1, max_width - 1)
-            end
-            -- item.kind = icons.kind[item.kind]
-            item.menu = source_names[entry.source.name]
-            item.dup = duplicates[entry.source.name] or duplicates_default
-
-            return item
-          end,
+          fields = { "abbr", "kind", "menu" },
+          format = require("lspkind").cmp_format({
+            maxwidth = 50,
+            ellipsis_char = "...",
+            mode = "symbol_text",
+            symbol_map = { Copilot = "" },
+          }),
         },
       }
 
