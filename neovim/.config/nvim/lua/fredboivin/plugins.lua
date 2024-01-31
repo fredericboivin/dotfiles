@@ -4,13 +4,6 @@ return {
     lazy = false,
   },
   {
-    "m4xshen/hardtime.nvim",
-    lazy = true,
-    disabled = true,
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {}
-  },
-  {
     "Shopify/shadowenv.vim",
     lazy = false,
   },
@@ -68,14 +61,6 @@ return {
   {
     "tpope/vim-surround",
     event = "VeryLazy",
-  },
-  {
-    "phaazon/hop.nvim",
-    lazy = true,
-    branch = 'v2',
-    config = function()
-      require('config.hop').setup()
-    end,
   },
   {
     "tpope/vim-unimpaired",
@@ -208,7 +193,6 @@ return {
     end,
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
-      { "nvim-treesitter/playground" },
       { "RRethy/nvim-treesitter-endwise" }
     },
   },
@@ -239,7 +223,6 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "otavioschwanck/telescope-alternate",
-      "nvim-telescope/telescope-fzy-native.nvim",
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       "nvim-telescope/telescope-live-grep-args.nvim",
       "folke/trouble.nvim",
