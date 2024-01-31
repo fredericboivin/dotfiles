@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   require('tokyonight').setup({
-    style = 'moon',
+    style = 'storm',
     transparent = false,
     commentStyle = 'italic',
     keywordStyle = 'italic',
