@@ -106,13 +106,6 @@ return {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = 'VeryLazy',
-    config = function()
-      require("config.indent").setup()
-    end,
-  },
-  {
     "folke/which-key.nvim",
     lazy = false,
     config = function()
