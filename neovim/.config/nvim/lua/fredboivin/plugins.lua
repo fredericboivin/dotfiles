@@ -13,32 +13,11 @@ return {
   },
   {
     'akinsho/toggleterm.nvim',
-    version = "*", 
+    version = "*",
     lazy = false,
     config = function()
-      local toggleterm = require('toggleterm')
-
-      toggleterm.setup({
-        open_mapping = '<C-g>',
-        hide_number = true,
-        start_in_insert = true,
-        autochdir = true,
-        shade_terminals = true,
-        float_opts = {
-          width = function()
-            return math.ceil(vim.o.columns * 0.90)
-          end,
-          height = function()
-            return math.ceil(vim.o.lines * 0.85)
-          end,
-          highlights = {
-            border = "FloatBorder",
-            background = "NormalFloat",
-          },
-        },
-        direction = 'float', -- vertical | float | tab
-      })
-    end
+      require 'config.toggleterm'
+    end,
   },
   {
     "junegunn/fzf.vim",
@@ -264,11 +243,11 @@ return {
     opts = {},
     -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   }
 }

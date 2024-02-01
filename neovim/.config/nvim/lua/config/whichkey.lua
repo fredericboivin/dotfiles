@@ -39,7 +39,7 @@ function M.setup()
     g = {
       name = "Git",
       c = { "<Cmd>0GcLog<CR>", 'Commit history' },
-      g = { "<cmd>Git<cr>", "Git" },
+      g = { "<cmd>lua require('config.toggleterm').lazygit_toggle()<cr>", "Git" },
       b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Blame" },
       d = { "<cmd>lua require('gitsigns').diffthis()<cr>", "Diff this" },
       D = { "<cmd>lua require('gitsigns').diffthis('~')<cr>", "Diff this" },
