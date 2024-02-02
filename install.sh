@@ -21,7 +21,7 @@ then
 	cargo install bob-nvim@2.5.0 --locked
 fi
 
-if [ -f /etc/spin/secrets/copilot_hosts.json ]; then
+if [ -f /etc/spin/secrets/copilot-credentials ]; then
 	mkdir -p ~/.config/github-copilot/ && ln -s /etc/spin/secrets/copilot-credentials ~/.config/github-copilot/hosts.json
 fi
 
