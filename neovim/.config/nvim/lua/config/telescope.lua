@@ -5,7 +5,6 @@ function M.setup()
   local actions = require("telescope.actions")
   local action_layout = require("telescope.actions.layout")
   local trouble = require("trouble.providers.telescope")
-  local lga_actions = require("telescope-live-grep-args.actions")
 
   telescope.setup({
     defaults = {
@@ -121,20 +120,8 @@ function M.setup()
       lsp_references = {
         fname_width = 200
       },
-      live_grep_args = {
-        additional_args = function()
-          return { "--hidden" }
-        end,
-      },
     },
     extensions = {
-      live_grep_args = {
-        mappings = {
-          i = {
-            ["<C-k>"] = lga_actions.quote_prompt(),
-          }
-        }
-      },
       ["telescope-alternate"] = {
         presets = { "rails", "rspec" },
         mappings = {
@@ -182,7 +169,6 @@ function M.setup()
 
   -- telescope.load_extension "fzy_native"
   telescope.load_extension('fzf')
-  telescope.load_extension 'live_grep_args'
   telescope.load_extension 'projects'
   telescope.load_extension('telescope-alternate')
 end

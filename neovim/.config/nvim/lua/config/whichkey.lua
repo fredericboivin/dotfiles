@@ -72,7 +72,7 @@ function M.setup()
       l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Dynamic workspace symbols" },
       o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
       g = {
-        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+        "<cmd>Telescope live_grep<cr>",
         "Live Grep"
       },
       c = { "<cmd>Telescope commands<cr>", "Commands" },
