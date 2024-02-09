@@ -37,8 +37,15 @@ local lazygit = terminal:new({
     vim.cmd("startinsert!")
   end,
 })
+local cur_cwd = vim.fn.getcwd()
 
 local function _lazygit_toggle()
+  local cwd = vim.fn.getcwd()
+  if cwd ~= cur_cwd then
+    cur_cwd = cwd
+    lazygit:close()
+    lazygit = terminal:new({ cmd = "lazygit", direction = "float" })
+  end
   lazygit:toggle()
 end
 
