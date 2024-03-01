@@ -25,8 +25,8 @@ if [ -f /etc/spin/secrets/copilot-credentials ]; then
 	mkdir -p ~/.config/github-copilot/ && ln -s /etc/spin/secrets/copilot-credentials ~/.config/github-copilot/hosts.json
 fi
 
-bob install stable
-bob use stable
+bob install nightly
+bob use nightly
 
 make delete && make
 nvim --headless "+Lazy! sync" +qa || true
