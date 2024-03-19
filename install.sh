@@ -10,6 +10,9 @@ if [[ ! -d $HOME/antigen ]]; then
 	cd -
 fi
 
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 case $( uname -s ) in
 	Linux) /bin/sh setup_linux;;
 	Darwin) /bin/sh setup_mac;;
