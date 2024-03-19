@@ -5,20 +5,20 @@ toggleterm.setup({
   hide_number = true,
   start_in_insert = true,
   autochdir = true,
-  -- shade_terminals = true,
-  -- float_opts = {
-  --   width = function()
-  --     return math.ceil(vim.o.columns * 0.95)
-  --   end,
-  --   height = function()
-  --     return math.ceil(vim.o.lines * 0.85)
-  --   end,
-  --   highlights = {
-  --     border = "FloatBorder",
-  --     background = "NormalFloat",
-  --   },
-  -- },
-  -- direction = 'float',   -- vertical | float | tab
+  shade_terminals = true,
+  float_opts = {
+    width = function()
+      return math.ceil(vim.o.columns * 0.95)
+    end,
+    height = function()
+      return math.ceil(vim.o.lines * 0.85)
+    end,
+    highlights = {
+      border = "FloatBorder",
+      background = "NormalFloat",
+    },
+  },
+  direction = 'float',   -- vertical | float | tab
 })
 
 local terminal = require("toggleterm.terminal").Terminal
@@ -50,5 +50,5 @@ local function _lazygit_toggle()
 end
 
 return {
-	lazygit_toggle = _lazygit_toggle,
+  lazygit_toggle = _lazygit_toggle,
 }
