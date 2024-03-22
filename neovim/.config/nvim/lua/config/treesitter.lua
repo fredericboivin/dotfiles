@@ -5,7 +5,8 @@ function M.setup()
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
       'ruby', 'bash', 'diff', 'lua', 'git_config', 'git_rebase', 'gitcommit',
-      'graphql', 'http', 'json', 'luadoc', 'make', 'markdown', 'regex', 'vimdoc', 'vim', 'yaml' 
+      'graphql', 'http', 'json', 'luadoc', 'make', 'markdown', 'regex', 'vimdoc', 'vim', 'yaml',
+      'typescript', 'tsx', 'javascript'
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)
