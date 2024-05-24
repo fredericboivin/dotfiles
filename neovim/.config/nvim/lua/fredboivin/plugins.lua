@@ -12,6 +12,20 @@ return {
     lazy = false,
   },
   {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        -- Enable transparent background
+        borderless_telescope = true,
+        transparent = true,
+        terminal_colors = true,
+      })
+      vim.cmd("colorscheme cyberdream")
+    end
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = "*",
     lazy = false,
@@ -63,6 +77,7 @@ return {
   {
     'folke/tokyonight.nvim',
     lazy = false,
+    enabled = false,
     priority = 1000,
     config = function()
       -- require("config.tokyonight").setup()
