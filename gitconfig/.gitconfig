@@ -30,5 +30,25 @@
 [alias]
   name = !git symbolic-ref -q HEAD | cut -b 12-
   fp = !git push origin $(git name) -f
+	br = branch
+	browse = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)
+	browseissues = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/issues
+	browselines = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pipelines
+	browsemerges = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/merge_requests
+	browsepulls = !open $(git remote get-url origin | sed s!git@!https://! | sed s!com:!com/! | sed s!\\\\.git!!)/pulls
+	brs = show-branch --sha1-name
+	c = commit
+	ca = commit --amend
+	fix = "!f() { nvim -p `git diff --name-only | uniq`; }; f" # via https://gist.github.com/jacobvosmaer/3187346
+	get = fetch --all
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ls = ls-files
+	lsv = log --pretty=format:'%C(yellow)%h %C(cyan)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+	lu = for-each-ref --sort=-committerdate --format='%(committerdate:relative)%09%(refname:short)' refs/heads
+	prose = log --pretty=format:%s
+	pu = pull origin 
+	s = status -sb
+	st = status
+	tree = log --all --graph --decorate --oneline
 [include]
 	path = /Users/fredboivin/.config/dev/gitconfig
