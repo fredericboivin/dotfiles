@@ -2,6 +2,7 @@ return {
   {
     'jpalardy/vim-slime',
     lazy = false,
+    enabled = false
   },
   {
     "Shopify/shadowenv.vim",
@@ -75,28 +76,10 @@ return {
     end,
   },
   {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    config = function()
-      -- require("config.tokyonight").setup()
-      vim.cmd('colorscheme tokyonight-storm')
-    end,
-  },
-  {
     "folke/which-key.nvim",
     lazy = false,
     config = function()
       require("config.whichkey").setup()
-    end,
-  },
-  {
-    "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
-    config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
     end,
   },
   {
@@ -254,7 +237,6 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
     opts = {},
     -- stylua: ignore
     keys = {
