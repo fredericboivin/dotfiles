@@ -32,4 +32,4 @@ bob install nightly
 bob use nightly
 
 make delete && make
-nvim --headless "+Lazy! sync" +qa || true
+nvim --headless "+Lazy! restore" +qa || true
