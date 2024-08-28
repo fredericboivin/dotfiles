@@ -69,6 +69,7 @@ function M.setup()
       h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
       d = { "<cmd>lua require('utils.finder').find_dotfiles()<cr>", "Dotfiles" },
       b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
       l = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Dynamic workspace symbols" },
       o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
       g = {
