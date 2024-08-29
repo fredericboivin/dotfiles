@@ -14,7 +14,7 @@ function M.setup()
 
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = false,
+      additional_vim_regex_highlighting = { "ruby" },
     },
 
      incremental_selection = {
@@ -27,8 +27,7 @@ function M.setup()
        },
      },
 
-    indent = { enable = true },
-
+    indent = { enable = true, disable = { "ruby" } },
     -- vim-matchup
     --matchup = {
     --  enable = false,
