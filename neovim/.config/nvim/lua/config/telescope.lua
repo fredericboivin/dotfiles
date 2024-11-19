@@ -9,7 +9,7 @@ function M.setup()
   telescope.setup({
     defaults = {
       selection_strategy = "reset",
-      file_ignore_patterns = { "^vendor/", "^sorbet/" },
+      file_ignore_patterns = { "^vendor/", "^sorbet/",  },
       sorting_strategy = "ascending",
       layout_strategy = "vertical",
       layout_config = {

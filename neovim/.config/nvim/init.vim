@@ -76,6 +76,10 @@ set updatetime=300
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 let g:fzf_preview_window = 'down:40%'
+let g:fzf_vim = {}
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+let $FZF_DEFAULT_COMMAND = 'rg --files --follow --glob "!*.rbi"'
+" let test#ruby#minitest#executable = 'bin/rails test'
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 let test#strategy = "toggleterm"

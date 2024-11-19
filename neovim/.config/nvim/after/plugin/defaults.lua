@@ -7,7 +7,7 @@ opt.timeoutlen = 300 --	Time in milliseconds to wait for a mapped sequence to co
 opt.hlsearch = false -- Highlight all matches on previous search pattern.
 opt.scrollback = 100000
 opt.clipboard = "unnamedplus"
-opt.guifont = "Fira_Code:h14"
+-- opt.guifont = "Fira_Code:h14"
 
 -- opt.autoindent = true
 -- opt.breakindent = true
