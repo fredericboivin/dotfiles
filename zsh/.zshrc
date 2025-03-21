@@ -28,7 +28,19 @@ antigen apply
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-alias v=nvim
+start_nvim() {
+    CURRENT_DIR=$(basename "$PWD")
+    SOCKET="/tmp/nvim-${CURRENT_DIR}"
+    nvim --listen "$SOCKET"
+}
+alias vi='start_nvim'
+
+ai() {
+    local socket_path="/tmp/nvim-$(basename "$PWD")"
+    dev claude -- "my vim/neovim is listening at the socket $socket_path"
+}
+alias ai='ai'
+
 alias s=spin ssh
 alias sp='dev cd shopify'
 alias t='tmux at'
