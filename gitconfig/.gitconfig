@@ -52,3 +52,6 @@
 	tree = log --all --graph --decorate --oneline
 [include]
 	path = /Users/fredboivin/.config/dev/gitconfig
+[maintenance]
+	repo = /Users/fredboivin/world/trees/root/src
+	repo = /Users/fredboivin/world/trees/root/src/areas/core/shopify/24-04-09_14-00

@@ -4,6 +4,8 @@ alias zshreload="source ~/.zshrc"
 # autoload -Uz compinit
 # compinit
 
+export GIT_OPTIONAL_LOCKS=0
+export DISABLE_UNTRACKED_FILES_DIRTY=true
 eval "$(starship init zsh)"
 
 # bash ctrl-u behaviour
@@ -33,11 +35,11 @@ start_nvim() {
     SOCKET="/tmp/nvim-${CURRENT_DIR}"
     nvim --listen "$SOCKET"
 }
-alias vi='start_nvim'
+alias v='start_nvim'
 
 ai() {
     local socket_path="/tmp/nvim-$(basename "$PWD")"
-    dev claude -- "my vim/neovim is listening at the socket $socket_path"
+    dev claude "my vim/neovim is listening at the socket $socket_path"
 }
 alias ai='ai'
 

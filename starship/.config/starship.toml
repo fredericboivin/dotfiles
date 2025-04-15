@@ -1,0 +1,24 @@
+# Disable git status checking for faster performance
+[git_status]
+disabled = true
+
+# Speed up git branch display
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+
+# Global settings
+command_timeout = 500
+add_newline = false
+
+# Disable git metrics
+[git_metrics]
+disabled = true
+
+# Disable git state
+[git_state]
+disabled = true
+
+# Only show changes if there are more than 0
+[git_commit]
+only_detached = true

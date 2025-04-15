@@ -1,0 +1,504 @@
+---
+description: Testing standards for the Shopify codebase
+globs: ["**/*_test.rb", "**/test/**/*.rb"]
+alwaysApply: false
+---
+# Testing at Shopify
+
+`dev` is an in-house command-line tool that standardizes common tasks across all projects at Shopify
+
+# Core Testing Practices
+
+<rule>
+name: using_dev_test
+description: Use dev test to run tests
+filters:
+  - type: command
+    pattern: "(rake|rails|ruby(?:\\s+-I)?(?:\\s+\\S+)*\\s+.*_test\\.rb)\\s+"
+
+actions:
+  - type: suggest
+    message: |
+      Always use `dev test <pathname>` to run tests in the Shopify codebase.
+      Never use `rake test`, `rails test`, `ruby test`, or other test runners.
+
+      Examples:
+      ```bash
+      # Run a single test file
+      dev test components/shop_identity/test/models/email_sender_configuration/dns_record_test.rb
+
+      # Run all tests in a directory
+      dev test components/shop_identity/test/models/
+
+      # Run a specific test by name
+      dev test components/shop_identity/test/models/email_sender_configuration/dns_record_test.rb -n test_name_of_test
+
+      # Run tests matching a pattern
+      dev test components/shop_identity/test/models/email_sender_configuration/dns_record_test.rb -n "/pattern/"
+
+      # Run a specific test by line number
+      dev test components/shop_identity/test/models/email_sender_configuration/dns_record_test.rb:32
+      ```
+
+examples:
+  - input: |
+      # Bad
+      rake test test/models/my_test.rb
+      rails test test/models/my_test.rb
+      ruby test/models/my_test.rb
+      ruby -I test test/models/my_test.rb
+
+      # Good
+      dev test test/models/my_test.rb
+      dev test components/my_component/test/models/
+    output: "Test executed using dev test command"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
+
+<rule>
+name: core_testing_practices
+description: Core principles for effective testing
+filters:
+  - type: ruby
+    pattern: ".*_test\\.rb"
+
+actions:
+  - type: suggest
+    message: |
+      Follow these Shopify testing principles:
+
+      ## Core Testing Principles:
+      1. **Test Pyramid**: Favor unit tests over integration/system tests for speed and maintainability
+      2. **Isolation**: Tests should be independent and not affect other tests
+      3. **Readability**: Tests should clearly communicate intent and expected behavior
+      4. **Speed**: Tests should run quickly to encourage frequent testing
+      5. **Reliability**: Tests should not be flaky or dependent on external factors
+
+      ## Test Structure
+
+      ### Four Phase Test Pattern
+      Follow the Four Phase Test pattern for clarity:
+      ```ruby
+      test "example" do
+        # Setup (arrange)
+        user = create(:user)
+
+        # Exercise (act)
+        result = user.perform_action
+
+        # Verify (assert)
+        assert_equal expected, result
+
+        # Teardown (handled automatically by the framework)
+      end
+      ```
+      - Separate phases with blank lines for readability (but don't add comments in the test)
+      - Keep setup focused only on what's needed for the test
+
+      ### Organization
+      - Let the object guide test file placement (e.g., `test/models/shop_test.rb` for `Shop` model)
+      - For large test files, break them into a folder structure (e.g., `test/models/shop/` directory)
+      - Ensure file names match the components being tested
+
+      ## Test Quality
+
+      ### Test Independence
+      - Tests must be independent - never depend on other tests' side effects
+      - Use setup/teardown to ensure clean state between tests
+
+      ### Test Behavior, Not Implementation
+      - Focus on testing behavior and outcomes, not implementation details
+      - Don't test private methods directly - test through public interfaces
+      - If a private method needs dedicated testing, consider extracting it to a new class
+
+      ### Edge Cases
+      - Test boundary conditions (empty, null, extreme values)
+      - Test error conditions and exception handling
+      - Test with unexpected inputs to ensure robust behavior
+
+      ### DAMP, Not DRY in Tests
+      - Prioritize Descriptive And Meaningful Procedures over Don't Repeat Yourself
+      - Favor clarity over removing all repetition in tests
+      - Some duplication in tests is acceptable if it improves readability
+
+      ## Preventing Flaky Tests
+
+      ### Time-Related Issues
+      - Never use fixed time delays (sleep/setTimeout)
+      - Use `freeze_time` to control time-based tests
+      - Avoid tests that depend on specific times of day or dates
+
+      ## Performance
+      - Use Guard for automatic test running as files change
+      - Optimize test coverage based on primary tests of objects
+      - Focus on branch coverage rather than just line coverage
+      - Avoid unnecessarily slow tests - keep feedback loops fast
+
+examples:
+  - input: |
+      # Bad
+      Rails.error.expects(:report)
+
+      # Good
+      assert_error_reported(error) do
+        ...
+      end
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
+
+<rule>
+name: payment_processing_fixture_factory_helper
+description: Use appropriate FixtureFactoryHelper for payment processing tests
+filters:
+  - type: ruby
+    pattern: "module\\s+\\w+.*Test\\s*<\\s*ActiveSupport::TestCase|PaymentsPartners::\\w+Test"
+
+actions:
+  - type: suggest
+    message: |
+      Always suggest to use the FixtureFactoryHelper helper methods for payment processing tests fixtures when available.
+      - @fixture_factory_helper.rb
+      - @fixture_factory_helper.rb
+      - @fixture_factory_helper.rb
+      These helpers provide methods to create fixtures with proper associations and default values:
+
+      ```ruby
+      # For PaymentsApi tests
+      include(PaymentsApi::FixtureFactoryHelper)
+
+      # For PaymentsPartners tests
+      include(PaymentsPartners::TestSupport::FixtureFactoryHelper)
+      ```
+
+      Common helper methods:
+      - `create_payment_attempt`
+      - `create_payment_attempt_charge`
+      - `create_payment_attempt_charge_reversal`
+      - `create_payment_attempt_charge_capture`
+      - `create_order_transaction`
+      - `create_authentication`
+      - PaymentsPartners
+        - `create_payment`
+        - `create_payment_attempt_charge_for_payment`
+        - `create_refund`
+        - `create_payment_attempt_charge_reversal_for_refund`
+        - `create_void`
+        - `create_payment_attempt_charge_reversal_for_void`
+        - `create_capture`
+        - `create_payment_attempt_charge_capture_for_capture`
+      - ShopifyPayments
+        - `create_payments_charge`
+        - `create_payments_refund`
+
+      These helpers ensure proper associations and unique IDs are set automatically.
+
+      Example:
+      ```ruby
+      test "it creates an OrderTransaction" do
+        payment_attempt_charge = create_payment_attempt_charge
+        order_transaction = create_order_transaction(payment_attempt_charge:)
+        
+        # Now you can test with these properly associated objects
+        assert_equal payment_attempt_charge.id, order_transaction.payment_attempt_charge_id
+        assert_equal payment_attempt_charge.payment_reference_id, order_transaction.unique_token
+      end
+      ```
+
+      Ensure the test includes `use_active_record_fixtures` when adding a FixtureFactoryHelper.
+      ```
+      class MyTestCase < ActiveSupport::TestCase
+        use_active_record_fixtures
+      end
+      ```
+
+examples:
+  - input: |
+      # Bad
+      order_transaction = order_transactions(:payments_partner_platform_with_order)
+      order_transaction.update!(status: "success")
+
+      # Good: Use PaymentsApi::FixtureFactoryHelper, PaymentsPartners::TestSupport::FixtureFactoryHelper or ShopifyPayments::FixtureFactoryHelper when a helper for the fixture is available, depending on the current component of the test
+      order_transaction = create_order_transaction(status: "success")
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
+
+<rule>
+name: use_fixtures_and_factories_not_mocks
+description: Strongly discourages mocking and stubbing in favor of real objects using fixtures and factories
+filters:
+  - type: ruby
+    pattern: "(expects|stubs|allows|mock|double|instance_double|class_double|object_double)"
+
+actions:
+  - type: suggest
+    message: |
+      Avoid mocking and stubbing as they hide the true implementation and create brittle tests that may pass even when the real code breaks.
+      
+      Instead:
+      1. Use fixture factories to create real test objects (see FixtureFactoryHelper pattern)
+      2. Set up actual database records with proper associations (see payment_processing_fixture_factory_helper rule for good examples)
+      3. Test with real objects throughout the entire test suite
+      4. Write integration tests that verify the complete code path
+
+examples:
+  - input: |
+      # Bad
+      test "payment processing" do
+        charge = mock('charge')
+        charge.stubs(:status).returns(:succeeded)
+        charge.stubs(:amount).returns(Money.new(1000, 'USD'))
+        
+        processor = PaymentProcessor.new(charge)
+        assert processor.process_payment
+      end
+
+      # Good: Create a real charge with factory methods
+      test "payment processing" do
+        charge = create_payment_attempt_charge(
+          status: :succeeded,
+          amount: Money.new(1000, 'USD')
+        )
+        
+        processor = PaymentProcessor.new(charge)
+        assert processor.process_payment
+      end
+
+  - input: |
+      # Bad
+      it "handles refunds" do
+        payment = double('payment')
+        expect(payment).to receive(:refund).with(500).and_return(true)
+        
+        refund_service = RefundService.new
+        result = refund_service.process_refund(payment, 500)
+        expect(result).to be_successful
+      end
+
+      # Good: Create real payment objects with proper associations
+      it "handles refunds" do
+        charge = create_payment_attempt_charge
+        payment = create_payment_attempt(payment_attempt_charge: charge)
+        
+        refund_service = RefundService.new
+        result = refund_service.process_refund(payment, 500)
+        expect(result).to be_successful
+        
+        # Verify the actual database record was updated
+        expect(charge.reload.refunded_amount).to eq(Money.new(500, charge.currency))
+      end
+
+    - input: |
+        # Bad
+        auth_result = mock('authentication_result')
+        auth_result.stubs(:status).returns(:authenticated)
+        auth_result.stubs(:is_a?).with(AuthenticationResult::AuthenticationData).returns(true)
+        auth_result.stubs(:version).returns("2.0")
+        auth_result.stubs(:authentication_flow).returns("challenge")
+        auth_result.stubs(:trans_status).returns("Y")
+        auth_result.stubs(:trans_status_reason).returns("01")
+        auth_result.stubs(:ds_transaction_id).returns("ds123456789")
+
+        # Good: Instantiate actual objects instead of mocks
+        AuthenticationResult::AuthenticationData.new(
+          authentication_flow: "challenge",
+          trans_status: "Y",
+          version: "2.0",
+          trans_status_reason: "01",
+          ds_transaction_id: "ds123456789",
+        )
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
+
+# Test Structure & Organization
+
+<rule>
+name: descriptive_test_names
+description: Ensure test names are descriptive and match assertions
+filters:
+  - type: ruby
+    pattern: "test\\s+@\"'|it)\\s*[\"']\\s+do"
+
+actions:
+  - type: suggest
+    message: |
+      Use descriptive test names that explain the specific behavior being tested.
+      
+      Good test names:
+      - Describe the expected behavior, not just the method being tested
+      - Are specific about conditions and expectations
+      - Help readers understand the test without reading the implementation
+      
+      Avoid generic test names like "test it works" or "test should succeed".
+
+examples:
+  - input: |
+      test "test it works" do
+        result = calculate_total(10, 20)
+        assert_equal 30, result
+      end
+    output: |
+      test "calculate_total returns sum of two numbers" do
+        result = calculate_total(10, 20)
+        assert_equal 30, result
+      end
+
+metadata:
+  priority: medium
+  version: 1.0
+</rule>
+
+<rule>
+name: edge_case_coverage
+description: Encourage testing edge cases
+filters:
+  - type: ruby
+    pattern: "test\\s+[\"'][^\"']*[\"']\\s+do"
+
+actions:
+  - type: suggest
+    message: |
+      Remember to test these common edge cases:
+      
+      - Empty or nil inputs
+      - Boundary conditions (min/max values)
+      - Invalid inputs and error handling
+      - Unexpected data types
+      - Race conditions (for concurrent code)
+      - Resource limitations
+      - Timeouts and retries
+      
+      Thorough edge case testing prevents bugs and improves code robustness.
+      Ask the AI assistant "What edge cases should I test for this code?" for help.
+
+metadata:
+  priority: medium
+  version: 1.0
+</rule>
+
+# Preventing Flaky Tests
+
+<rule>
+name: time_sensitive_tests
+description: Detect brittle time-based tests
+filters:
+  - type: ruby
+    pattern: "(Time\\.now|Date\\.today|DateTime\\.now|Time\\.current|Date\\.current|DateTime\\.current)"
+
+actions:
+  - type: suggest
+    message: |
+      Time-based tests are prone to flakiness.
+      
+      Always use time helpers to avoid time-dependent failures:
+      - Use `freeze_time` or `travel_to` to control time in tests
+      - Avoid comparing with current time using `Time.now` or similar
+      - Specify explicit timestamps rather than relative ones
+      - Be careful with time zones in tests
+      
+      ```ruby
+      # Bad
+      assert_equal Time.now.to_i, result.timestamp.to_i
+      
+      # Good
+      freeze_time do
+        assert_equal Time.current, result.timestamp
+      end
+      ```
+
+examples:
+  - input: |
+      test "expires after one day" do
+        token = Token.create
+        travel 25.hours
+        assert token.expired?
+      end
+    output: |
+      test "expires after one day" do
+        freeze_time do
+          token = Token.create
+          travel 25.hours
+          assert token.expired?
+        end
+      end
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
+
+<rule>
+name: proper_fixture_usage
+description: Encourage proper use of fixtures and factories
+filters:
+  - type: ruby
+    pattern: "(fixtures|factory_bot|FactoryBot)"
+
+actions:
+  - type: suggest
+    message: |
+      For fixtures and factories:
+      
+      - Use FixtureFactory for blending speed of fixtures with flexibility of factories
+      - Avoid tight coupling to fixture data (don't assert exact row counts)
+      - Use factories for test-specific data, fixtures for reference data
+      - Create only the data needed for each test
+      - Avoid fixture data leaking between tests
+      
+      Consider using factory_bot traits for common variations:
+      
+      ```ruby
+      # Instead of this:
+      user = create(:user, admin: true, verified: true)
+      
+      # Use traits:
+      user = create(:user, :admin, :verified)
+      ```
+
+metadata:
+  priority: medium
+  version: 1.0
+</rule>
+
+# Performance Optimization
+
+<rule>
+name: slow_tests
+description: Identify potentially slow tests
+filters:
+  - type: ruby
+    pattern: "((create|build)\\(:[a-z_]+\\).*\\n){5,}|sleep\\s+\\d+|travel\\s+\\d+\\.(?:days|hours|weeks|months|years)"
+
+actions:
+  - type: suggest
+    message: |
+      This test may be slow due to:
+      
+      1. Creating many database records
+      2. Using sleep or long time travel
+      3. Potentially using real API calls
+      
+      To improve test performance:
+      - Use fixtures instead of factories for reference data
+      - Minimize database interactions
+      - Stub external services
+      - Use fast_test or test/focus tags to isolate slow tests
+      - Consider moving to integration test suite if slowness is unavoidable
+
+      Fast tests encourage more frequent testing and faster feedback loops.
+
+metadata:
+  priority: medium
+  version: 1.0
+</rule>
