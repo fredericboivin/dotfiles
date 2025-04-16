@@ -1,0 +1,50 @@
+{
+  "File Reference": {
+    "prefix": "fileref",
+    "body": [
+      "File: ${1:$TM_FILENAME}",
+      "Path: ${2:$TM_FILEPATH}",
+      "Line: ${3:$TM_LINE_NUMBER}",
+      "",
+      "```${4:$TM_SELECTED_TEXT}```"
+    ],
+    "description": "Insert a file reference with selection"
+  },
+  "Code Block": {
+    "prefix": "cb",
+    "body": [
+      "```${1:language}",
+      "${2:$TM_SELECTED_TEXT}",
+      "```"
+    ],
+    "description": "Insert a code block with language"
+  },
+  "Context File": {
+    "prefix": "context",
+    "body": [
+      "# ${1:Title/Description}",
+      "",
+      "File: ${2:$TM_FILENAME}",
+      "Path: ${3:$TM_RELATIVE_FILEPATH}",
+      "",
+      "```${4:language}",
+      "${5:$TM_SELECTED_TEXT}",
+      "```"
+    ],
+    "description": "Add a file with context for AI chat"
+  },
+  "Path Reference": {
+    "prefix": "pathref",
+    "body": [
+      "Path: ${1:$TM_RELATIVE_FILEPATH}"
+    ],
+    "description": "Insert a relative filepath"
+  },
+  "Full Path Reference": {
+    "prefix": "fullpath",
+    "body": [
+      "Full Path: ${1:$TM_FILEPATH}"
+    ],
+    "description": "Insert the full filepath"
+  }
+}

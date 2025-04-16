@@ -1,0 +1,230 @@
+{
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "off",
+    "editor.smoothScrolling": false,
+    "workbench.list.smoothScrolling": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.guides.bracketPairs": "active",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "editor.mouseWheelZoom": true,
+    "editor.renderControlCharacters": true,
+    "editor.linkedEditing": true,
+    "editor.suggest.preview": true,
+    "editor.snippetSuggestions": "top",
+    "editor.suggest.showStatusBar": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineNumbers": "relative",
+    
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.files.save"]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<C-w>", "j"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["<C-w>", "k"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<leader>", "/"],
+            "commands": ["editor.action.commentLine"]
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": ["copyFilePath"]
+        },
+        {
+            "before": ["<leader>", "P"],
+            "commands": ["copyRelativeFilePath"]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "commands": ["editor.action.clipboardCopyAction"]
+        },
+        {
+            "before": ["<leader>", "c"],
+            "commands": ["cursor.chat.focus"]
+        },
+        {
+            "before": ["<leader>", "a"],
+            "commands": ["cursor.chat.action.addReference"]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.easymotion": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-f>": false,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.camelCaseMotion.enable": true,
+    
+    "window.menuBarVisibility": "toggle",
+    "window.restoreWindows": "all",
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "workbench.sideBar.location": "left",
+    "workbench.list.openMode": "doubleClick",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#ffcc00",
+        "editorLineNumber.activeForeground": "#ffcc00"
+    },
+    
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.panel.opensMaximized": false,
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.editor.focusRecentEditorAfterClose": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 8,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "workbench.sideBar.size": 250,
+    "breadcrumbs.enabled": true,
+    "editor.renderLineHighlight": "all",
+    "editor.padding.top": 5,
+    "editor.padding.bottom": 5,
+    "workbench.editor.tabSizing": "shrink",
+    "window.zoomLevel": 0,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.letterSpacing": 0.5,
+    "editor.lineHeight": 22,
+    
+    "workbench.editor.splitSizing": "distribute",
+    "workbench.editor.splitInGroupLayout": "horizontal",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreFullscreen": true,
+    "window.titleBarStyle": "custom",
+    
+    "zenMode.hideLineNumbers": false,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": true,
+    "zenMode.restore": true,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideActivityBar": false,
+    
+    "workbench.layoutControl.enabled": true,
+    "window.density.editorTabHeight": "compact",
+    "window.customMenuBarAltFocus": false,
+    
+    "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": true,
+    "explorer.autoReveal": true,
+    "explorer.openEditors.visible": false,
+    
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor/bundle": true,
+        "**/build": true,
+        "**/tmp": true
+    },
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
+    
+    "files.autoSave": "afterDelay",
+    "files.autoGuessEncoding": true,
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    
+    "git.openRepositoryInParentFolders": "always",
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.scrollback": 10000,
+    
+    "cursor.goto.definitions.navigateBackWithBackspace": true,
+    "cursor.api.rateLimit": false,
+    "cursor.api.useThread": true,
+    "cursor.editor.autoImport": {
+        "prompt": "none"
+    },
+    "cursor.features.gestures": {
+        "pinch.zoomEditor": true
+    },
+    "cursor.chat.addReferenceContext": true,
+    "cursor.chat.defaultMode": "chat",
+    "cursor.chat.requestTimeout": 120000,
+    "cursor.chat.autoSync": true,
+    "cursor.chat.completions.enableAutoSuggestions": true,
+    "cursor.chat.interface.urlContextMenu": true,
+    "cursor.chat.submissionShortcut": "shiftEnter",
+    "cursor.chat.editor.codeblockInsertionStrategy": "atCursor",
+    
+    "outline.problems.enabled": false,
+    "outline.problems.badges": false,
+    "outline.problems.colors": false,
+    "outline.showVariables": false,
+    "outline.showFiles": false,
+    
+    "remote.SSH.connectTimeout": 150,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.showIcons": true,
+    "telemetry.telemetryLevel": "off",
+    
+    "editor.tabCompletion": "on",
+    "editor.suggestSelection": "first",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "keyboard.dispatch": "keyCode"
+}

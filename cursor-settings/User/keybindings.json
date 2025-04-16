@@ -1,0 +1,47 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "cmd+k cmd+c",
+        "command": "cursor.chat.focus"
+    },
+    {
+        "key": "cmd+k cmd+a",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+k cmd+r",
+        "command": "cursor.chat.action.addReference",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k cmd+p",
+        "command": "copyFilePath",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k cmd+shift+p",
+        "command": "copyRelativeFilePath",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k cmd+b",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "snippet": "```\n${TM_SELECTED_TEXT}$0\n```"
+        },
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+k cmd+f",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "snippet": "File: ${TM_FILENAME}\nPath: ${TM_RELATIVE_FILEPATH}\nLine: ${TM_LINE_NUMBER}\n\n```\n${TM_SELECTED_TEXT}$0\n```"
+        },
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]
