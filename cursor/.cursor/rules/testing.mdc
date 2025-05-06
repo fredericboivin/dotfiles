@@ -1,7 +1,7 @@
 ---
-description: Testing standards for the Shopify codebase
-globs: ["**/*_test.rb", "**/test/**/*.rb"]
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # Testing at Shopify
 
